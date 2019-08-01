@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.TransMapper">
+    <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.Trans">
+        <result column="TRANS_ID" property="transId" jdbcType="DECIMAL"/>
+        <result column="ORIGINAL_TRANS_ID" property="originalTransId" jdbcType="DECIMAL"/>
+        <result column="CREATED_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="STARTED_TIME" property="startedTime" jdbcType="TIMESTAMP"/>
+        <result column="ENDED_TIME" property="endedTime" jdbcType="TIMESTAMP"/>
+        <result column="STATUS" property="status" jdbcType="DECIMAL"/>
+        <result column="AMOUNT" property="amount" jdbcType="DECIMAL"/>
+        <result column="TRANS_CODE" property="transCode" jdbcType="VARCHAR"/>
+        <result column="TRANS_MESSAGE" property="transMessage" jdbcType="VARCHAR"/>
+        <result column="PROVIDER_ID" property="providerId" jdbcType="DECIMAL"/>
+        <result column="TRANS_TYPE_ID" property="transTypeId" jdbcType="DECIMAL"/>
+        <result column="HOSPITAL_ID" property="hospitalId" jdbcType="DECIMAL"/>
+        <result column="USER_ID" property="userId" jdbcType="DECIMAL"/>
+        <result column="ORDER_ID" property="orderId" jdbcType="DECIMAL"/>
+        <result column="TRANSACTION_ID" property="transactionId" jdbcType="VARCHAR"/>
+        <result column="SUCCEEDED_FLAG" property="successFlag" jdbcType="DECIMAL"/>
+        <result column="WITHDRAW_FLAG" property="withdrawFlag" jdbcType="DECIMAL"/>
+        <result column="RETRY_COUNT" property="retryCount" jdbcType="DECIMAL"/>
+        <result column="LAST_RETRY_TIME" property="lastRetryTime" jdbcType="TIMESTAMP"/>
+        <result column="APP_ID" property="appId" jdbcType="VARCHAR"/>
+        <result column="TARGET_ACCOUNT" property="targetAccount" jdbcType="VARCHAR"/>
+        <result column="REQUESTOR_CODE" property="requestorCode" jdbcType="VARCHAR"/>
+        <result column="REQUEST_NO" property="requestNo" jdbcType="VARCHAR"/>
+        <result column="OPENID" property="openId" jdbcType="VARCHAR"/>
+        <result column="CANCEL_FLAG" property="cancelFlag" jdbcType="DECIMAL"/>
+        <result column="PLATFORM_ID" property="platformId" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <!--新增  -->
+    <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.Trans">
+        insert into T_RHIP_TRANS (TRANS_ID, ORIGINAL_TRANS_ID, CREATED_TIME,
+        STARTED_TIME, ENDED_TIME, STATUS,
+        AMOUNT, TRANS_CODE, TRANS_MESSAGE, PROVIDER_ID, TRANS_TYPE_ID, HOSPITAL_ID, USER_ID
+        , ORDER_ID, TRANSACTION_ID, SUCCEEDED_FLAG, WITHDRAW_FLAG, RETRY_COUNT, LAST_RETRY_TIME, APP_ID
+        , TARGET_ACCOUNT, REQUESTOR_CODE, REQUEST_NO, OPENID, CANCEL_FLAG, PLATFORM_ID)
+        values (#{transId, jdbcType=DECIMAL},#{originalTransId, jdbcType=DECIMAL},#{createTime, jdbcType=TIMESTAMP},
+        #{startedTime, jdbcType=TIMESTAMP},#{endedTime, jdbcType=TIMESTAMP},#{status, jdbcType=DECIMAL},
+        #{amount, jdbcType=DECIMAL},#{transCode, jdbcType=VARCHAR},#{transMessage, jdbcType=VARCHAR},
+        #{providerId, jdbcType=DECIMAL},#{transTypeId, jdbcType=DECIMAL},#{hospitalId, jdbcType=DECIMAL},
+        #{userId, jdbcType=DECIMAL},#{orderId, jdbcType=DECIMAL},#{transactionId, jdbcType=VARCHAR},
+        #{successFlag, jdbcType=DECIMAL},#{withdrawFlag, jdbcType=DECIMAL},#{retryCount, jdbcType=DECIMAL},
+        #{lastRetryTime, jdbcType=TIMESTAMP},#{appId, jdbcType=VARCHAR},#{targetAccount, jdbcType=VARCHAR},
+        #{requestorCode, jdbcType=VARCHAR},#{requestNo, jdbcType=VARCHAR},#{openId, jdbcType=VARCHAR},
+        #{cancelFlag, jdbcType=DECIMAL},#{platformId, jdbcType=DECIMAL})
+    </insert>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        DELETE FROM T_RHIP_TRANS
+        WHERE TRANS_ID = #{transId,jdbcType=DECIMAL}
+    </delete>
+
+  
+
+</mapper>

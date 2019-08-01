@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="queryPatientInHosInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="visitCardNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="socialsecurityNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankCardNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryPatientInHosInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryPatientInHosInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="inHosDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inHosNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="inHosDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inHosDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="inHosDaily">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inHosNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="inHosDailyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inHosDailyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="payDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inHosNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="payDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="payDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="inpatientPayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inHosNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bedNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payRecord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payMoney" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payReturn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="terminalCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="inpatientPaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inpatientPaymentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="queryPatientInHosInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:queryPatientInHosInfo" />
+  </wsdl:message>
+  <wsdl:message name="queryPatientInHosInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:queryPatientInHosInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="inHosDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:inHosDetail" />
+  </wsdl:message>
+  <wsdl:message name="inHosDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:inHosDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="inHosDailySoapIn">
+    <wsdl:part name="parameters" element="tns:inHosDaily" />
+  </wsdl:message>
+  <wsdl:message name="inHosDailySoapOut">
+    <wsdl:part name="parameters" element="tns:inHosDailyResponse" />
+  </wsdl:message>
+  <wsdl:message name="payDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:payDetail" />
+  </wsdl:message>
+  <wsdl:message name="payDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:payDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="inpatientPaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:inpatientPayment" />
+  </wsdl:message>
+  <wsdl:message name="inpatientPaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:inpatientPaymentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="InHosSoap">
+    <wsdl:operation name="queryPatientInHosInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询患者住院信息</wsdl:documentation>
+      <wsdl:input message="tns:queryPatientInHosInfoSoapIn" />
+      <wsdl:output message="tns:queryPatientInHosInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="inHosDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">住院清单明细</wsdl:documentation>
+      <wsdl:input message="tns:inHosDetailSoapIn" />
+      <wsdl:output message="tns:inHosDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="inHosDaily">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">住院每日清单</wsdl:documentation>
+      <wsdl:input message="tns:inHosDailySoapIn" />
+      <wsdl:output message="tns:inHosDailySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="payDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">住院押金</wsdl:documentation>
+      <wsdl:input message="tns:payDetailSoapIn" />
+      <wsdl:output message="tns:payDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="inpatientPayment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">住院押金补缴</wsdl:documentation>
+      <wsdl:input message="tns:inpatientPaymentSoapIn" />
+      <wsdl:output message="tns:inpatientPaymentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InHosSoap" type="tns:InHosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryPatientInHosInfo">
+      <soap:operation soapAction="http://tempuri.org/queryPatientInHosInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inHosDetail">
+      <soap:operation soapAction="http://tempuri.org/inHosDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inHosDaily">
+      <soap:operation soapAction="http://tempuri.org/inHosDaily" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="payDetail">
+      <soap:operation soapAction="http://tempuri.org/payDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inpatientPayment">
+      <soap:operation soapAction="http://tempuri.org/inpatientPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InHosSoap12" type="tns:InHosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryPatientInHosInfo">
+      <soap12:operation soapAction="http://tempuri.org/queryPatientInHosInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inHosDetail">
+      <soap12:operation soapAction="http://tempuri.org/inHosDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inHosDaily">
+      <soap12:operation soapAction="http://tempuri.org/inHosDaily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="payDetail">
+      <soap12:operation soapAction="http://tempuri.org/payDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inpatientPayment">
+      <soap12:operation soapAction="http://tempuri.org/inpatientPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InHos">
+    <wsdl:port name="InHosSoap" binding="tns:InHosSoap">
+      <soap:address location="http://bxd.nnfybjy.gxhealth.xin/InHos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InHosSoap12" binding="tns:InHosSoap12">
+      <soap12:address location="http://bxd.nnfybjy.gxhealth.xin/InHos.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

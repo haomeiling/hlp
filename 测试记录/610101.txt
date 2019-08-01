@@ -1,0 +1,54 @@
+2018-04-28 15:44:53.927  INFO 10816 --- [nio-7777-exec-5] cn.bxd.sip.webservice.SiWebServiceImpl   : 
+接收到入参===
+<?xml version="1.0" encoding="GBK" ?>
+<SIMSG>
+<HEADER>
+<Version>V1.0</Version>
+<MsgType>610101</MsgType>
+<MsgID>2018042707100001</MsgID>
+<AppID>070000000999</AppID>
+<MsgTime>20180427151515</MsgTime>
+</HEADER>
+<BODY>
+<UserNo>4509014504594</UserNo>
+</BODY>
+<DSIGN></DSIGN>
+</SIMSG>
+1001|2018042707100001|070000000999|4509014504594|
+002|1001|2018042707100001|4509014504594|陈勤|452501196405221247|199607|9016007469|450901|2|201801|201812|38|201801|201812|11|
+2018-04-28 15:44:54.064  INFO 10816 --- [nio-7777-exec-5] cn.bxd.sip.webservice.SiWebServiceImpl   : 
+输出参数===
+<?xml version="1.0" encoding="GBK"?><SIMSG>
+  <HEADER>
+    <Version>V1.0</Version>
+    <MsgType>610101</MsgType>
+    <MsgID>2018042707100001</MsgID>
+    <AppID>070000000999</AppID>
+    <MsgTime>20180428154454</MsgTime>
+    <ResultCode>90000</ResultCode>
+    <ResultMsg>交易成功</ResultMsg>
+  </HEADER>
+  <BODY>
+    <StatusNO>002</StatusNO>
+    <UserNo>4509014504594</UserNo>
+    <Name>陈勤</Name>
+    <IDNumber>452501196405221247</IDNumber>
+    <YearMonth>199607</YearMonth>
+    <InsuredUnitNo>9016007469</InsuredUnitNo>
+    <Area>450901</Area>
+    <Count>2</Count>
+    <ListItems>
+      <Item>
+        <StartTime>201801</StartTime>
+        <EndTime>201812</EndTime>
+        <InsuranceCode>38</InsuranceCode>
+      </Item>
+      <Item>
+        <StartTime>201801</StartTime>
+        <EndTime>201812</EndTime>
+        <InsuranceCode>11</InsuranceCode>
+      </Item>
+    </ListItems>
+  </BODY>
+  <DSIGN>No_Signature</DSIGN>
+</SIMSG>

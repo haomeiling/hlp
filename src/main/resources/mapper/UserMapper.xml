@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.dto.user.UserBiz">
+        <id column="USER_ID" property="userId" jdbcType="DECIMAL"/>
+        <result column="USER_CODE" property="userCode" jdbcType="VARCHAR"/>
+        <result column="IS_EXTERNAL_USER" property="isExternalUser" jdbcType="DECIMAL"/>
+        <result column="USER_PASSWD" property="userPasswd" jdbcType="VARCHAR"/>
+        <result column="CREATED_TIME" property="createdTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_LOGON_TIME" property="lastLogonTime" jdbcType="TIMESTAMP"/>
+        <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
+        <result column="PROVIDER_ID" property="providerId" jdbcType="DECIMAL"/>
+        <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR"/>
+        <result column="CERT_TYPE_ID" property="certTypeId" jdbcType="DECIMAL"/>
+        <result column="IS_CERTIFICATED" property="isCertificated" jdbcType="DECIMAL"/>
+        <result column="USER_REALNAME" property="userRealname" jdbcType="VARCHAR"/>
+        <result column="CERT_IDNO" property="certIdno" jdbcType="VARCHAR"/>
+        <result column="CERTIFICATED_TIME" property="certificatedTime" jdbcType="TIMESTAMP"/>
+        <result column="USER_TYPE_ID" property="userTypeId" jdbcType="DECIMAL"/>
+        <result column="OPEN_ID" property="openId" jdbcType="VARCHAR"/>
+        <result column="LOGIN_MOBILE" property="loginMobile" jdbcType="VARCHAR"/>
+        <result column="LOGIN_EMAIL" property="loginEmail" jdbcType="VARCHAR"/>
+        <result column="MOBILE_VERIFIED" property="mobileVerified" jdbcType="DECIMAL"/>
+        <result column="EMAIL_VERIFIED_TIME" property="emailVerifiedTime" jdbcType="TIMESTAMP"/>
+        <result column="FIRST_APP_LOGIN_TIME" property="firstAppLoginTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_APP_LOGIN_TIME" property="lastAppLoginTime" jdbcType="TIMESTAMP"/>
+        <result column="MOBILE_VERIFIED_TIME" property="mobileVerifiedTime" jdbcType="TIMESTAMP"/>
+        <result column="EMAIL_VERIFIED" property="emailVerified" jdbcType="DECIMAL"/>
+        <result column="VERIFY_CODE_EXPIRED" property="verifyCodeExpired" jdbcType="TIMESTAMP"/>
+        <result column="VERIFY_CODE" property="verifyCode" jdbcType="VARCHAR"/>
+        <result column="APP_LOGIN_COUNT" property="appLoginCount" jdbcType="DECIMAL"/>
+        <association property="userType" column="USER_TYPE_ID" javaType="cn.bxd.sip.bxd.model.entity.UserType">
+            <result column="USER_TYPE_CODE" property="userTypeCode" jdbcType="VARCHAR"/>
+            <result column="USER_TYPE_NAME" property="userTypeName" jdbcType="VARCHAR"/>
+            <result column="ROLE_ID" property="roleId" jdbcType="DECIMAL"/>
+        </association>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        USER_ID, USER_CODE, IS_EXTERNAL_USER, USER_PASSWD, CREATED_TIME, LAST_LOGON_TIME,
+        USER_NAME, PROVIDER_ID, CONTACT_PHONE, CERT_TYPE_ID, IS_CERTIFICATED, USER_REALNAME,
+        CERT_IDNO, CERTIFICATED_TIME, USER_TYPE_ID,OPEN_ID,LOGIN_MOBILE,LOGIN_EMAIL,MOBILE_VERIFIED,
+        EMAIL_VERIFIED_TIME,FIRST_APP_LOGIN_TIME,LAST_APP_LOGIN_TIME,MOBILE_VERIFIED_TIME,
+        EMAIL_VERIFIED,VERIFY_CODE_EXPIRED,VERIFY_CODE,APP_LOGIN_COUNT
+    </sql>
+
+    <!--有条件获取  -->
+    <select id="selectByConditions" resultMap="BaseResultMap"
+            parameterType="cn.bxd.sip.bxd.model.dto.user.UserBiz">
+        select u.*,ut.user_type_code,ut.user_type_name,ut.role_id
+        from t_Rhip_User u,T_RHIP_USER_TYPE ut
+        where 1=1
+        and u.user_type_id=ut.user_type_id(+)
+
+        <if test="userCode != null">
+            and u.user_code = #{userCode,jdbcType=VARCHAR}
+        </if>
+
+        <if test="userTypeId != null">
+            and u.user_type_id= #{userTypeId, jdbcType=DECIMAL}
+        </if>
+
+        <if test="openId != null">
+            and u.Open_Id= #{openId, jdbcType=VARCHAR}
+        </if>
+    </select>
+
+    <!--查找指定用户编码的用户 -->
+    <select id="selectByCodeMobileEmail" resultMap="BaseResultMap"
+            parameterType="cn.bxd.sip.bxd.model.entity.User">
+        select u.*
+        from t_Rhip_User u
+        where 1=1
+        <if test="userCode != null">
+            and u.user_code = #{userCode,jdbcType=VARCHAR}
+        </if>
+
+        <if test="loginMobile != null">
+            and u.Login_Mobile = #{loginMobile,jdbcType=VARCHAR}
+        </if>
+
+        <if test="loginEmail != null">
+            and u.Login_EMail = #{loginEmail,jdbcType=VARCHAR}
+        </if>
+
+        <if test="userPasswd != null">
+            and u.USER_PASSWD = #{userPasswd,jdbcType=VARCHAR}
+        </if>
+
+        and rownum=1
+    </select>
+
+    <!--根据ID获取  -->
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from T_RHIP_USER
+        where USER_ID = #{userId,jdbcType=DECIMAL}
+    </select>
+
+    <!-- 删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from T_RHIP_USER
+        where USER_ID = #{userId,jdbcType=DECIMAL}
+    </delete>
+
+    <!--新增  -->
+    <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.User">
+        insert into T_RHIP_USER (USER_ID, USER_CODE, IS_EXTERNAL_USER,
+        USER_PASSWD, CREATED_TIME, LAST_LOGON_TIME,
+        USER_NAME, PROVIDER_ID, CONTACT_PHONE,
+        CERT_TYPE_ID, IS_CERTIFICATED, USER_REALNAME,
+        CERT_IDNO, CERTIFICATED_TIME, USER_TYPE_ID,
+        OPEN_ID, LOGIN_MOBILE, LOGIN_EMAIL,
+        MOBILE_VERIFIED, EMAIL_VERIFIED_TIME, FIRST_APP_LOGIN_TIME,
+        LAST_APP_LOGIN_TIME, MOBILE_VERIFIED_TIME,
+        EMAIL_VERIFIED, VERIFY_CODE_EXPIRED, VERIFY_CODE,
+        APP_LOGIN_COUNT)
+        values (#{userId,jdbcType=DECIMAL}, #{userCode,jdbcType=VARCHAR}, #{isExternalUser,jdbcType=DECIMAL},
+        #{userPasswd,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{lastLogonTime,jdbcType=TIMESTAMP},
+        #{userName,jdbcType=VARCHAR}, #{providerId,jdbcType=DECIMAL}, #{contactPhone,jdbcType=VARCHAR},
+        #{certTypeId,jdbcType=DECIMAL}, #{isCertificated,jdbcType=DECIMAL}, #{userRealname,jdbcType=VARCHAR},
+        #{certIdno,jdbcType=VARCHAR}, #{certificatedTime,jdbcType=TIMESTAMP}, #{userTypeId,jdbcType=DECIMAL},
+        #{openId,jdbcType=VARCHAR}, #{loginMobile,jdbcType=VARCHAR}, #{loginEmail,jdbcType=VARCHAR},
+        #{mobileVerified,jdbcType=DECIMAL}, #{emailVerifiedTime,jdbcType=TIMESTAMP},
+        #{firstAppLoginTime,jdbcType=TIMESTAMP},
+        #{lastAppLoginTime,jdbcType=TIMESTAMP}, #{mobileVerifiedTime,jdbcType=TIMESTAMP},
+        #{emailVerified,jdbcType=DECIMAL}, #{verifyCodeExpired,jdbcType=TIMESTAMP}, #{verifyCode,jdbcType=VARCHAR},
+        #{appLoginCount,jdbcType=DECIMAL})
+    </insert>
+
+    <!--修改  -->
+    <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.User">
+        update T_RHIP_USER
+        set USER_CODE = #{userCode,jdbcType=VARCHAR},
+        IS_EXTERNAL_USER = #{isExternalUser,jdbcType=DECIMAL},
+        USER_PASSWD = #{userPasswd,jdbcType=VARCHAR},
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+        LAST_LOGON_TIME = #{lastLogonTime,jdbcType=TIMESTAMP},
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+        PROVIDER_ID = #{providerId,jdbcType=DECIMAL},
+        CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+        CERT_TYPE_ID = #{certTypeId,jdbcType=DECIMAL},
+        IS_CERTIFICATED = #{isCertificated,jdbcType=DECIMAL},
+        USER_REALNAME = #{userRealname,jdbcType=VARCHAR},
+        CERT_IDNO = #{certIdno,jdbcType=VARCHAR},
+        CERTIFICATED_TIME = #{certificatedTime,jdbcType=TIMESTAMP},
+        USER_TYPE_ID = #{userTypeId,jdbcType=DECIMAL},
+        OPEN_ID = #{openId,jdbcType=VARCHAR},
+        LOGIN_MOBILE = #{loginMobile,jdbcType=VARCHAR},
+        LOGIN_EMAIL = #{loginEmail,jdbcType=VARCHAR},
+        MOBILE_VERIFIED = #{mobileVerified,jdbcType=DECIMAL},
+        EMAIL_VERIFIED_TIME = #{emailVerifiedTime,jdbcType=TIMESTAMP},
+        FIRST_APP_LOGIN_TIME = #{firstAppLoginTime,jdbcType=TIMESTAMP},
+        LAST_APP_LOGIN_TIME = #{lastAppLoginTime,jdbcType=TIMESTAMP},
+        MOBILE_VERIFIED_TIME = #{mobileVerifiedTime,jdbcType=TIMESTAMP},
+        EMAIL_VERIFIED = #{emailVerified,jdbcType=DECIMAL},
+        VERIFY_CODE_EXPIRED = #{verifyCodeExpired,jdbcType=TIMESTAMP},
+        VERIFY_CODE = #{verifyCode,jdbcType=VARCHAR},
+        APP_LOGIN_COUNT = #{appLoginCount,jdbcType=DECIMAL}
+        where USER_ID = #{userId,jdbcType=DECIMAL}
+    </update>
+
+
+    <!--修改  -->
+    <update id="updateByCodeEmailTelephone" parameterType="cn.bxd.sip.bxd.model.entity.User">
+        update T_RHIP_USER
+        set
+        USER_PASSWD = #{userPasswd,jdbcType=VARCHAR}
+        <if test="loginMobile != null">
+            ,MOBILE_VERIFIED =1
+            ,MOBILE_VERIFIED_TIME=sysdate
+        </if>
+        where 1=1
+        <if test="userCode != null">
+            and user_code = #{userCode,jdbcType=VARCHAR}
+        </if>
+
+        <if test="loginMobile != null">
+            and Login_Mobile = #{loginMobile,jdbcType=VARCHAR}
+        </if>
+
+        <if test="loginEmail != null">
+            and Login_EMail = #{loginEmail,jdbcType=VARCHAR}
+        </if>
+
+    </update>
+
+</mapper>

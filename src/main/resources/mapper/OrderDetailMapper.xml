@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bxd.sip.bxd.dao.OrderDetailMapper" >
+  <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.OrderDetail" >
+    <id column="ORDER_ID" property="orderId" jdbcType="DECIMAL" />
+    <result column="MEDICALCODE" property="medicalcode" jdbcType="OTHER" />
+    <result column="CLEARINGNO" property="clearingno" jdbcType="OTHER" />
+    <result column="TRANSACTIONTIME" property="transactiontime" jdbcType="OTHER" />
+    <result column="DISPENSARYWIN" property="dispensarywin" jdbcType="OTHER" />
+    <result column="GUIDELINESINFO" property="guidelinesinfo" jdbcType="OTHER" />
+    <result column="MEDICALCODEPATH" property="medicalcodepath" jdbcType="OTHER" />
+    <result column="DEPARTMENTNAME" property="departmentname" jdbcType="OTHER" />
+    <result column="ACCTYPE" property="acctype" jdbcType="OTHER" />
+    <result column="CARDNAME" property="cardname" jdbcType="OTHER" />
+    <result column="TRADECODE" property="tradecode" jdbcType="OTHER" />
+    <result column="DEPOSITMONEY" property="depositmoney" jdbcType="OTHER" />
+    <result column="BANKRETURN" property="bankreturn" jdbcType="OTHER" />
+    <result column="FAILREASON" property="failreason" jdbcType="OTHER" />
+    <result column="POPAYRECORD" property="popayrecord" jdbcType="OTHER" />
+    <result column="POPAYMONEY" property="popaymoney" jdbcType="DECIMAL" />
+    <result column="MEDICAREMONEY" property="medicaremoney" jdbcType="DECIMAL" />
+    <result column="OVERALLMONEY" property="overallmoney" jdbcType="DECIMAL" />
+    <result column="MEDICARERECORD" property="medicarerecord" jdbcType="OTHER" />
+    <result column="REMINDER" property="reminder" jdbcType="OTHER" />
+    <result column="BUYERACCOUNT" property="buyeraccount" jdbcType="OTHER" />
+    <result column="MEDICALRETURN" property="medicalreturn" jdbcType="OTHER" />
+    <result column="REFUNDTIME" property="refundtime" jdbcType="TIMESTAMP" />
+    <result column="MREFUNDTIME" property="mrefundtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ORDER_ID, MEDICALCODE, CLEARINGNO, TRANSACTIONTIME, DISPENSARYWIN, GUIDELINESINFO,
+    MEDICALCODEPATH, DEPARTMENTNAME, ACCTYPE, CARDNAME, TRADECODE, DEPOSITMONEY, BANKRETURN,
+    FAILREASON, POPAYRECORD, POPAYMONEY, MEDICAREMONEY, OVERALLMONEY, MEDICARERECORD,
+    REMINDER, BUYERACCOUNT, MEDICALRETURN, REFUNDTIME, MREFUNDTIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from T_RHIP_ORDER_DETAIL
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from T_RHIP_ORDER_DETAIL
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.OrderDetail" >
+    insert into T_RHIP_ORDER_DETAIL (ORDER_ID, MEDICALCODE, CLEARINGNO,
+      TRANSACTIONTIME, DISPENSARYWIN, GUIDELINESINFO,
+      MEDICALCODEPATH, DEPARTMENTNAME, ACCTYPE,
+      CARDNAME, TRADECODE, DEPOSITMONEY,
+      BANKRETURN, FAILREASON, POPAYRECORD,
+      POPAYMONEY, MEDICAREMONEY, OVERALLMONEY,
+      MEDICARERECORD, REMINDER, BUYERACCOUNT,
+      MEDICALRETURN, REFUNDTIME, MREFUNDTIME
+      )
+    values (#{orderId,jdbcType=DECIMAL}, #{medicalcode,jdbcType=OTHER}, #{clearingno,jdbcType=OTHER},
+      #{transactiontime,jdbcType=OTHER}, #{dispensarywin,jdbcType=OTHER}, #{guidelinesinfo,jdbcType=OTHER},
+      #{medicalcodepath,jdbcType=OTHER}, #{departmentname,jdbcType=OTHER}, #{acctype,jdbcType=OTHER},
+      #{cardname,jdbcType=OTHER}, #{tradecode,jdbcType=OTHER}, #{depositmoney,jdbcType=OTHER},
+      #{bankreturn,jdbcType=OTHER}, #{failreason,jdbcType=OTHER}, #{popayrecord,jdbcType=OTHER},
+      #{popaymoney,jdbcType=DECIMAL}, #{medicaremoney,jdbcType=DECIMAL}, #{overallmoney,jdbcType=DECIMAL},
+      #{medicarerecord,jdbcType=OTHER}, #{reminder,jdbcType=OTHER}, #{buyeraccount,jdbcType=OTHER},
+      #{medicalreturn,jdbcType=OTHER}, #{refundtime,jdbcType=TIMESTAMP}, #{mrefundtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.OrderDetail" >
+    insert into T_RHIP_ORDER_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        ORDER_ID,
+      </if>
+      <if test="medicalcode != null" >
+        MEDICALCODE,
+      </if>
+      <if test="clearingno != null" >
+        CLEARINGNO,
+      </if>
+      <if test="transactiontime != null" >
+        TRANSACTIONTIME,
+      </if>
+      <if test="dispensarywin != null" >
+        DISPENSARYWIN,
+      </if>
+      <if test="guidelinesinfo != null" >
+        GUIDELINESINFO,
+      </if>
+      <if test="medicalcodepath != null" >
+        MEDICALCODEPATH,
+      </if>
+      <if test="departmentname != null" >
+        DEPARTMENTNAME,
+      </if>
+      <if test="acctype != null" >
+        ACCTYPE,
+      </if>
+      <if test="cardname != null" >
+        CARDNAME,
+      </if>
+      <if test="tradecode != null" >
+        TRADECODE,
+      </if>
+      <if test="depositmoney != null" >
+        DEPOSITMONEY,
+      </if>
+      <if test="bankreturn != null" >
+        BANKRETURN,
+      </if>
+      <if test="failreason != null" >
+        FAILREASON,
+      </if>
+      <if test="popayrecord != null" >
+        POPAYRECORD,
+      </if>
+      <if test="popaymoney != null" >
+        POPAYMONEY,
+      </if>
+      <if test="medicaremoney != null" >
+        MEDICAREMONEY,
+      </if>
+      <if test="overallmoney != null" >
+        OVERALLMONEY,
+      </if>
+      <if test="medicarerecord != null" >
+        MEDICARERECORD,
+      </if>
+      <if test="reminder != null" >
+        REMINDER,
+      </if>
+      <if test="buyeraccount != null" >
+        BUYERACCOUNT,
+      </if>
+      <if test="medicalreturn != null" >
+        MEDICALRETURN,
+      </if>
+      <if test="refundtime != null" >
+        REFUNDTIME,
+      </if>
+      <if test="mrefundtime != null" >
+        MREFUNDTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=DECIMAL},
+      </if>
+      <if test="medicalcode != null" >
+        #{medicalcode,jdbcType=OTHER},
+      </if>
+      <if test="clearingno != null" >
+        #{clearingno,jdbcType=OTHER},
+      </if>
+      <if test="transactiontime != null" >
+        #{transactiontime,jdbcType=OTHER},
+      </if>
+      <if test="dispensarywin != null" >
+        #{dispensarywin,jdbcType=OTHER},
+      </if>
+      <if test="guidelinesinfo != null" >
+        #{guidelinesinfo,jdbcType=OTHER},
+      </if>
+      <if test="medicalcodepath != null" >
+        #{medicalcodepath,jdbcType=OTHER},
+      </if>
+      <if test="departmentname != null" >
+        #{departmentname,jdbcType=OTHER},
+      </if>
+      <if test="acctype != null" >
+        #{acctype,jdbcType=OTHER},
+      </if>
+      <if test="cardname != null" >
+        #{cardname,jdbcType=OTHER},
+      </if>
+      <if test="tradecode != null" >
+        #{tradecode,jdbcType=OTHER},
+      </if>
+      <if test="depositmoney != null" >
+        #{depositmoney,jdbcType=OTHER},
+      </if>
+      <if test="bankreturn != null" >
+        #{bankreturn,jdbcType=OTHER},
+      </if>
+      <if test="failreason != null" >
+        #{failreason,jdbcType=OTHER},
+      </if>
+      <if test="popayrecord != null" >
+        #{popayrecord,jdbcType=OTHER},
+      </if>
+      <if test="popaymoney != null" >
+        #{popaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="medicaremoney != null" >
+        #{medicaremoney,jdbcType=DECIMAL},
+      </if>
+      <if test="overallmoney != null" >
+        #{overallmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="medicarerecord != null" >
+        #{medicarerecord,jdbcType=OTHER},
+      </if>
+      <if test="reminder != null" >
+        #{reminder,jdbcType=OTHER},
+      </if>
+      <if test="buyeraccount != null" >
+        #{buyeraccount,jdbcType=OTHER},
+      </if>
+      <if test="medicalreturn != null" >
+        #{medicalreturn,jdbcType=OTHER},
+      </if>
+      <if test="refundtime != null" >
+        #{refundtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mrefundtime != null" >
+        #{mrefundtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.OrderDetail" >
+    update T_RHIP_ORDER_DETAIL
+    <set >
+      <if test="medicalcode != null" >
+        MEDICALCODE = #{medicalcode,jdbcType=OTHER},
+      </if>
+      <if test="clearingno != null" >
+        CLEARINGNO = #{clearingno,jdbcType=OTHER},
+      </if>
+      <if test="transactiontime != null" >
+        TRANSACTIONTIME = #{transactiontime,jdbcType=OTHER},
+      </if>
+      <if test="dispensarywin != null" >
+        DISPENSARYWIN = #{dispensarywin,jdbcType=OTHER},
+      </if>
+      <if test="guidelinesinfo != null" >
+        GUIDELINESINFO = #{guidelinesinfo,jdbcType=OTHER},
+      </if>
+      <if test="medicalcodepath != null" >
+        MEDICALCODEPATH = #{medicalcodepath,jdbcType=OTHER},
+      </if>
+      <if test="departmentname != null" >
+        DEPARTMENTNAME = #{departmentname,jdbcType=OTHER},
+      </if>
+      <if test="acctype != null" >
+        ACCTYPE = #{acctype,jdbcType=OTHER},
+      </if>
+      <if test="cardname != null" >
+        CARDNAME = #{cardname,jdbcType=OTHER},
+      </if>
+      <if test="tradecode != null" >
+        TRADECODE = #{tradecode,jdbcType=OTHER},
+      </if>
+      <if test="depositmoney != null" >
+        DEPOSITMONEY = #{depositmoney,jdbcType=OTHER},
+      </if>
+      <if test="bankreturn != null" >
+        BANKRETURN = #{bankreturn,jdbcType=OTHER},
+      </if>
+      <if test="failreason != null" >
+        FAILREASON = #{failreason,jdbcType=OTHER},
+      </if>
+      <if test="popayrecord != null" >
+        POPAYRECORD = #{popayrecord,jdbcType=OTHER},
+      </if>
+      <if test="popaymoney != null" >
+        POPAYMONEY = #{popaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="medicaremoney != null" >
+        MEDICAREMONEY = #{medicaremoney,jdbcType=DECIMAL},
+      </if>
+      <if test="overallmoney != null" >
+        OVERALLMONEY = #{overallmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="medicarerecord != null" >
+        MEDICARERECORD = #{medicarerecord,jdbcType=OTHER},
+      </if>
+      <if test="reminder != null" >
+        REMINDER = #{reminder,jdbcType=OTHER},
+      </if>
+      <if test="buyeraccount != null" >
+        BUYERACCOUNT = #{buyeraccount,jdbcType=OTHER},
+      </if>
+      <if test="medicalreturn != null" >
+        MEDICALRETURN = #{medicalreturn,jdbcType=OTHER},
+      </if>
+      <if test="refundtime != null" >
+        REFUNDTIME = #{refundtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mrefundtime != null" >
+        MREFUNDTIME = #{mrefundtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.OrderDetail" >
+    update T_RHIP_ORDER_DETAIL
+    set MEDICALCODE = #{medicalcode,jdbcType=OTHER},
+      CLEARINGNO = #{clearingno,jdbcType=OTHER},
+      TRANSACTIONTIME = #{transactiontime,jdbcType=OTHER},
+      DISPENSARYWIN = #{dispensarywin,jdbcType=OTHER},
+      GUIDELINESINFO = #{guidelinesinfo,jdbcType=OTHER},
+      MEDICALCODEPATH = #{medicalcodepath,jdbcType=OTHER},
+      DEPARTMENTNAME = #{departmentname,jdbcType=OTHER},
+      ACCTYPE = #{acctype,jdbcType=OTHER},
+      CARDNAME = #{cardname,jdbcType=OTHER},
+      TRADECODE = #{tradecode,jdbcType=OTHER},
+      DEPOSITMONEY = #{depositmoney,jdbcType=OTHER},
+      BANKRETURN = #{bankreturn,jdbcType=OTHER},
+      FAILREASON = #{failreason,jdbcType=OTHER},
+      POPAYRECORD = #{popayrecord,jdbcType=OTHER},
+      POPAYMONEY = #{popaymoney,jdbcType=DECIMAL},
+      MEDICAREMONEY = #{medicaremoney,jdbcType=DECIMAL},
+      OVERALLMONEY = #{overallmoney,jdbcType=DECIMAL},
+      MEDICARERECORD = #{medicarerecord,jdbcType=OTHER},
+      REMINDER = #{reminder,jdbcType=OTHER},
+      BUYERACCOUNT = #{buyeraccount,jdbcType=OTHER},
+      MEDICALRETURN = #{medicalreturn,jdbcType=OTHER},
+      REFUNDTIME = #{refundtime,jdbcType=TIMESTAMP},
+      MREFUNDTIME = #{mrefundtime,jdbcType=TIMESTAMP}
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+  </update>
+</mapper>

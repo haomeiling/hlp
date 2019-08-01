@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.SysMapper">
+ 
+    <select id="checkIP" resultType="java.lang.Integer" parameterType="java.util.HashMap">
+        SELECT COUNT(1) FROM T_YL_IPCONFIG T 
+        WHERE t.usestatus ='1'
+        	AND T.APPID = #{appID,jdbcType=VARCHAR} 
+        	AND T.IP = #{clientIP,jdbcType=VARCHAR} 
+    </select>
+
+    <select id="checkBusiness" resultType="java.lang.Integer" parameterType="java.util.HashMap">
+        SELECT COUNT(1) FROM T_YL_businessconfig t 
+        WHERE t.usestatus ='1'
+        	AND T.APPID = #{appID,jdbcType=VARCHAR} 
+        	AND T.Msgtype = #{Msgtype,jdbcType=VARCHAR} 
+    </select>
+    
+    <insert id="saveBusinessLog" parameterType="java.util.HashMap" flushCache="true">
+		INSERT INTO T_YL_BUSINESSLOG
+			  (CLIENTIP,
+			   VERSION,
+			   MSGTYPE,
+			   MSGID,
+			   APPID,
+			   MSGTIME,
+			   RESULTCODE,
+			   RESULTMSG,
+			   INMSGSTR,
+			   OUTMSGSTR,
+			   CREATETIME,
+			   REMARK)
+			VALUES(
+				#{clientIP,jdbcType=VARCHAR},
+				#{Version,jdbcType=VARCHAR},
+				#{MsgType,jdbcType=VARCHAR},
+				#{MsgID,jdbcType=VARCHAR},
+				#{AppID,jdbcType=VARCHAR},
+				#{MsgTime,jdbcType=VARCHAR},
+				#{ResultCode,jdbcType=VARCHAR},
+				#{ResultMsg,jdbcType=VARCHAR},
+				#{InMsgStr,jdbcType=BLOB},
+				#{OutMsgStr,jdbcType=BLOB},
+				sysdate,
+				NULL
+			)
+	</insert>
+</mapper>

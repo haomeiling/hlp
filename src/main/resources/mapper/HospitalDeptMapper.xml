@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.HospitalDeptMapper">
+    <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.HospitalDept">
+        <id column="HOSPITAL_ID" property="hospitalId" jdbcType="DECIMAL"/>
+        <id column="DEPT_NO" property="deptNo" jdbcType="DECIMAL"/>
+        <result column="DEPT_NAME" property="deptName" jdbcType="OTHER"/>
+        <result column="DISPLAY_ORDER" property="displayOrder" jdbcType="DECIMAL"/>
+        <result column="AUTHORIZED_BEDS" property="authorizedBeds" jdbcType="DECIMAL"/>
+        <result column="OPENED_BEDS" property="openedBeds" jdbcType="DECIMAL"/>
+        <result column="DEPT_ADDR" property="deptAddr" jdbcType="OTHER"/>
+        <result column="CONTACT_PHONE" property="contactPhone" jdbcType="OTHER"/>
+        <result column="DEPT_HEAD" property="deptHead" jdbcType="OTHER"/>
+        <result column="DEPT_TYPE_ID" property="deptTypeId" jdbcType="DECIMAL"/>
+        <result column="IS_PROMOTION_DEPT" property="isPromotionDept" jdbcType="DECIMAL"/>
+        <result column="INTRODUCTION_URL" property="introductionUrl" jdbcType="OTHER"/>
+        <result column="DEPT_CODE" property="deptCode" jdbcType="OTHER"/>
+        <result column="DISABLED" property="disable" jdbcType="DECIMAL"/>
+        <result column="REGISTRATION_URL" jdbcType="OTHER" property="registrationUrl" />
+        <result column="OUTPATIENT_SCHEDULED" jdbcType="DECIMAL" property="outpatientScheduled" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        HOSPITAL_ID, DEPT_NO, DEPT_NAME, DISPLAY_ORDER, AUTHORIZED_BEDS, OPENED_BEDS, DEPT_ADDR,
+        CONTACT_PHONE, DEPT_HEAD, DEPT_TYPE_ID, IS_PROMOTION_DEPT, INTRODUCTION_URL, DEPT_CODE,
+        DISABLED
+    </sql>
+
+    <!-- 通过主键获取科室详细信息 -->
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap"
+            parameterType="cn.bxd.sip.bxd.model.entity.HospitalDeptKey">
+        select
+        HOSPITAL_ID, DEPT_NO, DEPT_NAME, DISPLAY_ORDER, AUTHORIZED_BEDS, OPENED_BEDS, DEPT_ADDR,
+        CONTACT_PHONE, DEPT_HEAD, DEPT_TYPE_ID, IS_PROMOTION_DEPT, DEPT_CODE
+        from T_RHIP_HOSPITAL_DEPT
+        where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+        and DEPT_NO = #{deptNo,jdbcType=DECIMAL}
+    </select>
+
+    <!-- 通过主键获取科室详细信息 -->
+    <select id="selectByHospitalId" resultMap="BaseResultMap"
+            parameterType="cn.bxd.sip.bxd.model.entity.HospitalDept">
+        select
+        HOSPITAL_ID, DEPT_NO, DEPT_NAME, DISPLAY_ORDER, AUTHORIZED_BEDS, OPENED_BEDS, DEPT_ADDR,
+        CONTACT_PHONE, DEPT_HEAD, DEPT_TYPE_ID, IS_PROMOTION_DEPT, DEPT_CODE,DISABLED,REGISTRATION_URL,OUTPATIENT_SCHEDULED
+        from T_RHIP_HOSPITAL_DEPT
+        where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+    </select>
+
+    <!-- 根据字段查询科室详细信息 -->
+    <select id="selectByHospitalDept" resultMap="BaseResultMap"
+            parameterType="cn.bxd.sip.bxd.model.entity.HospitalDept">
+        select
+        HOSPITAL_ID, DEPT_NO, DEPT_NAME, DISPLAY_ORDER, AUTHORIZED_BEDS, OPENED_BEDS, DEPT_ADDR,
+        CONTACT_PHONE, DEPT_HEAD, DEPT_TYPE_ID, IS_PROMOTION_DEPT, DEPT_CODE,DISABLED,REGISTRATION_URL,OUTPATIENT_SCHEDULED
+        from T_RHIP_HOSPITAL_DEPT
+        where 1=1
+        <if test="hospitalId != null">
+        AND HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+        </if>
+        <if test="deptNo != null">
+        AND DEPT_NO = #{deptNo,jdbcType=DECIMAL}
+        </if>
+        <if test="deptName != null">
+        AND DEPT_NAME = #{deptName,jdbcType=OTHER}
+        </if>
+        <if test="displayOrder != null">
+        AND DISPLAY_ORDER = #{displayOrder,jdbcType=DECIMAL}
+        </if>
+        <if test="authorizedBeds != null">
+        AND AUTHORIZED_BEDS = #{authorizedBeds,jdbcType=DECIMAL}
+        </if>
+        <if test="openedBeds != null">
+        AND OPENED_BEDS = #{openedBeds,jdbcType=DECIMAL}
+        </if>
+        <if test="deptAddr != null">
+        AND  DEPT_ADDR = #{deptAddr,jdbcType=OTHER}
+        </if>
+        <if test="contactPhone != null">
+        AND CONTACT_PHONE = #{contactPhone,jdbcType=OTHER}
+        </if>
+        <if test="deptHead != null">
+        AND  DEPT_HEAD = #{deptHead,jdbcType=OTHER}
+        </if>
+        <if test="deptTypeId != null">
+        AND  DEPT_TYPE_ID = #{deptTypeId,jdbcType=DECIMAL}
+        </if>
+        <if test="isPromotionDept != null">
+        AND  IS_PROMOTION_DEPT = #{isPromotionDept,jdbcType=DECIMAL}
+        </if>
+        <if test="introductionUrl != null">
+        AND INTRODUCTION_URL = #{introductionUrl,jdbcType=OTHER}
+        </if>
+        <if test="deptCode != null">
+        AND DEPT_CODE = #{deptCode,jdbcType=OTHER}
+        </if>
+        <if test="disabled != null">
+        AND DISABLED = #{disabled,jdbcType=DECIMAL}
+        </if>
+        <if test="registrationUrl != null">
+        AND REGISTRATION_URL = #{registrationUrl,jdbcType=DECIMAL}
+        </if>
+        <if test="outpatientScheduled != null">
+        AND OUTPATIENT_SCHEDULED = #{outpatientScheduled,jdbcType=DECIMAL}
+        </if>
+    </select>
+
+    <!-- 根据字段增加科室-->
+    <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.HospitalDept">
+        insert into T_RHIP_HOSPITAL_DEPT
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="hospitalId != null">
+                HOSPITAL_ID,
+            </if>
+            <if test="deptNo != null">
+                DEPT_NO,
+            </if>
+            <if test="deptName != null">
+                DEPT_NAME,
+            </if>
+            <if test="displayOrder != null">
+                DISPLAY_ORDER,
+            </if>
+            <if test="authorizedBeds != null">
+                AUTHORIZED_BEDS,
+            </if>
+            <if test="openedBeds != null">
+                OPENED_BEDS,
+            </if>
+            <if test="deptAddr != null">
+                DEPT_ADDR,
+            </if>
+            <if test="contactPhone != null">
+                CONTACT_PHONE,
+            </if>
+            <if test="deptHead != null">
+                DEPT_HEAD,
+            </if>
+            <if test="deptTypeId != null">
+                DEPT_TYPE_ID,
+            </if>
+            <if test="isPromotionDept != null">
+                IS_PROMOTION_DEPT,
+            </if>
+            <if test="introductionUrl != null">
+                INTRODUCTION_URL,
+            </if>
+            <if test="deptCode != null">
+                DEPT_CODE,
+            </if>
+            <if test="disabled != null">
+                DISABLED,
+            </if>
+            <if test="registrationUrl != null">
+                REGISTRATION_URL,
+            </if>
+            <if test="outpatientScheduled != null">
+                OUTPATIENT_SCHEDULED,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="hospitalId != null">
+                #{hospitalId,jdbcType=DECIMAL},
+            </if>
+            <if test="deptNo != null">
+                #{deptNo,jdbcType=DECIMAL},
+            </if>
+            <if test="deptName != null">
+                #{deptName,jdbcType=OTHER},
+            </if>
+            <if test="displayOrder != null">
+                #{displayOrder,jdbcType=DECIMAL},
+            </if>
+            <if test="authorizedBeds != null">
+                #{authorizedBeds,jdbcType=DECIMAL},
+            </if>
+            <if test="openedBeds != null">
+                #{openedBeds,jdbcType=DECIMAL},
+            </if>
+            <if test="deptAddr != null">
+                #{deptAddr,jdbcType=OTHER},
+            </if>
+            <if test="contactPhone != null">
+                #{contactPhone,jdbcType=OTHER},
+            </if>
+            <if test="deptHead != null">
+                #{deptHead,jdbcType=OTHER},
+            </if>
+            <if test="deptTypeId != null">
+                #{deptTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="isPromotionDept != null">
+                #{isPromotionDept,jdbcType=DECIMAL},
+            </if>
+            <if test="introductionUrl != null">
+                #{introductionUrl,jdbcType=OTHER},
+            </if>
+            <if test="deptCode != null">
+                #{deptCode,jdbcType=OTHER},
+            </if>
+            <if test="disabled != null">
+                #{disabled,jdbcType=DECIMAL},
+            </if>
+            <if test="registrationUrl != null">
+                #{registrationUrl,jdbcType=OTHER},
+            </if>
+            <if test="outpatientScheduled != null">
+                #{outpatientScheduled,jdbcType=DECIMAL},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 根据字段修改科室-->
+    <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.HospitalDept">
+        update T_RHIP_HOSPITAL_DEPT
+        <set>
+            <if test="deptName != null">
+                DEPT_NAME = #{deptName,jdbcType=OTHER},
+            </if>
+            <if test="displayOrder != null">
+                DISPLAY_ORDER = #{displayOrder,jdbcType=DECIMAL},
+            </if>
+            <if test="authorizedBeds != null">
+                AUTHORIZED_BEDS = #{authorizedBeds,jdbcType=DECIMAL},
+            </if>
+            <if test="openedBeds != null">
+                OPENED_BEDS = #{openedBeds,jdbcType=DECIMAL},
+            </if>
+            <if test="deptAddr != null">
+                DEPT_ADDR = #{deptAddr,jdbcType=OTHER},
+            </if>
+            <if test="contactPhone != null">
+                CONTACT_PHONE = #{contactPhone,jdbcType=OTHER},
+            </if>
+            <if test="deptHead != null">
+                DEPT_HEAD = #{deptHead,jdbcType=OTHER},
+            </if>
+            <if test="deptTypeId != null">
+                DEPT_TYPE_ID = #{deptTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="isPromotionDept != null">
+                IS_PROMOTION_DEPT = #{isPromotionDept,jdbcType=DECIMAL},
+            </if>
+            <if test="introductionUrl != null">
+                INTRODUCTION_URL = #{introductionUrl,jdbcType=OTHER},
+            </if>
+            <if test="deptCode != null">
+                DEPT_CODE = #{deptCode,jdbcType=OTHER},
+            </if>
+            <if test="disabled != null">
+                DISABLED = #{disabled,jdbcType=DECIMAL},
+            </if>
+            <if test="registrationUrl != null">
+                REGISTRATION_URL = #{registrationUrl,jdbcType=OTHER},
+            </if>
+            <if test="outpatientScheduled != null">
+                OUTPATIENT_SCHEDULED = #{outpatientScheduled,jdbcType=DECIMAL},
+            </if>
+        </set>
+        where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+        and DEPT_CODE = #{deptCode,jdbcType=DECIMAL}
+    </update>
+</mapper>

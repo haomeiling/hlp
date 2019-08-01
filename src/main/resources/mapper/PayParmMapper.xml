@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.PayParmMapper">
+    <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.PayParm">
+        <id column="APP_ID" property="appId" jdbcType="VARCHAR"/>
+        <id column="PROVIDER_ID" property="providerId" jdbcType="DECIMAL"/>
+        <id column="HOSPITAL_ID" property="hospitalId" jdbcType="DECIMAL"/>
+        <result column="PROVIDER_APPID" property="providerAppid" jdbcType="VARCHAR"/>
+        <result column="PROVIDER_APPSECRET" property="providerAppsecret" jdbcType="VARCHAR"/>
+        <result column="CREATED_TIME" property="createdTime" jdbcType="TIMESTAMP"/>
+        <result column="NOTES" property="notes" jdbcType="VARCHAR"/>
+        <result column="PRIVATE_KEY_URI" property="privateKeyUri" jdbcType="VARCHAR"/>
+        <result column="PUBLIC_KEY_URI" property="publicKeyUri" jdbcType="VARCHAR"/>
+        <result column="MCH_ID" property="mchId" jdbcType="VARCHAR"/>
+        <result column="PROVIDER_APPKEY" property="providerAppkey" jdbcType="VARCHAR"/>
+        <result column="PRIVATE_KEY_ACCESSPWD" property="privateKeyAccesspwd" jdbcType="VARCHAR"/>
+        <result column="PUBLIC_KEY_ACCESSPWD" property="publicKeyAccesspwd" jdbcType="VARCHAR"/>
+        <result column="PROVIDER_PAY_ACCOUNT" property="providerPayAccount" jdbcType="VARCHAR"/>
+        <result column="PROVIDER_PAY_SECRET" property="providerPaySecret" jdbcType="VARCHAR"/>
+        <result column="PROVIDER_PAY_KEY" property="providerPayKey" jdbcType="VARCHAR"/>
+        <result column="PROVIDER_PAY_CODE" property="providerPayCode" jdbcType="VARCHAR"/>
+        <result column="PROVIDER_PAY_SOURCE_CODE" property="providerPaySourceCode" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="payReceiveOrderResultMap" type="cn.bxd.sip.bxd.model.dto.pay.PayReceiveOrder" extends="BaseResultMap">
+        <result column="PAY_PATTERN" property="payPattern" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        APP_ID, PROVIDER_ID, HOSPITAL_ID, PROVIDER_APPID, PROVIDER_APPSECRET, CREATED_TIME,
+        NOTES, PRIVATE_KEY_URI, PUBLIC_KEY_URI, MCH_ID, PROVIDER_APPKEY, PRIVATE_KEY_ACCESSPWD,
+        PUBLIC_KEY_ACCESSPWD,PROVIDER_PAY_ACCOUNT,PROVIDER_PAY_SECRET,PROVIDER_PAY_KEY,PROVIDER_PAY_CODE,PROVIDER_PAY_SOURCE_CODE
+
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="cn.bxd.sip.bxd.model.entity.PayParmKey">
+        select
+        <include refid="Base_Column_List"/>
+        from T_RHIP_APP_PAY_PARM
+        where APP_ID = #{appId,jdbcType=VARCHAR}
+        and PROVIDER_ID = #{providerId,jdbcType=DECIMAL}
+        and HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+    </select>
+
+    <select id="selectByOrderIdAndProviderId" resultMap="payReceiveOrderResultMap" parameterType="map">
+        select *
+          from T_RHIP_APP_PAY_PARM p,
+               (select o.app_id, o.pay_type, o.hospital_id, o.pay_pattern
+                  from t_rhip_order o
+                 where order_id = #{orderId}) o
+         where p.APP_ID = o.app_id
+           and p.PROVIDER_ID = #{providerId}
+           and p.HOSPITAL_ID = o.hospital_id
+    </select>
+
+</mapper>

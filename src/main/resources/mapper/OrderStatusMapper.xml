@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.OrderStatusMapper" >
+  <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.OrderStatus" >
+    <id column="ORDER_ID" property="orderId" jdbcType="DECIMAL" />
+    <id column="STATUS_ID" property="statusId" jdbcType="DECIMAL" />
+    <result column="ORDER_STATUS" property="orderStatus" jdbcType="DECIMAL" />
+    <result column="ORDER_STATUS_TIME" property="orderStatusTime" jdbcType="TIMESTAMP" />
+    <result column="ORDER_STATUS_DESC" property="orderStatusDesc" jdbcType="VARCHAR" />
+    <result column="MARKS" property="marks" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ORDER_ID, STATUS_ID, ORDER_STATUS, ORDER_STATUS_TIME, ORDER_STATUS_DESC, MARKS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="cn.bxd.sip.bxd.model.entity.OrderStatus" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_RHIP_ORDER_STATUS
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+      and STATUS_ID = #{statusId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.OrderStatus" >
+    delete from T_RHIP_ORDER_STATUS
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+      and STATUS_ID = #{statusId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.OrderStatus" >
+    insert into T_RHIP_ORDER_STATUS (ORDER_ID, STATUS_ID, ORDER_STATUS, 
+      ORDER_STATUS_TIME, ORDER_STATUS_DESC, MARKS
+      )
+    values (#{orderId,jdbcType=DECIMAL}, #{statusId,jdbcType=DECIMAL}, #{orderStatus,jdbcType=DECIMAL}, 
+      #{orderStatusTime,jdbcType=TIMESTAMP}, #{orderStatusDesc,jdbcType=VARCHAR}, #{marks,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.OrderStatus" >
+    insert into T_RHIP_ORDER_STATUS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        ORDER_ID,
+      </if>
+      <if test="statusId != null" >
+        STATUS_ID,
+      </if>
+      <if test="orderStatus != null" >
+        ORDER_STATUS,
+      </if>
+      <if test="orderStatusTime != null" >
+        ORDER_STATUS_TIME,
+      </if>
+      <if test="orderStatusDesc != null" >
+        ORDER_STATUS_DESC,
+      </if>
+      <if test="marks != null" >
+        MARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=DECIMAL},
+      </if>
+      <if test="statusId != null" >
+        #{statusId,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatusTime != null" >
+        #{orderStatusTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatusDesc != null" >
+        #{orderStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="marks != null" >
+        #{marks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.OrderStatus" >
+    update T_RHIP_ORDER_STATUS
+    <set >
+      <if test="orderStatus != null" >
+        ORDER_STATUS = #{orderStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatusTime != null" >
+        ORDER_STATUS_TIME = #{orderStatusTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatusDesc != null" >
+        ORDER_STATUS_DESC = #{orderStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="marks != null" >
+        MARKS = #{marks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+      and STATUS_ID = #{statusId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.OrderStatus" >
+    update T_RHIP_ORDER_STATUS
+    set ORDER_STATUS = #{orderStatus,jdbcType=DECIMAL},
+      ORDER_STATUS_TIME = #{orderStatusTime,jdbcType=TIMESTAMP},
+      ORDER_STATUS_DESC = #{orderStatusDesc,jdbcType=VARCHAR},
+      MARKS = #{marks,jdbcType=VARCHAR}
+    where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+      and STATUS_ID = #{statusId,jdbcType=DECIMAL}
+  </update>
+</mapper>

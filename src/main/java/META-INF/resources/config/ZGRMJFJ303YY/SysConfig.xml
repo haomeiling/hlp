@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!--挂号费信息配置-->
+<RegPay>
+  <pay id="1" name="挂号费" money="2" />
+  <pay id="2" name="诊疗费" money="5" />
+</RegPay>

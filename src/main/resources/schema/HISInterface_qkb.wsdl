@@ -1,0 +1,3873 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+            <s:element name="queryPatientInfoByIdNO">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="cardNo" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryPatientInfoByIdNOResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryPatientInfoByIdNOResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryPatientInfoBySocialsecurityNO">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="socialsecurityNO" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="bankCardNumber" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="visitCardNo" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryPatientInfoBySocialsecurityNOResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryPatientInfoBySocialsecurityNOResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doCreatCardInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="THiUser" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doCreatCardInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="doCreatCardInfoResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryExaminationRecordStatus">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="reportNos" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="reportType" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryExaminationRecordStatusResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryExaminationRecordStatusResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="updateExaminationRecordStatus">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="reportNos" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="reportType" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="updateExaminationRecordStatusResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="updateExaminationRecordStatusResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryExaminationRecordList">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryExaminationRecordListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryExaminationRecordListResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryHisUserRecordList">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryHisUserRecordListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryHisUserRecordListResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="updatePatientInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="cardNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="socialsecurityNO" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="bankCardNumber" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="visitCardNo" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="updatePatientInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="updatePatientInfoResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDoctorList">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDoctorListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryDoctorListResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDepartmentById">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="organId" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDepartmentByIdResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryDepartmentByIdResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDepartmentList">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDepartmentListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryDepartmentListResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDoctorById">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="organdoctorId" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDoctorByIdResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryDoctorByIdResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryHospitalInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryHospitalInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryHospitalInfoResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDrugList">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="pyCode" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="Start" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="RequestQty" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDrugListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryDrugListResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doRegCancel">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="sourceMark" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="sourceDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doRegCancelResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="doRegCancelResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doReg">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="doRegIn" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doRegResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="doRegResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryToRegDoctorList">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryToRegDoctorListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryToRegDoctorListResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryToRegDoctorListByDoctorId">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="organdoctorId" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryToRegDoctorListByDoctorIdResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryToRegDoctorListByDoctorIdResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryRegWaitNum">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="sourceMark" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="sourceDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryRegWaitNumResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryRegWaitNumResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryTaketheNo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="sourceMark" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="sourceDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryTaketheNoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryTaketheNoResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doTaketheNo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="doTakeIn" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doTaketheNoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="doTaketheNoResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doRegAndTaketheNo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="doRegIn" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doRegAndTaketheNoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="doRegAndTaketheNoResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryRegBypatientNo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryRegBypatientNoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryRegBypatientNoResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryToRegDoctorTimes">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="sourceDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="organdoctorId" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="sourceTimeType" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryToRegDoctorTimesResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryToRegDoctorTimesResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryAppointmentPayStatus">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="sourceMark" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryAppointmentPayStatusResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryAppointmentPayStatusResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doctorStopped">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doctorStoppedResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="doctorStoppedResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDoctorRegWaitNum">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="organdoctorId" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryDoctorRegWaitNumResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryDoctorRegWaitNumResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doRegMedicareInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="doRegIn" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doRegMedicareInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="doRegMedicareInfoResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryToPayRecipeInfoList">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="medicareType" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="medicareMess" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="terminalCode" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="terminalType" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryToPayRecipeInfoListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryToPayRecipeInfoListResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryPaymentRecordList">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryPaymentRecordListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryPaymentRecordListResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryPayStatus">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="hiFeeNos" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payType" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payRecord" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payMoney" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="medicareMoney" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="socialsecurityNO" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="overRecord" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="overMoney" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryPayStatusResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryPayStatusResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryInvoiceReportList">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryInvoiceReportListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryInvoiceReportListResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryInvoiceDetail">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="outInvoiceId" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryInvoiceDetailResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryInvoiceDetailResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="updateInvoiceStatus">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="outInvoiceId" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="clinicTrueNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="cardTypeID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="cardNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="visitCardNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="terminalCode" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="updateInvoiceStatusResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="updateInvoiceStatusResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doPay">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="hiFeeNos" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payType" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payRecord" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payMoney" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="medicareMoney" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="socialsecurityNO" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="overRecord" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="overMoney" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="medicareReturn" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="bankReturn" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="terminalCode" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="medicareType" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="doPayResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="doPayResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="updateRecipeStatusStatus">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="hiFeeNos" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="updateRecipeStatusStatusResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="updateRecipeStatusStatusResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="inpatientPayment">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="inHosNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="bedNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payType" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payRecord" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payMoney" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="payReturn" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="terminalCode" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="inpatientPaymentResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="inpatientPaymentResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="payDetail">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="inHosNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="payDetailResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="payDetailResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="inHosDetail">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="inHosNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="inHosDetailResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="inHosDetailResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryLeaveHosDetail">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="inHosNo" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryLeaveHosDetailResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryLeaveHosDetailResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryPatientInHosInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="cardNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="visitCardNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="socialsecurityNO" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="bankCardNumber" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryPatientInHosInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryPatientInHosInfoResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryArrears">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="inHosNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="bedNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="queryArrearsResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryArrearsResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="string" nillable="true" type="s:string"/>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="queryPatientInfoByIdNOSoapIn">
+        <wsdl:part name="parameters" element="tns:queryPatientInfoByIdNO"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInfoByIdNOSoapOut">
+        <wsdl:part name="parameters" element="tns:queryPatientInfoByIdNOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInfoBySocialsecurityNOSoapIn">
+        <wsdl:part name="parameters" element="tns:queryPatientInfoBySocialsecurityNO"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInfoBySocialsecurityNOSoapOut">
+        <wsdl:part name="parameters" element="tns:queryPatientInfoBySocialsecurityNOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="doCreatCardInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:doCreatCardInfo"/>
+    </wsdl:message>
+    <wsdl:message name="doCreatCardInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:doCreatCardInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordStatusSoapIn">
+        <wsdl:part name="parameters" element="tns:queryExaminationRecordStatus"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordStatusSoapOut">
+        <wsdl:part name="parameters" element="tns:queryExaminationRecordStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateExaminationRecordStatusSoapIn">
+        <wsdl:part name="parameters" element="tns:updateExaminationRecordStatus"/>
+    </wsdl:message>
+    <wsdl:message name="updateExaminationRecordStatusSoapOut">
+        <wsdl:part name="parameters" element="tns:updateExaminationRecordStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordListSoapIn">
+        <wsdl:part name="parameters" element="tns:queryExaminationRecordList"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordListSoapOut">
+        <wsdl:part name="parameters" element="tns:queryExaminationRecordListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryHisUserRecordListSoapIn">
+        <wsdl:part name="parameters" element="tns:queryHisUserRecordList"/>
+    </wsdl:message>
+    <wsdl:message name="queryHisUserRecordListSoapOut">
+        <wsdl:part name="parameters" element="tns:queryHisUserRecordListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updatePatientInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:updatePatientInfo"/>
+    </wsdl:message>
+    <wsdl:message name="updatePatientInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:updatePatientInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorListSoapIn">
+        <wsdl:part name="parameters" element="tns:queryDoctorList"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorListSoapOut">
+        <wsdl:part name="parameters" element="tns:queryDoctorListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentByIdSoapIn">
+        <wsdl:part name="parameters" element="tns:queryDepartmentById"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentByIdSoapOut">
+        <wsdl:part name="parameters" element="tns:queryDepartmentByIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentListSoapIn">
+        <wsdl:part name="parameters" element="tns:queryDepartmentList"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentListSoapOut">
+        <wsdl:part name="parameters" element="tns:queryDepartmentListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorByIdSoapIn">
+        <wsdl:part name="parameters" element="tns:queryDoctorById"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorByIdSoapOut">
+        <wsdl:part name="parameters" element="tns:queryDoctorByIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryHospitalInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:queryHospitalInfo"/>
+    </wsdl:message>
+    <wsdl:message name="queryHospitalInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:queryHospitalInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryDrugListSoapIn">
+        <wsdl:part name="parameters" element="tns:queryDrugList"/>
+    </wsdl:message>
+    <wsdl:message name="queryDrugListSoapOut">
+        <wsdl:part name="parameters" element="tns:queryDrugListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="doRegCancelSoapIn">
+        <wsdl:part name="parameters" element="tns:doRegCancel"/>
+    </wsdl:message>
+    <wsdl:message name="doRegCancelSoapOut">
+        <wsdl:part name="parameters" element="tns:doRegCancelResponse"/>
+    </wsdl:message>
+    <wsdl:message name="doRegSoapIn">
+        <wsdl:part name="parameters" element="tns:doReg"/>
+    </wsdl:message>
+    <wsdl:message name="doRegSoapOut">
+        <wsdl:part name="parameters" element="tns:doRegResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListSoapIn">
+        <wsdl:part name="parameters" element="tns:queryToRegDoctorList"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListSoapOut">
+        <wsdl:part name="parameters" element="tns:queryToRegDoctorListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListByDoctorIdSoapIn">
+        <wsdl:part name="parameters" element="tns:queryToRegDoctorListByDoctorId"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListByDoctorIdSoapOut">
+        <wsdl:part name="parameters" element="tns:queryToRegDoctorListByDoctorIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegWaitNumSoapIn">
+        <wsdl:part name="parameters" element="tns:queryRegWaitNum"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegWaitNumSoapOut">
+        <wsdl:part name="parameters" element="tns:queryRegWaitNumResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryTaketheNoSoapIn">
+        <wsdl:part name="parameters" element="tns:queryTaketheNo"/>
+    </wsdl:message>
+    <wsdl:message name="queryTaketheNoSoapOut">
+        <wsdl:part name="parameters" element="tns:queryTaketheNoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="doTaketheNoSoapIn">
+        <wsdl:part name="parameters" element="tns:doTaketheNo"/>
+    </wsdl:message>
+    <wsdl:message name="doTaketheNoSoapOut">
+        <wsdl:part name="parameters" element="tns:doTaketheNoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="doRegAndTaketheNoSoapIn">
+        <wsdl:part name="parameters" element="tns:doRegAndTaketheNo"/>
+    </wsdl:message>
+    <wsdl:message name="doRegAndTaketheNoSoapOut">
+        <wsdl:part name="parameters" element="tns:doRegAndTaketheNoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegBypatientNoSoapIn">
+        <wsdl:part name="parameters" element="tns:queryRegBypatientNo"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegBypatientNoSoapOut">
+        <wsdl:part name="parameters" element="tns:queryRegBypatientNoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorTimesSoapIn">
+        <wsdl:part name="parameters" element="tns:queryToRegDoctorTimes"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorTimesSoapOut">
+        <wsdl:part name="parameters" element="tns:queryToRegDoctorTimesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryAppointmentPayStatusSoapIn">
+        <wsdl:part name="parameters" element="tns:queryAppointmentPayStatus"/>
+    </wsdl:message>
+    <wsdl:message name="queryAppointmentPayStatusSoapOut">
+        <wsdl:part name="parameters" element="tns:queryAppointmentPayStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="doctorStoppedSoapIn">
+        <wsdl:part name="parameters" element="tns:doctorStopped"/>
+    </wsdl:message>
+    <wsdl:message name="doctorStoppedSoapOut">
+        <wsdl:part name="parameters" element="tns:doctorStoppedResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorRegWaitNumSoapIn">
+        <wsdl:part name="parameters" element="tns:queryDoctorRegWaitNum"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorRegWaitNumSoapOut">
+        <wsdl:part name="parameters" element="tns:queryDoctorRegWaitNumResponse"/>
+    </wsdl:message>
+    <wsdl:message name="doRegMedicareInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:doRegMedicareInfo"/>
+    </wsdl:message>
+    <wsdl:message name="doRegMedicareInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:doRegMedicareInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryToPayRecipeInfoListSoapIn">
+        <wsdl:part name="parameters" element="tns:queryToPayRecipeInfoList"/>
+    </wsdl:message>
+    <wsdl:message name="queryToPayRecipeInfoListSoapOut">
+        <wsdl:part name="parameters" element="tns:queryToPayRecipeInfoListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryPaymentRecordListSoapIn">
+        <wsdl:part name="parameters" element="tns:queryPaymentRecordList"/>
+    </wsdl:message>
+    <wsdl:message name="queryPaymentRecordListSoapOut">
+        <wsdl:part name="parameters" element="tns:queryPaymentRecordListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryPayStatusSoapIn">
+        <wsdl:part name="parameters" element="tns:queryPayStatus"/>
+    </wsdl:message>
+    <wsdl:message name="queryPayStatusSoapOut">
+        <wsdl:part name="parameters" element="tns:queryPayStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceReportListSoapIn">
+        <wsdl:part name="parameters" element="tns:queryInvoiceReportList"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceReportListSoapOut">
+        <wsdl:part name="parameters" element="tns:queryInvoiceReportListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceDetailSoapIn">
+        <wsdl:part name="parameters" element="tns:queryInvoiceDetail"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceDetailSoapOut">
+        <wsdl:part name="parameters" element="tns:queryInvoiceDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateInvoiceStatusSoapIn">
+        <wsdl:part name="parameters" element="tns:updateInvoiceStatus"/>
+    </wsdl:message>
+    <wsdl:message name="updateInvoiceStatusSoapOut">
+        <wsdl:part name="parameters" element="tns:updateInvoiceStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="doPaySoapIn">
+        <wsdl:part name="parameters" element="tns:doPay"/>
+    </wsdl:message>
+    <wsdl:message name="doPaySoapOut">
+        <wsdl:part name="parameters" element="tns:doPayResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateRecipeStatusStatusSoapIn">
+        <wsdl:part name="parameters" element="tns:updateRecipeStatusStatus"/>
+    </wsdl:message>
+    <wsdl:message name="updateRecipeStatusStatusSoapOut">
+        <wsdl:part name="parameters" element="tns:updateRecipeStatusStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="inpatientPaymentSoapIn">
+        <wsdl:part name="parameters" element="tns:inpatientPayment"/>
+    </wsdl:message>
+    <wsdl:message name="inpatientPaymentSoapOut">
+        <wsdl:part name="parameters" element="tns:inpatientPaymentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="payDetailSoapIn">
+        <wsdl:part name="parameters" element="tns:payDetail"/>
+    </wsdl:message>
+    <wsdl:message name="payDetailSoapOut">
+        <wsdl:part name="parameters" element="tns:payDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="inHosDetailSoapIn">
+        <wsdl:part name="parameters" element="tns:inHosDetail"/>
+    </wsdl:message>
+    <wsdl:message name="inHosDetailSoapOut">
+        <wsdl:part name="parameters" element="tns:inHosDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryLeaveHosDetailSoapIn">
+        <wsdl:part name="parameters" element="tns:queryLeaveHosDetail"/>
+    </wsdl:message>
+    <wsdl:message name="queryLeaveHosDetailSoapOut">
+        <wsdl:part name="parameters" element="tns:queryLeaveHosDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInHosInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:queryPatientInHosInfo"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInHosInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:queryPatientInHosInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryArrearsSoapIn">
+        <wsdl:part name="parameters" element="tns:queryArrears"/>
+    </wsdl:message>
+    <wsdl:message name="queryArrearsSoapOut">
+        <wsdl:part name="parameters" element="tns:queryArrearsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInfoByIdNOHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="cardNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInfoByIdNOHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInfoBySocialsecurityNOHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="socialsecurityNO" type="s:string"/>
+        <wsdl:part name="bankCardNumber" type="s:string"/>
+        <wsdl:part name="visitCardNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInfoBySocialsecurityNOHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doCreatCardInfoHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="THiUser" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doCreatCardInfoHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordStatusHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="reportNos" type="s:string"/>
+        <wsdl:part name="reportType" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordStatusHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateExaminationRecordStatusHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="reportNos" type="s:string"/>
+        <wsdl:part name="reportType" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateExaminationRecordStatusHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordListHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordListHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryHisUserRecordListHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryHisUserRecordListHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="updatePatientInfoHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="cardNo" type="s:string"/>
+        <wsdl:part name="socialsecurityNO" type="s:string"/>
+        <wsdl:part name="bankCardNumber" type="s:string"/>
+        <wsdl:part name="visitCardNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="updatePatientInfoHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorListHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorListHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentByIdHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="organId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentByIdHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentListHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentListHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorByIdHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="organdoctorId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorByIdHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryHospitalInfoHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryHospitalInfoHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDrugListHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="pyCode" type="s:string"/>
+        <wsdl:part name="Type" type="s:string"/>
+        <wsdl:part name="Start" type="s:string"/>
+        <wsdl:part name="RequestQty" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDrugListHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegCancelHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="sourceMark" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="sourceDate" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegCancelHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="doRegIn" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListByDoctorIdHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+        <wsdl:part name="organdoctorId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListByDoctorIdHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegWaitNumHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="sourceMark" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="sourceDate" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegWaitNumHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryTaketheNoHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="sourceMark" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="sourceDate" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryTaketheNoHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doTaketheNoHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="doTakeIn" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doTaketheNoHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegAndTaketheNoHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="doRegIn" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegAndTaketheNoHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegBypatientNoHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegBypatientNoHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorTimesHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="sourceDate" type="s:string"/>
+        <wsdl:part name="organdoctorId" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+        <wsdl:part name="sourceTimeType" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorTimesHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryAppointmentPayStatusHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="sourceMark" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryAppointmentPayStatusHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doctorStoppedHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doctorStoppedHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorRegWaitNumHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="organdoctorId" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorRegWaitNumHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegMedicareInfoHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="doRegIn" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegMedicareInfoHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToPayRecipeInfoListHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="medicareType" type="s:string"/>
+        <wsdl:part name="medicareMess" type="s:string"/>
+        <wsdl:part name="terminalCode" type="s:string"/>
+        <wsdl:part name="terminalType" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToPayRecipeInfoListHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPaymentRecordListHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPaymentRecordListHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPayStatusHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="hiFeeNos" type="s:string"/>
+        <wsdl:part name="payType" type="s:string"/>
+        <wsdl:part name="payRecord" type="s:string"/>
+        <wsdl:part name="payMoney" type="s:string"/>
+        <wsdl:part name="medicareMoney" type="s:string"/>
+        <wsdl:part name="socialsecurityNO" type="s:string"/>
+        <wsdl:part name="overRecord" type="s:string"/>
+        <wsdl:part name="overMoney" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPayStatusHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceReportListHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceReportListHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceDetailHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="outInvoiceId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceDetailHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateInvoiceStatusHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="outInvoiceId" type="s:string"/>
+        <wsdl:part name="clinicTrueNo" type="s:string"/>
+        <wsdl:part name="cardTypeID" type="s:string"/>
+        <wsdl:part name="cardNo" type="s:string"/>
+        <wsdl:part name="visitCardNo" type="s:string"/>
+        <wsdl:part name="terminalCode" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateInvoiceStatusHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doPayHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="hiFeeNos" type="s:string"/>
+        <wsdl:part name="payType" type="s:string"/>
+        <wsdl:part name="payRecord" type="s:string"/>
+        <wsdl:part name="payMoney" type="s:string"/>
+        <wsdl:part name="medicareMoney" type="s:string"/>
+        <wsdl:part name="socialsecurityNO" type="s:string"/>
+        <wsdl:part name="overRecord" type="s:string"/>
+        <wsdl:part name="overMoney" type="s:string"/>
+        <wsdl:part name="medicareReturn" type="s:string"/>
+        <wsdl:part name="bankReturn" type="s:string"/>
+        <wsdl:part name="terminalCode" type="s:string"/>
+        <wsdl:part name="userNo" type="s:string"/>
+        <wsdl:part name="medicareType" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doPayHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateRecipeStatusStatusHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="hiFeeNos" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateRecipeStatusStatusHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="inpatientPaymentHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="inHosNo" type="s:string"/>
+        <wsdl:part name="bedNo" type="s:string"/>
+        <wsdl:part name="payType" type="s:string"/>
+        <wsdl:part name="payRecord" type="s:string"/>
+        <wsdl:part name="payMoney" type="s:string"/>
+        <wsdl:part name="payReturn" type="s:string"/>
+        <wsdl:part name="terminalCode" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="inpatientPaymentHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="payDetailHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="inHosNo" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="payDetailHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="inHosDetailHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="inHosNo" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="inHosDetailHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryLeaveHosDetailHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="inHosNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryLeaveHosDetailHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInHosInfoHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="cardNo" type="s:string"/>
+        <wsdl:part name="visitCardNo" type="s:string"/>
+        <wsdl:part name="socialsecurityNO" type="s:string"/>
+        <wsdl:part name="bankCardNumber" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInHosInfoHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryArrearsHttpGetIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="inHosNo" type="s:string"/>
+        <wsdl:part name="bedNo" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryArrearsHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInfoByIdNOHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="cardNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInfoByIdNOHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInfoBySocialsecurityNOHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="socialsecurityNO" type="s:string"/>
+        <wsdl:part name="bankCardNumber" type="s:string"/>
+        <wsdl:part name="visitCardNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInfoBySocialsecurityNOHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doCreatCardInfoHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="THiUser" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doCreatCardInfoHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordStatusHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="reportNos" type="s:string"/>
+        <wsdl:part name="reportType" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordStatusHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateExaminationRecordStatusHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="reportNos" type="s:string"/>
+        <wsdl:part name="reportType" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateExaminationRecordStatusHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordListHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryExaminationRecordListHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryHisUserRecordListHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryHisUserRecordListHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="updatePatientInfoHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="cardNo" type="s:string"/>
+        <wsdl:part name="socialsecurityNO" type="s:string"/>
+        <wsdl:part name="bankCardNumber" type="s:string"/>
+        <wsdl:part name="visitCardNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="updatePatientInfoHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorListHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorListHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentByIdHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="organId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentByIdHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentListHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDepartmentListHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorByIdHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="organdoctorId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorByIdHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryHospitalInfoHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryHospitalInfoHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDrugListHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="pyCode" type="s:string"/>
+        <wsdl:part name="Type" type="s:string"/>
+        <wsdl:part name="Start" type="s:string"/>
+        <wsdl:part name="RequestQty" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDrugListHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegCancelHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="sourceMark" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="sourceDate" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegCancelHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="doRegIn" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListByDoctorIdHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+        <wsdl:part name="organdoctorId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorListByDoctorIdHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegWaitNumHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="sourceMark" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="sourceDate" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegWaitNumHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryTaketheNoHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="sourceMark" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="sourceDate" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryTaketheNoHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doTaketheNoHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="doTakeIn" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doTaketheNoHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegAndTaketheNoHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="doRegIn" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegAndTaketheNoHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegBypatientNoHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryRegBypatientNoHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorTimesHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="sourceDate" type="s:string"/>
+        <wsdl:part name="organdoctorId" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+        <wsdl:part name="sourceTimeType" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToRegDoctorTimesHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryAppointmentPayStatusHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="sourceMark" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryAppointmentPayStatusHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doctorStoppedHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doctorStoppedHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorRegWaitNumHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="organdoctorId" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryDoctorRegWaitNumHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegMedicareInfoHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="doRegIn" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doRegMedicareInfoHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToPayRecipeInfoListHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="medicareType" type="s:string"/>
+        <wsdl:part name="medicareMess" type="s:string"/>
+        <wsdl:part name="terminalCode" type="s:string"/>
+        <wsdl:part name="terminalType" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryToPayRecipeInfoListHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPaymentRecordListHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPaymentRecordListHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPayStatusHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="hiFeeNos" type="s:string"/>
+        <wsdl:part name="payType" type="s:string"/>
+        <wsdl:part name="payRecord" type="s:string"/>
+        <wsdl:part name="payMoney" type="s:string"/>
+        <wsdl:part name="medicareMoney" type="s:string"/>
+        <wsdl:part name="socialsecurityNO" type="s:string"/>
+        <wsdl:part name="overRecord" type="s:string"/>
+        <wsdl:part name="overMoney" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPayStatusHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceReportListHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceReportListHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceDetailHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="outInvoiceId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryInvoiceDetailHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateInvoiceStatusHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="outInvoiceId" type="s:string"/>
+        <wsdl:part name="clinicTrueNo" type="s:string"/>
+        <wsdl:part name="cardTypeID" type="s:string"/>
+        <wsdl:part name="cardNo" type="s:string"/>
+        <wsdl:part name="visitCardNo" type="s:string"/>
+        <wsdl:part name="terminalCode" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateInvoiceStatusHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="doPayHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="hiFeeNos" type="s:string"/>
+        <wsdl:part name="payType" type="s:string"/>
+        <wsdl:part name="payRecord" type="s:string"/>
+        <wsdl:part name="payMoney" type="s:string"/>
+        <wsdl:part name="medicareMoney" type="s:string"/>
+        <wsdl:part name="socialsecurityNO" type="s:string"/>
+        <wsdl:part name="overRecord" type="s:string"/>
+        <wsdl:part name="overMoney" type="s:string"/>
+        <wsdl:part name="medicareReturn" type="s:string"/>
+        <wsdl:part name="bankReturn" type="s:string"/>
+        <wsdl:part name="terminalCode" type="s:string"/>
+        <wsdl:part name="userNo" type="s:string"/>
+        <wsdl:part name="medicareType" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="doPayHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateRecipeStatusStatusHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="hiFeeNos" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="updateRecipeStatusStatusHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="inpatientPaymentHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="inHosNo" type="s:string"/>
+        <wsdl:part name="bedNo" type="s:string"/>
+        <wsdl:part name="payType" type="s:string"/>
+        <wsdl:part name="payRecord" type="s:string"/>
+        <wsdl:part name="payMoney" type="s:string"/>
+        <wsdl:part name="payReturn" type="s:string"/>
+        <wsdl:part name="terminalCode" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="inpatientPaymentHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="payDetailHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="inHosNo" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="payDetailHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="inHosDetailHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="patientNo" type="s:string"/>
+        <wsdl:part name="inHosNo" type="s:string"/>
+        <wsdl:part name="startDate" type="s:string"/>
+        <wsdl:part name="endDate" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="inHosDetailHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryLeaveHosDetailHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="inHosNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryLeaveHosDetailHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInHosInfoHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="cardNo" type="s:string"/>
+        <wsdl:part name="visitCardNo" type="s:string"/>
+        <wsdl:part name="socialsecurityNO" type="s:string"/>
+        <wsdl:part name="bankCardNumber" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryPatientInHosInfoHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryArrearsHttpPostIn">
+        <wsdl:part name="synUserName" type="s:string"/>
+        <wsdl:part name="synKey" type="s:string"/>
+        <wsdl:part name="inHosNo" type="s:string"/>
+        <wsdl:part name="bedNo" type="s:string"/>
+        <wsdl:part name="departmentorganId" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="queryArrearsHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:portType name="HISInterface_qkbSoap">
+        <wsdl:operation name="queryPatientInfoByIdNO">
+            <wsdl:input message="tns:queryPatientInfoByIdNOSoapIn"/>
+            <wsdl:output message="tns:queryPatientInfoByIdNOSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInfoBySocialsecurityNO">
+            <wsdl:input message="tns:queryPatientInfoBySocialsecurityNOSoapIn"/>
+            <wsdl:output message="tns:queryPatientInfoBySocialsecurityNOSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doCreatCardInfo">
+            <wsdl:input message="tns:doCreatCardInfoSoapIn"/>
+            <wsdl:output message="tns:doCreatCardInfoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordStatus">
+            <wsdl:input message="tns:queryExaminationRecordStatusSoapIn"/>
+            <wsdl:output message="tns:queryExaminationRecordStatusSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateExaminationRecordStatus">
+            <wsdl:input message="tns:updateExaminationRecordStatusSoapIn"/>
+            <wsdl:output message="tns:updateExaminationRecordStatusSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordList">
+            <wsdl:input message="tns:queryExaminationRecordListSoapIn"/>
+            <wsdl:output message="tns:queryExaminationRecordListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryHisUserRecordList">
+            <wsdl:input message="tns:queryHisUserRecordListSoapIn"/>
+            <wsdl:output message="tns:queryHisUserRecordListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePatientInfo">
+            <wsdl:input message="tns:updatePatientInfoSoapIn"/>
+            <wsdl:output message="tns:updatePatientInfoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorList">
+            <wsdl:input message="tns:queryDoctorListSoapIn"/>
+            <wsdl:output message="tns:queryDoctorListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentById">
+            <wsdl:input message="tns:queryDepartmentByIdSoapIn"/>
+            <wsdl:output message="tns:queryDepartmentByIdSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentList">
+            <wsdl:input message="tns:queryDepartmentListSoapIn"/>
+            <wsdl:output message="tns:queryDepartmentListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorById">
+            <wsdl:input message="tns:queryDoctorByIdSoapIn"/>
+            <wsdl:output message="tns:queryDoctorByIdSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryHospitalInfo">
+            <wsdl:input message="tns:queryHospitalInfoSoapIn"/>
+            <wsdl:output message="tns:queryHospitalInfoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDrugList">
+            <wsdl:input message="tns:queryDrugListSoapIn"/>
+            <wsdl:output message="tns:queryDrugListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doRegCancel">
+            <wsdl:input message="tns:doRegCancelSoapIn"/>
+            <wsdl:output message="tns:doRegCancelSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doReg">
+            <wsdl:input message="tns:doRegSoapIn"/>
+            <wsdl:output message="tns:doRegSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorList">
+            <wsdl:input message="tns:queryToRegDoctorListSoapIn"/>
+            <wsdl:output message="tns:queryToRegDoctorListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorListByDoctorId">
+            <wsdl:input message="tns:queryToRegDoctorListByDoctorIdSoapIn"/>
+            <wsdl:output message="tns:queryToRegDoctorListByDoctorIdSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegWaitNum">
+            <wsdl:input message="tns:queryRegWaitNumSoapIn"/>
+            <wsdl:output message="tns:queryRegWaitNumSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryTaketheNo">
+            <wsdl:input message="tns:queryTaketheNoSoapIn"/>
+            <wsdl:output message="tns:queryTaketheNoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doTaketheNo">
+            <wsdl:input message="tns:doTaketheNoSoapIn"/>
+            <wsdl:output message="tns:doTaketheNoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doRegAndTaketheNo">
+            <wsdl:input message="tns:doRegAndTaketheNoSoapIn"/>
+            <wsdl:output message="tns:doRegAndTaketheNoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegBypatientNo">
+            <wsdl:input message="tns:queryRegBypatientNoSoapIn"/>
+            <wsdl:output message="tns:queryRegBypatientNoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorTimes">
+            <wsdl:input message="tns:queryToRegDoctorTimesSoapIn"/>
+            <wsdl:output message="tns:queryToRegDoctorTimesSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryAppointmentPayStatus">
+            <wsdl:input message="tns:queryAppointmentPayStatusSoapIn"/>
+            <wsdl:output message="tns:queryAppointmentPayStatusSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doctorStopped">
+            <wsdl:input message="tns:doctorStoppedSoapIn"/>
+            <wsdl:output message="tns:doctorStoppedSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorRegWaitNum">
+            <wsdl:input message="tns:queryDoctorRegWaitNumSoapIn"/>
+            <wsdl:output message="tns:queryDoctorRegWaitNumSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doRegMedicareInfo">
+            <wsdl:input message="tns:doRegMedicareInfoSoapIn"/>
+            <wsdl:output message="tns:doRegMedicareInfoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToPayRecipeInfoList">
+            <wsdl:input message="tns:queryToPayRecipeInfoListSoapIn"/>
+            <wsdl:output message="tns:queryToPayRecipeInfoListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPaymentRecordList">
+            <wsdl:input message="tns:queryPaymentRecordListSoapIn"/>
+            <wsdl:output message="tns:queryPaymentRecordListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPayStatus">
+            <wsdl:input message="tns:queryPayStatusSoapIn"/>
+            <wsdl:output message="tns:queryPayStatusSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceReportList">
+            <wsdl:input message="tns:queryInvoiceReportListSoapIn"/>
+            <wsdl:output message="tns:queryInvoiceReportListSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceDetail">
+            <wsdl:input message="tns:queryInvoiceDetailSoapIn"/>
+            <wsdl:output message="tns:queryInvoiceDetailSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateInvoiceStatus">
+            <wsdl:input message="tns:updateInvoiceStatusSoapIn"/>
+            <wsdl:output message="tns:updateInvoiceStatusSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doPay">
+            <wsdl:input message="tns:doPaySoapIn"/>
+            <wsdl:output message="tns:doPaySoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateRecipeStatusStatus">
+            <wsdl:input message="tns:updateRecipeStatusStatusSoapIn"/>
+            <wsdl:output message="tns:updateRecipeStatusStatusSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="inpatientPayment">
+            <wsdl:input message="tns:inpatientPaymentSoapIn"/>
+            <wsdl:output message="tns:inpatientPaymentSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="payDetail">
+            <wsdl:input message="tns:payDetailSoapIn"/>
+            <wsdl:output message="tns:payDetailSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="inHosDetail">
+            <wsdl:input message="tns:inHosDetailSoapIn"/>
+            <wsdl:output message="tns:inHosDetailSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryLeaveHosDetail">
+            <wsdl:input message="tns:queryLeaveHosDetailSoapIn"/>
+            <wsdl:output message="tns:queryLeaveHosDetailSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInHosInfo">
+            <wsdl:input message="tns:queryPatientInHosInfoSoapIn"/>
+            <wsdl:output message="tns:queryPatientInHosInfoSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryArrears">
+            <wsdl:input message="tns:queryArrearsSoapIn"/>
+            <wsdl:output message="tns:queryArrearsSoapOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="HISInterface_qkbHttpGet">
+        <wsdl:operation name="queryPatientInfoByIdNO">
+            <wsdl:input message="tns:queryPatientInfoByIdNOHttpGetIn"/>
+            <wsdl:output message="tns:queryPatientInfoByIdNOHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInfoBySocialsecurityNO">
+            <wsdl:input message="tns:queryPatientInfoBySocialsecurityNOHttpGetIn"/>
+            <wsdl:output message="tns:queryPatientInfoBySocialsecurityNOHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doCreatCardInfo">
+            <wsdl:input message="tns:doCreatCardInfoHttpGetIn"/>
+            <wsdl:output message="tns:doCreatCardInfoHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordStatus">
+            <wsdl:input message="tns:queryExaminationRecordStatusHttpGetIn"/>
+            <wsdl:output message="tns:queryExaminationRecordStatusHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateExaminationRecordStatus">
+            <wsdl:input message="tns:updateExaminationRecordStatusHttpGetIn"/>
+            <wsdl:output message="tns:updateExaminationRecordStatusHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordList">
+            <wsdl:input message="tns:queryExaminationRecordListHttpGetIn"/>
+            <wsdl:output message="tns:queryExaminationRecordListHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryHisUserRecordList">
+            <wsdl:input message="tns:queryHisUserRecordListHttpGetIn"/>
+            <wsdl:output message="tns:queryHisUserRecordListHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePatientInfo">
+            <wsdl:input message="tns:updatePatientInfoHttpGetIn"/>
+            <wsdl:output message="tns:updatePatientInfoHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorList">
+            <wsdl:input message="tns:queryDoctorListHttpGetIn"/>
+            <wsdl:output message="tns:queryDoctorListHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentById">
+            <wsdl:input message="tns:queryDepartmentByIdHttpGetIn"/>
+            <wsdl:output message="tns:queryDepartmentByIdHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentList">
+            <wsdl:input message="tns:queryDepartmentListHttpGetIn"/>
+            <wsdl:output message="tns:queryDepartmentListHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorById">
+            <wsdl:input message="tns:queryDoctorByIdHttpGetIn"/>
+            <wsdl:output message="tns:queryDoctorByIdHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryHospitalInfo">
+            <wsdl:input message="tns:queryHospitalInfoHttpGetIn"/>
+            <wsdl:output message="tns:queryHospitalInfoHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDrugList">
+            <wsdl:input message="tns:queryDrugListHttpGetIn"/>
+            <wsdl:output message="tns:queryDrugListHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doRegCancel">
+            <wsdl:input message="tns:doRegCancelHttpGetIn"/>
+            <wsdl:output message="tns:doRegCancelHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doReg">
+            <wsdl:input message="tns:doRegHttpGetIn"/>
+            <wsdl:output message="tns:doRegHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorList">
+            <wsdl:input message="tns:queryToRegDoctorListHttpGetIn"/>
+            <wsdl:output message="tns:queryToRegDoctorListHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorListByDoctorId">
+            <wsdl:input message="tns:queryToRegDoctorListByDoctorIdHttpGetIn"/>
+            <wsdl:output message="tns:queryToRegDoctorListByDoctorIdHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegWaitNum">
+            <wsdl:input message="tns:queryRegWaitNumHttpGetIn"/>
+            <wsdl:output message="tns:queryRegWaitNumHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryTaketheNo">
+            <wsdl:input message="tns:queryTaketheNoHttpGetIn"/>
+            <wsdl:output message="tns:queryTaketheNoHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doTaketheNo">
+            <wsdl:input message="tns:doTaketheNoHttpGetIn"/>
+            <wsdl:output message="tns:doTaketheNoHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doRegAndTaketheNo">
+            <wsdl:input message="tns:doRegAndTaketheNoHttpGetIn"/>
+            <wsdl:output message="tns:doRegAndTaketheNoHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegBypatientNo">
+            <wsdl:input message="tns:queryRegBypatientNoHttpGetIn"/>
+            <wsdl:output message="tns:queryRegBypatientNoHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorTimes">
+            <wsdl:input message="tns:queryToRegDoctorTimesHttpGetIn"/>
+            <wsdl:output message="tns:queryToRegDoctorTimesHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryAppointmentPayStatus">
+            <wsdl:input message="tns:queryAppointmentPayStatusHttpGetIn"/>
+            <wsdl:output message="tns:queryAppointmentPayStatusHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doctorStopped">
+            <wsdl:input message="tns:doctorStoppedHttpGetIn"/>
+            <wsdl:output message="tns:doctorStoppedHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorRegWaitNum">
+            <wsdl:input message="tns:queryDoctorRegWaitNumHttpGetIn"/>
+            <wsdl:output message="tns:queryDoctorRegWaitNumHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doRegMedicareInfo">
+            <wsdl:input message="tns:doRegMedicareInfoHttpGetIn"/>
+            <wsdl:output message="tns:doRegMedicareInfoHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToPayRecipeInfoList">
+            <wsdl:input message="tns:queryToPayRecipeInfoListHttpGetIn"/>
+            <wsdl:output message="tns:queryToPayRecipeInfoListHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPaymentRecordList">
+            <wsdl:input message="tns:queryPaymentRecordListHttpGetIn"/>
+            <wsdl:output message="tns:queryPaymentRecordListHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPayStatus">
+            <wsdl:input message="tns:queryPayStatusHttpGetIn"/>
+            <wsdl:output message="tns:queryPayStatusHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceReportList">
+            <wsdl:input message="tns:queryInvoiceReportListHttpGetIn"/>
+            <wsdl:output message="tns:queryInvoiceReportListHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceDetail">
+            <wsdl:input message="tns:queryInvoiceDetailHttpGetIn"/>
+            <wsdl:output message="tns:queryInvoiceDetailHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateInvoiceStatus">
+            <wsdl:input message="tns:updateInvoiceStatusHttpGetIn"/>
+            <wsdl:output message="tns:updateInvoiceStatusHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doPay">
+            <wsdl:input message="tns:doPayHttpGetIn"/>
+            <wsdl:output message="tns:doPayHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateRecipeStatusStatus">
+            <wsdl:input message="tns:updateRecipeStatusStatusHttpGetIn"/>
+            <wsdl:output message="tns:updateRecipeStatusStatusHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="inpatientPayment">
+            <wsdl:input message="tns:inpatientPaymentHttpGetIn"/>
+            <wsdl:output message="tns:inpatientPaymentHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="payDetail">
+            <wsdl:input message="tns:payDetailHttpGetIn"/>
+            <wsdl:output message="tns:payDetailHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="inHosDetail">
+            <wsdl:input message="tns:inHosDetailHttpGetIn"/>
+            <wsdl:output message="tns:inHosDetailHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryLeaveHosDetail">
+            <wsdl:input message="tns:queryLeaveHosDetailHttpGetIn"/>
+            <wsdl:output message="tns:queryLeaveHosDetailHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInHosInfo">
+            <wsdl:input message="tns:queryPatientInHosInfoHttpGetIn"/>
+            <wsdl:output message="tns:queryPatientInHosInfoHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryArrears">
+            <wsdl:input message="tns:queryArrearsHttpGetIn"/>
+            <wsdl:output message="tns:queryArrearsHttpGetOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="HISInterface_qkbHttpPost">
+        <wsdl:operation name="queryPatientInfoByIdNO">
+            <wsdl:input message="tns:queryPatientInfoByIdNOHttpPostIn"/>
+            <wsdl:output message="tns:queryPatientInfoByIdNOHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInfoBySocialsecurityNO">
+            <wsdl:input message="tns:queryPatientInfoBySocialsecurityNOHttpPostIn"/>
+            <wsdl:output message="tns:queryPatientInfoBySocialsecurityNOHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doCreatCardInfo">
+            <wsdl:input message="tns:doCreatCardInfoHttpPostIn"/>
+            <wsdl:output message="tns:doCreatCardInfoHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordStatus">
+            <wsdl:input message="tns:queryExaminationRecordStatusHttpPostIn"/>
+            <wsdl:output message="tns:queryExaminationRecordStatusHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateExaminationRecordStatus">
+            <wsdl:input message="tns:updateExaminationRecordStatusHttpPostIn"/>
+            <wsdl:output message="tns:updateExaminationRecordStatusHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordList">
+            <wsdl:input message="tns:queryExaminationRecordListHttpPostIn"/>
+            <wsdl:output message="tns:queryExaminationRecordListHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryHisUserRecordList">
+            <wsdl:input message="tns:queryHisUserRecordListHttpPostIn"/>
+            <wsdl:output message="tns:queryHisUserRecordListHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePatientInfo">
+            <wsdl:input message="tns:updatePatientInfoHttpPostIn"/>
+            <wsdl:output message="tns:updatePatientInfoHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorList">
+            <wsdl:input message="tns:queryDoctorListHttpPostIn"/>
+            <wsdl:output message="tns:queryDoctorListHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentById">
+            <wsdl:input message="tns:queryDepartmentByIdHttpPostIn"/>
+            <wsdl:output message="tns:queryDepartmentByIdHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentList">
+            <wsdl:input message="tns:queryDepartmentListHttpPostIn"/>
+            <wsdl:output message="tns:queryDepartmentListHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorById">
+            <wsdl:input message="tns:queryDoctorByIdHttpPostIn"/>
+            <wsdl:output message="tns:queryDoctorByIdHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryHospitalInfo">
+            <wsdl:input message="tns:queryHospitalInfoHttpPostIn"/>
+            <wsdl:output message="tns:queryHospitalInfoHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDrugList">
+            <wsdl:input message="tns:queryDrugListHttpPostIn"/>
+            <wsdl:output message="tns:queryDrugListHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doRegCancel">
+            <wsdl:input message="tns:doRegCancelHttpPostIn"/>
+            <wsdl:output message="tns:doRegCancelHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doReg">
+            <wsdl:input message="tns:doRegHttpPostIn"/>
+            <wsdl:output message="tns:doRegHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorList">
+            <wsdl:input message="tns:queryToRegDoctorListHttpPostIn"/>
+            <wsdl:output message="tns:queryToRegDoctorListHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorListByDoctorId">
+            <wsdl:input message="tns:queryToRegDoctorListByDoctorIdHttpPostIn"/>
+            <wsdl:output message="tns:queryToRegDoctorListByDoctorIdHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegWaitNum">
+            <wsdl:input message="tns:queryRegWaitNumHttpPostIn"/>
+            <wsdl:output message="tns:queryRegWaitNumHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryTaketheNo">
+            <wsdl:input message="tns:queryTaketheNoHttpPostIn"/>
+            <wsdl:output message="tns:queryTaketheNoHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doTaketheNo">
+            <wsdl:input message="tns:doTaketheNoHttpPostIn"/>
+            <wsdl:output message="tns:doTaketheNoHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doRegAndTaketheNo">
+            <wsdl:input message="tns:doRegAndTaketheNoHttpPostIn"/>
+            <wsdl:output message="tns:doRegAndTaketheNoHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegBypatientNo">
+            <wsdl:input message="tns:queryRegBypatientNoHttpPostIn"/>
+            <wsdl:output message="tns:queryRegBypatientNoHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorTimes">
+            <wsdl:input message="tns:queryToRegDoctorTimesHttpPostIn"/>
+            <wsdl:output message="tns:queryToRegDoctorTimesHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryAppointmentPayStatus">
+            <wsdl:input message="tns:queryAppointmentPayStatusHttpPostIn"/>
+            <wsdl:output message="tns:queryAppointmentPayStatusHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doctorStopped">
+            <wsdl:input message="tns:doctorStoppedHttpPostIn"/>
+            <wsdl:output message="tns:doctorStoppedHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorRegWaitNum">
+            <wsdl:input message="tns:queryDoctorRegWaitNumHttpPostIn"/>
+            <wsdl:output message="tns:queryDoctorRegWaitNumHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doRegMedicareInfo">
+            <wsdl:input message="tns:doRegMedicareInfoHttpPostIn"/>
+            <wsdl:output message="tns:doRegMedicareInfoHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryToPayRecipeInfoList">
+            <wsdl:input message="tns:queryToPayRecipeInfoListHttpPostIn"/>
+            <wsdl:output message="tns:queryToPayRecipeInfoListHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPaymentRecordList">
+            <wsdl:input message="tns:queryPaymentRecordListHttpPostIn"/>
+            <wsdl:output message="tns:queryPaymentRecordListHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPayStatus">
+            <wsdl:input message="tns:queryPayStatusHttpPostIn"/>
+            <wsdl:output message="tns:queryPayStatusHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceReportList">
+            <wsdl:input message="tns:queryInvoiceReportListHttpPostIn"/>
+            <wsdl:output message="tns:queryInvoiceReportListHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceDetail">
+            <wsdl:input message="tns:queryInvoiceDetailHttpPostIn"/>
+            <wsdl:output message="tns:queryInvoiceDetailHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateInvoiceStatus">
+            <wsdl:input message="tns:updateInvoiceStatusHttpPostIn"/>
+            <wsdl:output message="tns:updateInvoiceStatusHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="doPay">
+            <wsdl:input message="tns:doPayHttpPostIn"/>
+            <wsdl:output message="tns:doPayHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateRecipeStatusStatus">
+            <wsdl:input message="tns:updateRecipeStatusStatusHttpPostIn"/>
+            <wsdl:output message="tns:updateRecipeStatusStatusHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="inpatientPayment">
+            <wsdl:input message="tns:inpatientPaymentHttpPostIn"/>
+            <wsdl:output message="tns:inpatientPaymentHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="payDetail">
+            <wsdl:input message="tns:payDetailHttpPostIn"/>
+            <wsdl:output message="tns:payDetailHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="inHosDetail">
+            <wsdl:input message="tns:inHosDetailHttpPostIn"/>
+            <wsdl:output message="tns:inHosDetailHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryLeaveHosDetail">
+            <wsdl:input message="tns:queryLeaveHosDetailHttpPostIn"/>
+            <wsdl:output message="tns:queryLeaveHosDetailHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInHosInfo">
+            <wsdl:input message="tns:queryPatientInHosInfoHttpPostIn"/>
+            <wsdl:output message="tns:queryPatientInHosInfoHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryArrears">
+            <wsdl:input message="tns:queryArrearsHttpPostIn"/>
+            <wsdl:output message="tns:queryArrearsHttpPostOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="HISInterface_qkbSoap" type="tns:HISInterface_qkbSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="queryPatientInfoByIdNO">
+            <soap:operation soapAction="http://tempuri.org/queryPatientInfoByIdNO" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInfoBySocialsecurityNO">
+            <soap:operation soapAction="http://tempuri.org/queryPatientInfoBySocialsecurityNO" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doCreatCardInfo">
+            <soap:operation soapAction="http://tempuri.org/doCreatCardInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordStatus">
+            <soap:operation soapAction="http://tempuri.org/queryExaminationRecordStatus" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateExaminationRecordStatus">
+            <soap:operation soapAction="http://tempuri.org/updateExaminationRecordStatus" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordList">
+            <soap:operation soapAction="http://tempuri.org/queryExaminationRecordList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryHisUserRecordList">
+            <soap:operation soapAction="http://tempuri.org/queryHisUserRecordList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePatientInfo">
+            <soap:operation soapAction="http://tempuri.org/updatePatientInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorList">
+            <soap:operation soapAction="http://tempuri.org/queryDoctorList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentById">
+            <soap:operation soapAction="http://tempuri.org/queryDepartmentById" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentList">
+            <soap:operation soapAction="http://tempuri.org/queryDepartmentList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorById">
+            <soap:operation soapAction="http://tempuri.org/queryDoctorById" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryHospitalInfo">
+            <soap:operation soapAction="http://tempuri.org/queryHospitalInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDrugList">
+            <soap:operation soapAction="http://tempuri.org/queryDrugList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegCancel">
+            <soap:operation soapAction="http://tempuri.org/doRegCancel" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doReg">
+            <soap:operation soapAction="http://tempuri.org/doReg" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorList">
+            <soap:operation soapAction="http://tempuri.org/queryToRegDoctorList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorListByDoctorId">
+            <soap:operation soapAction="http://tempuri.org/queryToRegDoctorListByDoctorId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegWaitNum">
+            <soap:operation soapAction="http://tempuri.org/queryRegWaitNum" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryTaketheNo">
+            <soap:operation soapAction="http://tempuri.org/queryTaketheNo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doTaketheNo">
+            <soap:operation soapAction="http://tempuri.org/doTaketheNo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegAndTaketheNo">
+            <soap:operation soapAction="http://tempuri.org/doRegAndTaketheNo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegBypatientNo">
+            <soap:operation soapAction="http://tempuri.org/queryRegBypatientNo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorTimes">
+            <soap:operation soapAction="http://tempuri.org/queryToRegDoctorTimes" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryAppointmentPayStatus">
+            <soap:operation soapAction="http://tempuri.org/queryAppointmentPayStatus" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doctorStopped">
+            <soap:operation soapAction="http://tempuri.org/doctorStopped" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorRegWaitNum">
+            <soap:operation soapAction="http://tempuri.org/queryDoctorRegWaitNum" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegMedicareInfo">
+            <soap:operation soapAction="http://tempuri.org/doRegMedicareInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToPayRecipeInfoList">
+            <soap:operation soapAction="http://tempuri.org/queryToPayRecipeInfoList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPaymentRecordList">
+            <soap:operation soapAction="http://tempuri.org/queryPaymentRecordList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPayStatus">
+            <soap:operation soapAction="http://tempuri.org/queryPayStatus" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceReportList">
+            <soap:operation soapAction="http://tempuri.org/queryInvoiceReportList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceDetail">
+            <soap:operation soapAction="http://tempuri.org/queryInvoiceDetail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateInvoiceStatus">
+            <soap:operation soapAction="http://tempuri.org/updateInvoiceStatus" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doPay">
+            <soap:operation soapAction="http://tempuri.org/doPay" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateRecipeStatusStatus">
+            <soap:operation soapAction="http://tempuri.org/updateRecipeStatusStatus" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inpatientPayment">
+            <soap:operation soapAction="http://tempuri.org/inpatientPayment" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="payDetail">
+            <soap:operation soapAction="http://tempuri.org/payDetail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inHosDetail">
+            <soap:operation soapAction="http://tempuri.org/inHosDetail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryLeaveHosDetail">
+            <soap:operation soapAction="http://tempuri.org/queryLeaveHosDetail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInHosInfo">
+            <soap:operation soapAction="http://tempuri.org/queryPatientInHosInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryArrears">
+            <soap:operation soapAction="http://tempuri.org/queryArrears" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="HISInterface_qkbSoap12" type="tns:HISInterface_qkbSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="queryPatientInfoByIdNO">
+            <soap12:operation soapAction="http://tempuri.org/queryPatientInfoByIdNO" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInfoBySocialsecurityNO">
+            <soap12:operation soapAction="http://tempuri.org/queryPatientInfoBySocialsecurityNO" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doCreatCardInfo">
+            <soap12:operation soapAction="http://tempuri.org/doCreatCardInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordStatus">
+            <soap12:operation soapAction="http://tempuri.org/queryExaminationRecordStatus" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateExaminationRecordStatus">
+            <soap12:operation soapAction="http://tempuri.org/updateExaminationRecordStatus" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordList">
+            <soap12:operation soapAction="http://tempuri.org/queryExaminationRecordList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryHisUserRecordList">
+            <soap12:operation soapAction="http://tempuri.org/queryHisUserRecordList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePatientInfo">
+            <soap12:operation soapAction="http://tempuri.org/updatePatientInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorList">
+            <soap12:operation soapAction="http://tempuri.org/queryDoctorList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentById">
+            <soap12:operation soapAction="http://tempuri.org/queryDepartmentById" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentList">
+            <soap12:operation soapAction="http://tempuri.org/queryDepartmentList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorById">
+            <soap12:operation soapAction="http://tempuri.org/queryDoctorById" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryHospitalInfo">
+            <soap12:operation soapAction="http://tempuri.org/queryHospitalInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDrugList">
+            <soap12:operation soapAction="http://tempuri.org/queryDrugList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegCancel">
+            <soap12:operation soapAction="http://tempuri.org/doRegCancel" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doReg">
+            <soap12:operation soapAction="http://tempuri.org/doReg" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorList">
+            <soap12:operation soapAction="http://tempuri.org/queryToRegDoctorList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorListByDoctorId">
+            <soap12:operation soapAction="http://tempuri.org/queryToRegDoctorListByDoctorId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegWaitNum">
+            <soap12:operation soapAction="http://tempuri.org/queryRegWaitNum" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryTaketheNo">
+            <soap12:operation soapAction="http://tempuri.org/queryTaketheNo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doTaketheNo">
+            <soap12:operation soapAction="http://tempuri.org/doTaketheNo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegAndTaketheNo">
+            <soap12:operation soapAction="http://tempuri.org/doRegAndTaketheNo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegBypatientNo">
+            <soap12:operation soapAction="http://tempuri.org/queryRegBypatientNo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorTimes">
+            <soap12:operation soapAction="http://tempuri.org/queryToRegDoctorTimes" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryAppointmentPayStatus">
+            <soap12:operation soapAction="http://tempuri.org/queryAppointmentPayStatus" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doctorStopped">
+            <soap12:operation soapAction="http://tempuri.org/doctorStopped" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorRegWaitNum">
+            <soap12:operation soapAction="http://tempuri.org/queryDoctorRegWaitNum" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegMedicareInfo">
+            <soap12:operation soapAction="http://tempuri.org/doRegMedicareInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToPayRecipeInfoList">
+            <soap12:operation soapAction="http://tempuri.org/queryToPayRecipeInfoList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPaymentRecordList">
+            <soap12:operation soapAction="http://tempuri.org/queryPaymentRecordList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPayStatus">
+            <soap12:operation soapAction="http://tempuri.org/queryPayStatus" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceReportList">
+            <soap12:operation soapAction="http://tempuri.org/queryInvoiceReportList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceDetail">
+            <soap12:operation soapAction="http://tempuri.org/queryInvoiceDetail" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateInvoiceStatus">
+            <soap12:operation soapAction="http://tempuri.org/updateInvoiceStatus" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doPay">
+            <soap12:operation soapAction="http://tempuri.org/doPay" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateRecipeStatusStatus">
+            <soap12:operation soapAction="http://tempuri.org/updateRecipeStatusStatus" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inpatientPayment">
+            <soap12:operation soapAction="http://tempuri.org/inpatientPayment" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="payDetail">
+            <soap12:operation soapAction="http://tempuri.org/payDetail" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inHosDetail">
+            <soap12:operation soapAction="http://tempuri.org/inHosDetail" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryLeaveHosDetail">
+            <soap12:operation soapAction="http://tempuri.org/queryLeaveHosDetail" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInHosInfo">
+            <soap12:operation soapAction="http://tempuri.org/queryPatientInHosInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryArrears">
+            <soap12:operation soapAction="http://tempuri.org/queryArrears" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="HISInterface_qkbHttpGet" type="tns:HISInterface_qkbHttpGet">
+        <http:binding verb="GET"/>
+        <wsdl:operation name="queryPatientInfoByIdNO">
+            <http:operation location="/queryPatientInfoByIdNO"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInfoBySocialsecurityNO">
+            <http:operation location="/queryPatientInfoBySocialsecurityNO"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doCreatCardInfo">
+            <http:operation location="/doCreatCardInfo"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordStatus">
+            <http:operation location="/queryExaminationRecordStatus"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateExaminationRecordStatus">
+            <http:operation location="/updateExaminationRecordStatus"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordList">
+            <http:operation location="/queryExaminationRecordList"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryHisUserRecordList">
+            <http:operation location="/queryHisUserRecordList"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePatientInfo">
+            <http:operation location="/updatePatientInfo"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorList">
+            <http:operation location="/queryDoctorList"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentById">
+            <http:operation location="/queryDepartmentById"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentList">
+            <http:operation location="/queryDepartmentList"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorById">
+            <http:operation location="/queryDoctorById"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryHospitalInfo">
+            <http:operation location="/queryHospitalInfo"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDrugList">
+            <http:operation location="/queryDrugList"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegCancel">
+            <http:operation location="/doRegCancel"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doReg">
+            <http:operation location="/doReg"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorList">
+            <http:operation location="/queryToRegDoctorList"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorListByDoctorId">
+            <http:operation location="/queryToRegDoctorListByDoctorId"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegWaitNum">
+            <http:operation location="/queryRegWaitNum"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryTaketheNo">
+            <http:operation location="/queryTaketheNo"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doTaketheNo">
+            <http:operation location="/doTaketheNo"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegAndTaketheNo">
+            <http:operation location="/doRegAndTaketheNo"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegBypatientNo">
+            <http:operation location="/queryRegBypatientNo"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorTimes">
+            <http:operation location="/queryToRegDoctorTimes"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryAppointmentPayStatus">
+            <http:operation location="/queryAppointmentPayStatus"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doctorStopped">
+            <http:operation location="/doctorStopped"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorRegWaitNum">
+            <http:operation location="/queryDoctorRegWaitNum"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegMedicareInfo">
+            <http:operation location="/doRegMedicareInfo"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToPayRecipeInfoList">
+            <http:operation location="/queryToPayRecipeInfoList"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPaymentRecordList">
+            <http:operation location="/queryPaymentRecordList"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPayStatus">
+            <http:operation location="/queryPayStatus"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceReportList">
+            <http:operation location="/queryInvoiceReportList"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceDetail">
+            <http:operation location="/queryInvoiceDetail"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateInvoiceStatus">
+            <http:operation location="/updateInvoiceStatus"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doPay">
+            <http:operation location="/doPay"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateRecipeStatusStatus">
+            <http:operation location="/updateRecipeStatusStatus"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inpatientPayment">
+            <http:operation location="/inpatientPayment"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="payDetail">
+            <http:operation location="/payDetail"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inHosDetail">
+            <http:operation location="/inHosDetail"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryLeaveHosDetail">
+            <http:operation location="/queryLeaveHosDetail"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInHosInfo">
+            <http:operation location="/queryPatientInHosInfo"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryArrears">
+            <http:operation location="/queryArrears"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="HISInterface_qkbHttpPost" type="tns:HISInterface_qkbHttpPost">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="queryPatientInfoByIdNO">
+            <http:operation location="/queryPatientInfoByIdNO"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInfoBySocialsecurityNO">
+            <http:operation location="/queryPatientInfoBySocialsecurityNO"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doCreatCardInfo">
+            <http:operation location="/doCreatCardInfo"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordStatus">
+            <http:operation location="/queryExaminationRecordStatus"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateExaminationRecordStatus">
+            <http:operation location="/updateExaminationRecordStatus"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryExaminationRecordList">
+            <http:operation location="/queryExaminationRecordList"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryHisUserRecordList">
+            <http:operation location="/queryHisUserRecordList"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePatientInfo">
+            <http:operation location="/updatePatientInfo"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorList">
+            <http:operation location="/queryDoctorList"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentById">
+            <http:operation location="/queryDepartmentById"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDepartmentList">
+            <http:operation location="/queryDepartmentList"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorById">
+            <http:operation location="/queryDoctorById"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryHospitalInfo">
+            <http:operation location="/queryHospitalInfo"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDrugList">
+            <http:operation location="/queryDrugList"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegCancel">
+            <http:operation location="/doRegCancel"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doReg">
+            <http:operation location="/doReg"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorList">
+            <http:operation location="/queryToRegDoctorList"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorListByDoctorId">
+            <http:operation location="/queryToRegDoctorListByDoctorId"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegWaitNum">
+            <http:operation location="/queryRegWaitNum"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryTaketheNo">
+            <http:operation location="/queryTaketheNo"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doTaketheNo">
+            <http:operation location="/doTaketheNo"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegAndTaketheNo">
+            <http:operation location="/doRegAndTaketheNo"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryRegBypatientNo">
+            <http:operation location="/queryRegBypatientNo"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToRegDoctorTimes">
+            <http:operation location="/queryToRegDoctorTimes"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryAppointmentPayStatus">
+            <http:operation location="/queryAppointmentPayStatus"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doctorStopped">
+            <http:operation location="/doctorStopped"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryDoctorRegWaitNum">
+            <http:operation location="/queryDoctorRegWaitNum"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doRegMedicareInfo">
+            <http:operation location="/doRegMedicareInfo"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryToPayRecipeInfoList">
+            <http:operation location="/queryToPayRecipeInfoList"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPaymentRecordList">
+            <http:operation location="/queryPaymentRecordList"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPayStatus">
+            <http:operation location="/queryPayStatus"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceReportList">
+            <http:operation location="/queryInvoiceReportList"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryInvoiceDetail">
+            <http:operation location="/queryInvoiceDetail"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateInvoiceStatus">
+            <http:operation location="/updateInvoiceStatus"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doPay">
+            <http:operation location="/doPay"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateRecipeStatusStatus">
+            <http:operation location="/updateRecipeStatusStatus"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inpatientPayment">
+            <http:operation location="/inpatientPayment"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="payDetail">
+            <http:operation location="/payDetail"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inHosDetail">
+            <http:operation location="/inHosDetail"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryLeaveHosDetail">
+            <http:operation location="/queryLeaveHosDetail"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryPatientInHosInfo">
+            <http:operation location="/queryPatientInHosInfo"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryArrears">
+            <http:operation location="/queryArrears"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="HISInterface_qkb">
+        <wsdl:port name="HISInterface_qkbSoap" binding="tns:HISInterface_qkbSoap">
+            <soap:address location="http://wz.his.gxhealth.xin/HISInterface_qkb.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="HISInterface_qkbSoap12" binding="tns:HISInterface_qkbSoap12">
+            <soap12:address location="http://wz.his.gxhealth.xin/HISInterface_qkb.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="HISInterface_qkbHttpGet" binding="tns:HISInterface_qkbHttpGet">
+            <http:address location="http://wz.his.gxhealth.xin/HISInterface_qkb.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="HISInterface_qkbHttpPost" binding="tns:HISInterface_qkbHttpPost">
+            <http:address location="http://wz.his.gxhealth.xin/HISInterface_qkb.asmx"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

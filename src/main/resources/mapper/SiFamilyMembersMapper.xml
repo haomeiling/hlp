@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bxd.sip.bxd.dao.SiFamilyMembersMapper">
+  <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.SiFamilyMembers">
+    <result column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="MOBILE_NO" jdbcType="OTHER" property="mobileNo" />
+    <result column="PATIENT_NAME" jdbcType="OTHER" property="patientName" />
+    <result column="CARD_ID" jdbcType="OTHER" property="cardId" />
+    <result column="MOBILE" jdbcType="OTHER" property="mobile" />
+    <result column="RELATION" jdbcType="OTHER" property="relation" />
+    <result column="CREATETIME" jdbcType="DATE" property="createtime" />
+    <result column="IS_MAIN" jdbcType="DECIMAL" property="isMain" />
+    <result column="HEADNO" jdbcType="DECIMAL" property="headno" />
+    <result column="IS_AUTHORIZE" jdbcType="DECIMAL" property="isAuthorize" />
+    <result column="USER_ID" jdbcType="OTHER" property="userId" />
+    <result column="CARD_NUM" jdbcType="OTHER" property="cardNum" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.SiFamilyMembers">
+    insert into T_SI_FAMILY_MEMBERS (ID, MOBILE_NO, PATIENT_NAME, 
+      CARD_ID, MOBILE, RELATION, 
+      CREATETIME, IS_MAIN, HEADNO, 
+      IS_AUTHORIZE, USER_ID, CARD_NUM
+      )
+    values (#{id,jdbcType=DECIMAL}, #{mobileNo,jdbcType=OTHER}, #{patientName,jdbcType=OTHER}, 
+      #{cardId,jdbcType=OTHER}, #{mobile,jdbcType=OTHER}, #{relation,jdbcType=OTHER}, 
+      #{createtime,jdbcType=DATE}, #{isMain,jdbcType=DECIMAL}, #{headno,jdbcType=DECIMAL}, 
+      #{isAuthorize,jdbcType=DECIMAL}, #{userId,jdbcType=OTHER}, #{cardNum,jdbcType=OTHER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.SiFamilyMembers">
+    insert into T_SI_FAMILY_MEMBERS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="mobileNo != null">
+        MOBILE_NO,
+      </if>
+      <if test="patientName != null">
+        PATIENT_NAME,
+      </if>
+      <if test="cardId != null">
+        CARD_ID,
+      </if>
+      <if test="mobile != null">
+        MOBILE,
+      </if>
+      <if test="relation != null">
+        RELATION,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="isMain != null">
+        IS_MAIN,
+      </if>
+      <if test="headno != null">
+        HEADNO,
+      </if>
+      <if test="isAuthorize != null">
+        IS_AUTHORIZE,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="cardNum != null">
+        CARD_NUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="mobileNo != null">
+        #{mobileNo,jdbcType=OTHER},
+      </if>
+      <if test="patientName != null">
+        #{patientName,jdbcType=OTHER},
+      </if>
+      <if test="cardId != null">
+        #{cardId,jdbcType=OTHER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=OTHER},
+      </if>
+      <if test="relation != null">
+        #{relation,jdbcType=OTHER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=DATE},
+      </if>
+      <if test="isMain != null">
+        #{isMain,jdbcType=DECIMAL},
+      </if>
+      <if test="headno != null">
+        #{headno,jdbcType=DECIMAL},
+      </if>
+      <if test="isAuthorize != null">
+        #{isAuthorize,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=OTHER},
+      </if>
+      <if test="cardNum != null">
+        #{cardNum,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

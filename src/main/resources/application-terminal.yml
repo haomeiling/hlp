@@ -1,0 +1,19 @@
+terminal:
+  #基本信息装配，平台配置HisUserWebService，终端配置HisUser2WebService
+  hisUserQualifier: HisUser2WebService
+    #缴费列表信息装配，平台配置PayWebService，终端配置Pay2WebService
+  payQualifier: PayWebService
+    #预约挂号信息装配，平台配置RegWebService，终端配置RegWebService
+  regQualifier: RegWebService
+    #住院信息装配，平台配置InHosWebService，终端配置InHosWebService
+  inHosQualifier: InHosWebService
+    #公共信息装配，平台配置CommonWebService，终端配置CommonWebService
+  commonQualifier: CommonWebService
+
+    #服务器地址
+  hisUserUrl: http://172.16.100.53:7777/sip/services/HisUser?wsdl
+
+  payUrl: http://172.16.100.53:7777/sip/services/Pay?wsdl
+
+
+

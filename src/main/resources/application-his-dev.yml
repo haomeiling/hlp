@@ -1,0 +1,6 @@
+his:
+  ws_url: classpath:schema/HISInterface_qkb.wsdl
+#启用外联平台的医院
+  hosIdList:
+    - 7962
+    - 14037

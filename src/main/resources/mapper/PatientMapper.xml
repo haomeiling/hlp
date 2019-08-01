@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.PatientMapper">
+    <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.Patient">
+        <id column="EMPI_ID" property="empiId" jdbcType="DECIMAL"/>
+        <result column="ACTUAL_EMPI" property="actualEmpi" jdbcType="DECIMAL"/>
+        <result column="EMPI_NO" property="empiNo" jdbcType="VARCHAR"/>
+        <result column="GMPI_NO" property="gmpiNo" jdbcType="VARCHAR"/>
+        <result column="PATIENT_NAME" property="patientName" jdbcType="VARCHAR"/>
+        <result column="HISTORICAL_NAME" property="historicalName" jdbcType="VARCHAR"/>
+        <result column="BIRTH_DATE" property="birthDate" jdbcType="DECIMAL"/>
+        <result column="BIRTH_TIME" property="birthTime" jdbcType="DECIMAL"/>
+        <result column="BIRTH_PLACE" property="birthPlace" jdbcType="VARCHAR"/>
+        <result column="NATIONALITY_ID" property="nationalityId" jdbcType="DECIMAL"/>
+        <result column="GENDER_ID" property="genderId" jdbcType="DECIMAL"/>
+        <result column="COUNTRY_ID" property="countryId" jdbcType="DECIMAL"/>
+        <result column="RH_BLOOD_TYPE_ID" property="rhBloodTypeId" jdbcType="DECIMAL"/>
+        <result column="ABO_BLOOD_TYPE_ID" property="aboBloodTypeId" jdbcType="DECIMAL"/>
+        <result column="ZONE_ID" property="zoneId" jdbcType="DECIMAL"/>
+        <result column="CAREER_ID" property="careerId" jdbcType="DECIMAL"/>
+        <result column="EDU_BACKGROUND_ID" property="eduBackgroundId" jdbcType="DECIMAL"/>
+        <result column="DEGREE_ID" property="degreeId" jdbcType="DECIMAL"/>
+        <result column="QUALIFICATION_ID" property="qualificationId" jdbcType="DECIMAL"/>
+        <result column="CERT_IDNO" property="certIdno" jdbcType="VARCHAR"/>
+        <result column="CERT_TYPE_ID" property="certTypeId" jdbcType="DECIMAL"/>
+        <result column="CREATED_TIME" property="createdTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_UPDATED" property="lastUpdated" jdbcType="TIMESTAMP"/>
+        <result column="DISABLED" property="disabled" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        EMPI_ID, ACTUAL_EMPI, EMPI_NO, GMPI_NO, PATIENT_NAME, HISTORICAL_NAME, BIRTH_DATE,
+        BIRTH_TIME, BIRTH_PLACE, NATIONALITY_ID, GENDER_ID, COUNTRY_ID, RH_BLOOD_TYPE_ID,
+        ABO_BLOOD_TYPE_ID, ZONE_ID, CAREER_ID, EDU_BACKGROUND_ID, DEGREE_ID, QUALIFICATION_ID,
+        CERT_IDNO, CERT_TYPE_ID, CREATED_TIME, LAST_UPDATED, DISABLED
+    </sql>
+
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from T_MPI_PATIENT
+        where EMPI_ID = #{empiId,jdbcType=DECIMAL}
+    </select>
+
+    <select id="selectByConditions" resultMap="BaseResultMap"
+            parameterType="cn.bxd.sip.bxd.model.entity.Patient">
+        select
+        <include refid="Base_Column_List"/>
+        from T_MPI_PATIENT
+        where 1=1
+        AND PATIENT_NAME=#{patientName,jdbcType=VARCHAR}
+        AND CERT_IDNO=#{certIdno,jdbcType=VARCHAR}
+    </select>
+
+
+    <select id="getPatientListByHosId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from T_MPI_PATIENT P ,T_RHIP_FIX F
+        where 1=1
+        AND P.EMPI_ID=F.EMPI_ID
+        AND F.HOSPITAL_ID=#{hosId,jdbcType=DECIMAL}
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from T_MPI_PATIENT
+        where EMPI_ID = #{empiId,jdbcType=DECIMAL}
+    </delete>
+
+
+    <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.Patient">
+        insert into T_MPI_PATIENT (EMPI_ID, ACTUAL_EMPI, EMPI_NO,
+        GMPI_NO, PATIENT_NAME, HISTORICAL_NAME,
+        BIRTH_DATE, BIRTH_TIME, BIRTH_PLACE,
+        NATIONALITY_ID, GENDER_ID, COUNTRY_ID,
+        RH_BLOOD_TYPE_ID, ABO_BLOOD_TYPE_ID, ZONE_ID,
+        CAREER_ID, EDU_BACKGROUND_ID, DEGREE_ID,
+        QUALIFICATION_ID, CERT_IDNO, CERT_TYPE_ID,
+        CREATED_TIME, LAST_UPDATED, DISABLED
+        )
+        values (#{empiId,jdbcType=DECIMAL}, #{actualEmpi,jdbcType=DECIMAL}, #{empiNo,jdbcType=VARCHAR},
+        #{gmpiNo,jdbcType=VARCHAR}, #{patientName,jdbcType=VARCHAR}, #{historicalName,jdbcType=VARCHAR},
+        #{birthDate,jdbcType=DECIMAL}, #{birthTime,jdbcType=DECIMAL}, #{birthPlace,jdbcType=VARCHAR},
+        #{nationalityId,jdbcType=DECIMAL}, #{genderId,jdbcType=DECIMAL}, #{countryId,jdbcType=DECIMAL},
+        #{rhBloodTypeId,jdbcType=DECIMAL}, #{aboBloodTypeId,jdbcType=DECIMAL}, #{zoneId,jdbcType=DECIMAL},
+        #{careerId,jdbcType=DECIMAL}, #{eduBackgroundId,jdbcType=DECIMAL}, #{degreeId,jdbcType=DECIMAL},
+        #{qualificationId,jdbcType=DECIMAL}, #{certIdno,jdbcType=VARCHAR}, #{certTypeId,jdbcType=DECIMAL},
+        #{createdTime,jdbcType=TIMESTAMP}, #{lastUpdated,jdbcType=TIMESTAMP}, #{disabled,jdbcType=DECIMAL}
+        )
+    </insert>
+
+
+    <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.Patient">
+        insert into T_MPI_PATIENT
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="empiId != null">
+                EMPI_ID,
+            </if>
+            <if test="actualEmpi != null">
+                ACTUAL_EMPI,
+            </if>
+            <if test="empiNo != null">
+                EMPI_NO,
+            </if>
+            <if test="gmpiNo != null">
+                GMPI_NO,
+            </if>
+            <if test="patientName != null">
+                PATIENT_NAME,
+            </if>
+            <if test="historicalName != null">
+                HISTORICAL_NAME,
+            </if>
+            <if test="birthDate != null">
+                BIRTH_DATE,
+            </if>
+            <if test="birthTime != null">
+                BIRTH_TIME,
+            </if>
+            <if test="birthPlace != null">
+                BIRTH_PLACE,
+            </if>
+            <if test="nationalityId != null">
+                NATIONALITY_ID,
+            </if>
+            <if test="genderId != null">
+                GENDER_ID,
+            </if>
+            <if test="countryId != null">
+                COUNTRY_ID,
+            </if>
+            <if test="rhBloodTypeId != null">
+                RH_BLOOD_TYPE_ID,
+            </if>
+            <if test="aboBloodTypeId != null">
+                ABO_BLOOD_TYPE_ID,
+            </if>
+            <if test="zoneId != null">
+                ZONE_ID,
+            </if>
+            <if test="careerId != null">
+                CAREER_ID,
+            </if>
+            <if test="eduBackgroundId != null">
+                EDU_BACKGROUND_ID,
+            </if>
+            <if test="degreeId != null">
+                DEGREE_ID,
+            </if>
+            <if test="qualificationId != null">
+                QUALIFICATION_ID,
+            </if>
+            <if test="certIdno != null">
+                CERT_IDNO,
+            </if>
+            <if test="certTypeId != null">
+                CERT_TYPE_ID,
+            </if>
+            <if test="createdTime != null">
+                CREATED_TIME,
+            </if>
+            <if test="lastUpdated != null">
+                LAST_UPDATED,
+            </if>
+            <if test="disabled != null">
+                DISABLED,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="empiId != null">
+                #{empiId,jdbcType=DECIMAL},
+            </if>
+            <if test="actualEmpi != null">
+                #{actualEmpi,jdbcType=DECIMAL},
+            </if>
+            <if test="empiNo != null">
+                #{empiNo,jdbcType=OTHER},
+            </if>
+            <if test="gmpiNo != null">
+                #{gmpiNo,jdbcType=OTHER},
+            </if>
+            <if test="patientName != null">
+                #{patientName,jdbcType=OTHER},
+            </if>
+            <if test="historicalName != null">
+                #{historicalName,jdbcType=OTHER},
+            </if>
+            <if test="birthDate != null">
+                #{birthDate,jdbcType=DECIMAL},
+            </if>
+            <if test="birthTime != null">
+                #{birthTime,jdbcType=DECIMAL},
+            </if>
+            <if test="birthPlace != null">
+                #{birthPlace,jdbcType=OTHER},
+            </if>
+            <if test="nationalityId != null">
+                #{nationalityId,jdbcType=DECIMAL},
+            </if>
+            <if test="genderId != null">
+                #{genderId,jdbcType=DECIMAL},
+            </if>
+            <if test="countryId != null">
+                #{countryId,jdbcType=DECIMAL},
+            </if>
+            <if test="rhBloodTypeId != null">
+                #{rhBloodTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="aboBloodTypeId != null">
+                #{aboBloodTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="zoneId != null">
+                #{zoneId,jdbcType=DECIMAL},
+            </if>
+            <if test="careerId != null">
+                #{careerId,jdbcType=DECIMAL},
+            </if>
+            <if test="eduBackgroundId != null">
+                #{eduBackgroundId,jdbcType=DECIMAL},
+            </if>
+            <if test="degreeId != null">
+                #{degreeId,jdbcType=DECIMAL},
+            </if>
+            <if test="qualificationId != null">
+                #{qualificationId,jdbcType=DECIMAL},
+            </if>
+            <if test="certIdno != null">
+                #{certIdno,jdbcType=OTHER},
+            </if>
+            <if test="certTypeId != null">
+                #{certTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdated != null">
+                #{lastUpdated,jdbcType=TIMESTAMP},
+            </if>
+            <if test="disabled != null">
+                #{disabled,jdbcType=DECIMAL},
+            </if>
+        </trim>
+    </insert>
+
+
+    <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.Patient">
+        update T_MPI_PATIENT
+        <set>
+            <if test="actualEmpi != null">
+                ACTUAL_EMPI = #{actualEmpi,jdbcType=DECIMAL},
+            </if>
+            <if test="empiNo != null">
+                EMPI_NO = #{empiNo,jdbcType=OTHER},
+            </if>
+            <if test="gmpiNo != null">
+                GMPI_NO = #{gmpiNo,jdbcType=OTHER},
+            </if>
+            <if test="patientName != null">
+                PATIENT_NAME = #{patientName,jdbcType=OTHER},
+            </if>
+            <if test="historicalName != null">
+                HISTORICAL_NAME = #{historicalName,jdbcType=OTHER},
+            </if>
+            <if test="birthDate != null">
+                BIRTH_DATE = #{birthDate,jdbcType=DECIMAL},
+            </if>
+            <if test="birthTime != null">
+                BIRTH_TIME = #{birthTime,jdbcType=DECIMAL},
+            </if>
+            <if test="birthPlace != null">
+                BIRTH_PLACE = #{birthPlace,jdbcType=OTHER},
+            </if>
+            <if test="nationalityId != null">
+                NATIONALITY_ID = #{nationalityId,jdbcType=DECIMAL},
+            </if>
+            <if test="genderId != null">
+                GENDER_ID = #{genderId,jdbcType=DECIMAL},
+            </if>
+            <if test="countryId != null">
+                COUNTRY_ID = #{countryId,jdbcType=DECIMAL},
+            </if>
+            <if test="rhBloodTypeId != null">
+                RH_BLOOD_TYPE_ID = #{rhBloodTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="aboBloodTypeId != null">
+                ABO_BLOOD_TYPE_ID = #{aboBloodTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="zoneId != null">
+                ZONE_ID = #{zoneId,jdbcType=DECIMAL},
+            </if>
+            <if test="careerId != null">
+                CAREER_ID = #{careerId,jdbcType=DECIMAL},
+            </if>
+            <if test="eduBackgroundId != null">
+                EDU_BACKGROUND_ID = #{eduBackgroundId,jdbcType=DECIMAL},
+            </if>
+            <if test="degreeId != null">
+                DEGREE_ID = #{degreeId,jdbcType=DECIMAL},
+            </if>
+            <if test="qualificationId != null">
+                QUALIFICATION_ID = #{qualificationId,jdbcType=DECIMAL},
+            </if>
+            <if test="certIdno != null">
+                CERT_IDNO = #{certIdno,jdbcType=OTHER},
+            </if>
+            <if test="certTypeId != null">
+                CERT_TYPE_ID = #{certTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="createdTime != null">
+                CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdated != null">
+                LAST_UPDATED = #{lastUpdated,jdbcType=TIMESTAMP},
+            </if>
+            <if test="disabled != null">
+                DISABLED = #{disabled,jdbcType=DECIMAL},
+            </if>
+        </set>
+        where EMPI_ID = #{empiId,jdbcType=DECIMAL}
+    </update>
+
+
+    <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.Patient">
+        update T_MPI_PATIENT
+        set ACTUAL_EMPI = #{actualEmpi,jdbcType=DECIMAL},
+        EMPI_NO = #{empiNo,jdbcType=VARCHAR},
+        GMPI_NO = #{gmpiNo,jdbcType=VARCHAR},
+        PATIENT_NAME = #{patientName,jdbcType=VARCHAR},
+        HISTORICAL_NAME = #{historicalName,jdbcType=VARCHAR},
+        BIRTH_DATE = #{birthDate,jdbcType=DECIMAL},
+        BIRTH_TIME = #{birthTime,jdbcType=DECIMAL},
+        BIRTH_PLACE = #{birthPlace,jdbcType=VARCHAR},
+        NATIONALITY_ID = #{nationalityId,jdbcType=DECIMAL},
+        GENDER_ID = #{genderId,jdbcType=DECIMAL},
+        COUNTRY_ID = #{countryId,jdbcType=DECIMAL},
+        RH_BLOOD_TYPE_ID = #{rhBloodTypeId,jdbcType=DECIMAL},
+        ABO_BLOOD_TYPE_ID = #{aboBloodTypeId,jdbcType=DECIMAL},
+        ZONE_ID = #{zoneId,jdbcType=DECIMAL},
+        CAREER_ID = #{careerId,jdbcType=DECIMAL},
+        EDU_BACKGROUND_ID = #{eduBackgroundId,jdbcType=DECIMAL},
+        DEGREE_ID = #{degreeId,jdbcType=DECIMAL},
+        QUALIFICATION_ID = #{qualificationId,jdbcType=DECIMAL},
+        CERT_IDNO = #{certIdno,jdbcType=VARCHAR},
+        CERT_TYPE_ID = #{certTypeId,jdbcType=DECIMAL},
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+        LAST_UPDATED = #{lastUpdated,jdbcType=TIMESTAMP},
+        DISABLED = #{disabled,jdbcType=DECIMAL}
+        where EMPI_ID = #{empiId,jdbcType=DECIMAL}
+    </update>
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.ProceduresMapper">
+
+    <!-- 查询sequence -->
+    <select id="selectSequenceByTableName" statementType="CALLABLE">
+        <![CDATA[
+       {call  package_sequence.pro_getnextvalue(
+       #{tableName,mode=IN,jdbcType=VARCHAR},
+       #{countParm,mode=IN,jdbcType=DECIMAL},
+       #{creator,mode=IN,jdbcType=VARCHAR},
+       #{retVal,mode=OUT,jdbcType=VARCHAR})}
+
+        ]]>
+    </select>
+
+
+</mapper>

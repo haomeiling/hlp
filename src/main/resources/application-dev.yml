@@ -1,0 +1,59 @@
+spring:
+   datasource:
+      url: jdbc:oracle:thin:@172.16.100.52:1521:ORCL
+      username: bxd
+      password: bxd1688
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      max-idle: 10
+      max-wait: 10000
+      min-idle: 5
+      initial-size: 5
+      type: com.alibaba.druid.pool.DruidDataSource
+
+server:
+  port: 7777
+  context-path: /sip
+  
+limit:
+  control: false
+
+#热部署
+devtools:
+  restart:
+    enabled: true #热部署生效
+    #设置重启的目录
+    additional-paths: src/main/java
+    exclude: WEB-INF/** #classpath目录下的WEB-INF文件夹内容修改不重启
+
+#社保内网中转服务
+view:
+  server:
+#    address: http://localhost:8888/siservice/services/siservice?wsdl
+    #address: http://172.16.100.53:8888/siservice/services/siservice?wsdl
+    address: http://172.16.21.65:8888/siservice/services/siservice?wsdl
+
+    username: root
+    password: admin
+#社保核心系统服务
+si:
+  url: http://ylbxd.siservice.gxhealth.xin/eapdomain/SiInterfaceAction.do?method=siInterface
+#基本信息平台地址(社保)
+sip1:
+  url: http://172.16.11.19:7777/sip/services/HisUser?wsdl
+#消息中心地址
+messagecenter:
+  messagecenterUrl: http://172.16.100.53:8082/service/messagecenterwebservice?wsdl
+  #messagecenterUrl: http://10.153.149.254:8084/service/messagecenterwebservice?wsdl
+#支付网关地址  
+paygate:
+  #url: http://bxd.paygate.gxhealth.xin/paygate
+  #url: http://baoxindipaygate.vaiwan.com/paygate
+
+  url: http://172.16.11.19:8085/paygate
+#  url: http://172.16.11.36:8083/paygate
+#  url: http://172.16.100.53:8085/paygate
+
+#支付网关回调医院外联平台地址，该地址由外联平台提供，需能正确处理支付回调通知时的数据以及相关的业务逻辑
+payCallBack:
+#  url: http://172.16.11.36:7777/sip/pay/receive
+  url: http://172.16.11.19:7777/sip/Client/sip?wsdl

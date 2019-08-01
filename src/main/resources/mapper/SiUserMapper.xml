@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bxd.sip.bxd.dao.SiUserMapper">
+  <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.SiUser">
+    <id column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="USER_NAME" jdbcType="OTHER" property="userName" />
+    <result column="USER_PWD" jdbcType="OTHER" property="userPwd" />
+    <result column="NAME" jdbcType="OTHER" property="name" />
+    <result column="GENDER" jdbcType="OTHER" property="gender" />
+    <result column="ID_CARD" jdbcType="OTHER" property="idCard" />
+    <result column="PHONE" jdbcType="OTHER" property="phone" />
+    <result column="USER_CODE" jdbcType="OTHER" property="userCode" />
+    <result column="SI_CARD" jdbcType="OTHER" property="siCard" />
+    <result column="REGION_CODE" jdbcType="OTHER" property="regionCode" />
+    <result column="EMAIL" jdbcType="OTHER" property="email" />
+    <result column="CREATED_TIME" jdbcType="DATE" property="createdTime" />
+    <result column="LAST_LOGIN_TIME" jdbcType="DATE" property="lastLoginTime" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="IP" jdbcType="OTHER" property="ip" />
+    <result column="P_USER_ID" jdbcType="DECIMAL" property="pUserId" />
+    <result column="MARKS" jdbcType="OTHER" property="marks" />
+    <result column="PHOTO" jdbcType="OTHER" property="photo" />
+    <result column="EASEMOBUUID" jdbcType="OTHER" property="easemobuuid" />
+    <result column="MOBILE_NO" jdbcType="OTHER" property="mobileNo" />
+    <result column="PASSWORD" jdbcType="OTHER" property="password" />
+    <result column="REGISTER_TIME" jdbcType="DATE" property="registerTime" />
+    <result column="USERNAME" jdbcType="OTHER" property="username" />
+    <result column="OPENID" jdbcType="OTHER" property="openid" />
+    <result column="BIND_FLAG" jdbcType="DECIMAL" property="bindFlag" />
+    <result column="IS_REAL" jdbcType="DECIMAL" property="isReal" />
+    <result column="SECRET_KEY" jdbcType="OTHER" property="secretKey" />
+    <result column="STATUS2" jdbcType="DECIMAL" property="status2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USER_ID, USER_NAME, USER_PWD, `NAME`, GENDER, ID_CARD, PHONE, USER_CODE, SI_CARD, 
+    REGION_CODE, EMAIL, CREATED_TIME, LAST_LOGIN_TIME, `STATUS`, IP, P_USER_ID, MARKS, 
+    PHOTO, EASEMOBUUID, MOBILE_NO, `PASSWORD`, REGISTER_TIME, USERNAME, OPENID, BIND_FLAG, 
+    IS_REAL, SECRET_KEY, STATUS2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_SI_USER
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from T_SI_USER
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.SiUser">
+    insert into T_SI_USER (USER_ID, USER_NAME, USER_PWD, 
+      `NAME`, GENDER, ID_CARD, PHONE, 
+      USER_CODE, SI_CARD, REGION_CODE, 
+      EMAIL, CREATED_TIME, LAST_LOGIN_TIME, 
+      `STATUS`, IP, P_USER_ID, 
+      MARKS, PHOTO, EASEMOBUUID, 
+      MOBILE_NO, `PASSWORD`, REGISTER_TIME, 
+      USERNAME, OPENID, BIND_FLAG, 
+      IS_REAL, SECRET_KEY, STATUS2
+      )
+    values (#{userId,jdbcType=DECIMAL}, #{userName,jdbcType=OTHER}, #{userPwd,jdbcType=OTHER}, 
+      #{name,jdbcType=OTHER}, #{gender,jdbcType=OTHER}, #{idCard,jdbcType=OTHER}, #{phone,jdbcType=OTHER}, 
+      #{userCode,jdbcType=OTHER}, #{siCard,jdbcType=OTHER}, #{regionCode,jdbcType=OTHER}, 
+      #{email,jdbcType=OTHER}, #{createdTime,jdbcType=DATE}, #{lastLoginTime,jdbcType=DATE}, 
+      #{status,jdbcType=DECIMAL}, #{ip,jdbcType=OTHER}, #{pUserId,jdbcType=DECIMAL}, 
+      #{marks,jdbcType=OTHER}, #{photo,jdbcType=OTHER}, #{easemobuuid,jdbcType=OTHER}, 
+      #{mobileNo,jdbcType=OTHER}, #{password,jdbcType=OTHER}, #{registerTime,jdbcType=DATE}, 
+      #{username,jdbcType=OTHER}, #{openid,jdbcType=OTHER}, #{bindFlag,jdbcType=DECIMAL}, 
+      #{isReal,jdbcType=DECIMAL}, #{secretKey,jdbcType=OTHER}, #{status2,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.SiUser">
+    insert into T_SI_USER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="userPwd != null">
+        USER_PWD,
+      </if>
+      <if test="name != null">
+        `NAME`,
+      </if>
+      <if test="gender != null">
+        GENDER,
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="userCode != null">
+        USER_CODE,
+      </if>
+      <if test="siCard != null">
+        SI_CARD,
+      </if>
+      <if test="regionCode != null">
+        REGION_CODE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME,
+      </if>
+      <if test="lastLoginTime != null">
+        LAST_LOGIN_TIME,
+      </if>
+      <if test="status != null">
+        `STATUS`,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="pUserId != null">
+        P_USER_ID,
+      </if>
+      <if test="marks != null">
+        MARKS,
+      </if>
+      <if test="photo != null">
+        PHOTO,
+      </if>
+      <if test="easemobuuid != null">
+        EASEMOBUUID,
+      </if>
+      <if test="mobileNo != null">
+        MOBILE_NO,
+      </if>
+      <if test="password != null">
+        `PASSWORD`,
+      </if>
+      <if test="registerTime != null">
+        REGISTER_TIME,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="openid != null">
+        OPENID,
+      </if>
+      <if test="bindFlag != null">
+        BIND_FLAG,
+      </if>
+      <if test="isReal != null">
+        IS_REAL,
+      </if>
+      <if test="secretKey != null">
+        SECRET_KEY,
+      </if>
+      <if test="status2 != null">
+        STATUS2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=OTHER},
+      </if>
+      <if test="userPwd != null">
+        #{userPwd,jdbcType=OTHER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=OTHER},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=OTHER},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=OTHER},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=OTHER},
+      </if>
+      <if test="userCode != null">
+        #{userCode,jdbcType=OTHER},
+      </if>
+      <if test="siCard != null">
+        #{siCard,jdbcType=OTHER},
+      </if>
+      <if test="regionCode != null">
+        #{regionCode,jdbcType=OTHER},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=OTHER},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=DATE},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=OTHER},
+      </if>
+      <if test="pUserId != null">
+        #{pUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="marks != null">
+        #{marks,jdbcType=OTHER},
+      </if>
+      <if test="photo != null">
+        #{photo,jdbcType=OTHER},
+      </if>
+      <if test="easemobuuid != null">
+        #{easemobuuid,jdbcType=OTHER},
+      </if>
+      <if test="mobileNo != null">
+        #{mobileNo,jdbcType=OTHER},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=OTHER},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=DATE},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=OTHER},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=OTHER},
+      </if>
+      <if test="bindFlag != null">
+        #{bindFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="isReal != null">
+        #{isReal,jdbcType=DECIMAL},
+      </if>
+      <if test="secretKey != null">
+        #{secretKey,jdbcType=OTHER},
+      </if>
+      <if test="status2 != null">
+        #{status2,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.SiUser">
+    update T_SI_USER
+    <set>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=OTHER},
+      </if>
+      <if test="userPwd != null">
+        USER_PWD = #{userPwd,jdbcType=OTHER},
+      </if>
+      <if test="name != null">
+        `NAME` = #{name,jdbcType=OTHER},
+      </if>
+      <if test="gender != null">
+        GENDER = #{gender,jdbcType=OTHER},
+      </if>
+      <if test="idCard != null">
+        ID_CARD = #{idCard,jdbcType=OTHER},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=OTHER},
+      </if>
+      <if test="userCode != null">
+        USER_CODE = #{userCode,jdbcType=OTHER},
+      </if>
+      <if test="siCard != null">
+        SI_CARD = #{siCard,jdbcType=OTHER},
+      </if>
+      <if test="regionCode != null">
+        REGION_CODE = #{regionCode,jdbcType=OTHER},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=OTHER},
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME = #{createdTime,jdbcType=DATE},
+      </if>
+      <if test="lastLoginTime != null">
+        LAST_LOGIN_TIME = #{lastLoginTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        `STATUS` = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="ip != null">
+        IP = #{ip,jdbcType=OTHER},
+      </if>
+      <if test="pUserId != null">
+        P_USER_ID = #{pUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="marks != null">
+        MARKS = #{marks,jdbcType=OTHER},
+      </if>
+      <if test="photo != null">
+        PHOTO = #{photo,jdbcType=OTHER},
+      </if>
+      <if test="easemobuuid != null">
+        EASEMOBUUID = #{easemobuuid,jdbcType=OTHER},
+      </if>
+      <if test="mobileNo != null">
+        MOBILE_NO = #{mobileNo,jdbcType=OTHER},
+      </if>
+      <if test="password != null">
+        `PASSWORD` = #{password,jdbcType=OTHER},
+      </if>
+      <if test="registerTime != null">
+        REGISTER_TIME = #{registerTime,jdbcType=DATE},
+      </if>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=OTHER},
+      </if>
+      <if test="openid != null">
+        OPENID = #{openid,jdbcType=OTHER},
+      </if>
+      <if test="bindFlag != null">
+        BIND_FLAG = #{bindFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="isReal != null">
+        IS_REAL = #{isReal,jdbcType=DECIMAL},
+      </if>
+      <if test="secretKey != null">
+        SECRET_KEY = #{secretKey,jdbcType=OTHER},
+      </if>
+      <if test="status2 != null">
+        STATUS2 = #{status2,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.SiUser">
+    update T_SI_USER
+    set USER_NAME = #{userName,jdbcType=OTHER},
+      USER_PWD = #{userPwd,jdbcType=OTHER},
+      `NAME` = #{name,jdbcType=OTHER},
+      GENDER = #{gender,jdbcType=OTHER},
+      ID_CARD = #{idCard,jdbcType=OTHER},
+      PHONE = #{phone,jdbcType=OTHER},
+      USER_CODE = #{userCode,jdbcType=OTHER},
+      SI_CARD = #{siCard,jdbcType=OTHER},
+      REGION_CODE = #{regionCode,jdbcType=OTHER},
+      EMAIL = #{email,jdbcType=OTHER},
+      CREATED_TIME = #{createdTime,jdbcType=DATE},
+      LAST_LOGIN_TIME = #{lastLoginTime,jdbcType=DATE},
+      `STATUS` = #{status,jdbcType=DECIMAL},
+      IP = #{ip,jdbcType=OTHER},
+      P_USER_ID = #{pUserId,jdbcType=DECIMAL},
+      MARKS = #{marks,jdbcType=OTHER},
+      PHOTO = #{photo,jdbcType=OTHER},
+      EASEMOBUUID = #{easemobuuid,jdbcType=OTHER},
+      MOBILE_NO = #{mobileNo,jdbcType=OTHER},
+      `PASSWORD` = #{password,jdbcType=OTHER},
+      REGISTER_TIME = #{registerTime,jdbcType=DATE},
+      USERNAME = #{username,jdbcType=OTHER},
+      OPENID = #{openid,jdbcType=OTHER},
+      BIND_FLAG = #{bindFlag,jdbcType=DECIMAL},
+      IS_REAL = #{isReal,jdbcType=DECIMAL},
+      SECRET_KEY = #{secretKey,jdbcType=OTHER},
+      STATUS2 = #{status2,jdbcType=DECIMAL}
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </update>
+</mapper>

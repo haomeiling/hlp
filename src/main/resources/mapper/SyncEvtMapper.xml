@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bxd.sip.bxd.dao.SyncEvtMapper">
+  <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.SyncEvt">
+  <id column="SYNC_SEQ_ID" jdbcType="DECIMAL" property="syncSeqId" />
+  <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="createdTime" />
+  <result column="FIRST_PROC_TIME" jdbcType="TIMESTAMP" property="firstProcTime" />
+  <result column="PROC_COUNT" jdbcType="DECIMAL" property="procCount" />
+  <result column="LAST_PROC_TIME" jdbcType="TIMESTAMP" property="lastProcTime" />
+  <result column="STATUS_CODE" jdbcType="OTHER" property="statusCode" />
+  <result column="ERROR_MESSAGE" jdbcType="OTHER" property="errorMessage" />
+  <result column="SYNC_TYPE_ID" jdbcType="DECIMAL" property="syncTypeId" />
+  <result column="ORDER_ID" jdbcType="DECIMAL" property="orderId" />
+  <result column="TRANS_ID" jdbcType="DECIMAL" property="transId" />
+  <result column="PERIOD_NO" jdbcType="DECIMAL" property="periodNo" />
+  <result column="QUEUE_NO" jdbcType="DECIMAL" property="queueNo" />
+  <result column="CLINIC_DATE" jdbcType="DECIMAL" property="clinicDate" />
+  <result column="HOSPITAL_ID" jdbcType="DECIMAL" property="hospitalId" />
+  <result column="RUSH_REQUIRED" jdbcType="DECIMAL" property="rushRequired" />
+  <result column="QUEUE_ID" jdbcType="OTHER" property="queueId" />
+ </resultMap>
+
+  <resultMap id="InterfaceMap" type="cn.bxd.sip.bxd.model.dto.HSyncEvn">
+    <id column="SYNC_SEQ_ID" jdbcType="DECIMAL" property="syncSeqId" />
+    <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="FIRST_PROC_TIME" jdbcType="TIMESTAMP" property="firstProcTime" />
+    <result column="PROC_COUNT" jdbcType="DECIMAL" property="procCount" />
+    <result column="LAST_PROC_TIME" jdbcType="TIMESTAMP" property="lastProcTime" />
+    <result column="STATUS_CODE" jdbcType="OTHER" property="statusCode" />
+    <result column="ERROR_MESSAGE" jdbcType="OTHER" property="errorMessage" />
+    <result column="SYNC_TYPE_ID" jdbcType="DECIMAL" property="syncTypeId" />
+    <result column="ORDER_ID" jdbcType="DECIMAL" property="orderId" />
+    <result column="TRANS_ID" jdbcType="DECIMAL" property="transId" />
+    <result column="PERIOD_NO" jdbcType="DECIMAL" property="periodNo" />
+    <result column="QUEUE_NO" jdbcType="DECIMAL" property="queueNo" />
+    <result column="CLINIC_DATE" jdbcType="DECIMAL" property="clinicDate" />
+    <result column="HOSPITAL_ID" jdbcType="DECIMAL" property="hospitalId" />
+    <result column="RUSH_REQUIRED" jdbcType="DECIMAL" property="rushRequired" />
+    <result column="QUEUE_ID" jdbcType="OTHER" property="queueId" />
+    <result column="WS_URL" jdbcType="VARCHAR" property="wsUrl" />
+    <result column="contactPhone" property="contactPhone" jdbcType="VARCHAR"/>
+    <result column="clinicCardNo" property="clinicCardNo" jdbcType="VARCHAR"/>
+
+
+    <association  property="connectParm" column="hospitalId"  javaType="cn.bxd.sip.bxd.model.entity.ConnectParm">
+      <id column="HOSPITAL_ID" jdbcType="DECIMAL" property="hospitalId" />
+      <result column="CONNECT_TYPE" jdbcType="DECIMAL" property="connectType" />
+      <result column="SEVER_NAME" jdbcType="OTHER" property="severName" />
+      <result column="WS_URL" jdbcType="OTHER" property="wsUrl" />
+      <result column="QUEUE_NAME" jdbcType="OTHER" property="queueName" />
+      <result column="REST_URL" jdbcType="OTHER" property="restUrl" />
+      <result column="QMANAGER_NAME" jdbcType="OTHER" property="qmanagerName" />
+      <result column="CHANNEL_NAME" jdbcType="OTHER" property="channelName" />
+      <result column="LAST_LOGIN_TIME" jdbcType="TIMESTAMP" property="lastLoginTime" />
+      <result column="LAST_LOGOUT_TIME" jdbcType="TIMESTAMP" property="lastLogoutTime" />
+      <result column="SESSION_SEQID" jdbcType="DECIMAL" property="sessionSeqid" />
+      <result column="ONLINE_PAY" jdbcType="DECIMAL" property="onlinePay" />
+      <result column="LOGIN_PASSWORD" jdbcType="OTHER" property="loginPassword" />
+      <result column="ONLINE_PAY_START_TIME" jdbcType="TIMESTAMP" property="onlinePayStartTime" />
+      <result column="TEST_PASSED_TIME" jdbcType="TIMESTAMP" property="testPassedTime" />
+      <result column="USE_SIMPLE_QUEUEING" jdbcType="DECIMAL" property="useSimpleQueueing" />
+      <result column="USE_STANDARD_QUEUEING" jdbcType="DECIMAL" property="useStandardQueueing" />
+      <result column="UNIFIED_DEPT_REG" jdbcType="DECIMAL" property="unifiedDeptReg" />
+      <result column="UNIFIED_DOCTOR_REG" jdbcType="DECIMAL" property="unifiedDoctorReg" />
+      <result column="DEPT_REG_URL" jdbcType="OTHER" property="deptRegUrl" />
+      <result column="DOCTOR_REG_URL" jdbcType="OTHER" property="doctorRegUrl" />
+      <result column="HOSPITAL_REG_URL" jdbcType="OTHER" property="hospitalRegUrl" />
+      <result column="TRANS_SERVER_URL" jdbcType="OTHER" property="transServerUrl" />
+      <result column="PAID_PRIORTO_REGISITRATION" jdbcType="DECIMAL" property="paidPriortoRegisitration" />
+      <result column="LEADING_DAYS" jdbcType="DECIMAL" property="leadingDays" />
+      <result column="LEADING_MINUTES" jdbcType="DECIMAL" property="leadingMinutes" />
+      <result column="RESERVATION_SOURCE_URL" jdbcType="OTHER" property="reservationSourceUrl" />
+      <result column="WEBSITE_HOME_URL" jdbcType="OTHER" property="websiteHomeUrl" />
+      <result column="PRIVATE_SMS_GATEWAY" jdbcType="DECIMAL" property="privateSmsGateway" />
+      <result column="CHECK_CLINICAL_NO" jdbcType="DECIMAL" property="checkClinicalNo" />
+      <result column="RESERVATION_REDIRECT_URL" jdbcType="OTHER" property="reservationRedirectUrl" />
+      <result column="IS_ONE_PAY" jdbcType="DECIMAL" property="isOnePay" />
+      <result column="USER_NAME" jdbcType="OTHER" property="userName" />
+      <result column="CHECK_CODE" jdbcType="OTHER" property="checkCode" />
+      <result column="WS_URL2" jdbcType="OTHER" property="wsUrl2" />
+      <result column="WS_URL3" jdbcType="OTHER" property="wsUrl3" />
+      <result column="WS_URL4" jdbcType="OTHER" property="wsUrl4" />
+      <result column="WS_URL5" jdbcType="OTHER" property="wsUrl5" />
+      <result column="SOCIAL_SECURITY_CODE" jdbcType="OTHER" property="socialSecurityCode" />
+    </association>
+
+    <association property="order" column="orderId" javaType="cn.bxd.sip.bxd.model.entity.Order">
+      <id column="ORDER_ID" property="orderId" jdbcType="DECIMAL"/>
+      <result column="CREATED_TIME" property="createdTime" jdbcType="TIMESTAMP"/>
+      <result column="USER_ID" property="userId" jdbcType="DECIMAL"/>
+      <result column="HOSPITAL_ID" property="hospitalId" jdbcType="DECIMAL"/>
+      <result column="CERT_TYPE_ID" property="certTypeId" jdbcType="DECIMAL"/>
+      <result column="CERT_IDNO" property="certIdno" jdbcType="VARCHAR"/>
+      <result column="PATIENT_NAME" property="patientName" jdbcType="VARCHAR"/>
+      <result column="GENDER_ID" property="genderId" jdbcType="DECIMAL"/>
+      <result column="ORDER_TYPE_ID" property="orderTypeId" jdbcType="DECIMAL"/>
+      <result column="DEPT_CODE" property="deptCode" jdbcType="OTHER"/>
+      <result column="DEPT_TYPE_ID" property="deptTypeId" jdbcType="DECIMAL"/>
+      <result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR"/>
+      <result column="DOCTOR_CODE" property="doctorCode" jdbcType="VARCHAR"/>
+      <result column="DOCTOR_NAME" property="doctorName" jdbcType="VARCHAR"/>
+      <result column="QUALIFICATION_ID" property="qualificationId" jdbcType="DECIMAL"/>
+      <result column="AMOUNT" property="amount" jdbcType="DECIMAL"/>
+      <result column="STATUS" property="status" jdbcType="DECIMAL"/>
+      <result column="CLINIC_NO" property="clinicNo" jdbcType="VARCHAR"/>
+      <result column="ACTUAL_TIME" property="actualTime" jdbcType="TIMESTAMP"/>
+      <result column="TRANS_ID" property="transId" jdbcType="DECIMAL"/>
+      <result column="ORDER_DAY" property="orderDay" jdbcType="DECIMAL"/>
+      <result column="ORDER_PERIOD" property="orderPeriod" jdbcType="VARCHAR"/>
+      <result column="CLINIC_DATE" property="clinicDate" jdbcType="DECIMAL"/>
+      <result column="QUEUE_ID" property="queueId" jdbcType="VARCHAR"/>
+      <result column="PERIOD_NO2" property="periodNo" jdbcType="DECIMAL"/>
+      <result column="PERIOD_START" property="periodStart" jdbcType="DECIMAL"/>
+      <result column="PERIOD_END" property="periodEnd" jdbcType="DECIMAL"/>
+      <result column="QUEUE_NO" property="queueNo" jdbcType="VARCHAR"/>
+      <result column="APP_ID" property="appId" jdbcType="VARCHAR"/>
+      <result column="ORDER_SOURCE_ID" property="orderSourceId" jdbcType="DECIMAL"/>
+      <result column="NORMAL_RESCHEDULED" property="normalRescheduled" jdbcType="DECIMAL"/>
+      <result column="EXPIRED_RESCHEDULED" property="expiredRescheduled" jdbcType="DECIMAL"/>
+      <result column="PAY_FLAG" property="payFlag" jdbcType="DECIMAL"/>
+      <result column="REVIEW_FLAG" property="reviewFlag" jdbcType="DECIMAL"/>
+      <result column="LAST_UPDATED_TIME" property="lastUpdatedTime" jdbcType="TIMESTAMP"/>
+      <result column="VALIDATED_TIME" property="validatedTime" jdbcType="TIMESTAMP"/>
+      <result column="CANCELED_TIME" property="canceledTime" jdbcType="TIMESTAMP"/>
+      <result column="CANCELED_REASON" property="canceledReason" jdbcType="VARCHAR"/>
+      <result column="ORIGIN_ORDER_ID" property="originOrderId" jdbcType="DECIMAL"/>
+      <result column="IS_ADDITION_NO" property="isAdditionNo" jdbcType="DECIMAL"/>
+      <result column="Peer_Order_No" property="peerOrderNo" jdbcType="VARCHAR"/>
+      <result column="DISPLAY_QUEUE_NO" property="displayQueueNo" jdbcType="VARCHAR"/>
+      <result column="WAITING_ORDER_ID" property="waitingOrderID" jdbcType="DECIMAL"/>
+      <result column="QUEUE_ADDR" property="queueAddr" jdbcType="VARCHAR"/>
+      <result column="SENT_FLAG" property="sentFlag" jdbcType="DECIMAL"/>
+      <result column="INITIAL_ORDER_ID" property="initialOrderID" jdbcType="DECIMAL"/>
+      <result column="VERIFICATION_CODE" property="verificationCode" jdbcType="VARCHAR"/>
+      <result column="CASHER_NAME" property="casherName" jdbcType="VARCHAR"/>
+      <result column="CASHER_CODE" property="casherCode" jdbcType="VARCHAR"/>
+      <result column="PAY_BODY" property="payBody" jdbcType="VARCHAR"/>
+
+      <result column="PAY_TYPE" property="payType" jdbcType="DECIMAL"/>
+      <result column="IS_OVER_ALL" property="isOverAll" jdbcType="DECIMAL"/>
+      <result column="SOCIAL_NO" property="socialNo" jdbcType="VARCHAR"/>
+      <result column="PATIENT_NO" property="patientNo" jdbcType="VARCHAR"/>
+      <result column="MEDICARE_TYPE" property="medicareType" jdbcType="DECIMAL"/>
+      <result column="MEDICARE_PAY_TIME" property="medicarePayTime" jdbcType="TIMESTAMP"/>
+      <result column="MEDICARE_PAY_STATE" property="medicarePayState" jdbcType="DECIMAL"/>
+      <result column="PAY_PATTERN" property="payPattern" jdbcType="DECIMAL"/>
+      <result column="MEDICARE_RECORD_ID" property="medicareRecordId" jdbcType="DECIMAL"/>
+      <result column="CASH_MONEY" property="cashMoney" jdbcType="VARCHAR"/>
+      <result column="MEDICARE_MONEY" property="medicareMoney" jdbcType="VARCHAR"/>
+      <result column="OVER_ALL_MONEY" property="overAllMoney" jdbcType="VARCHAR"/>
+      <result column="ACC_TYPE" property="accType" jdbcType="VARCHAR"/>
+      <result column="CARD_NAME" property="cardName" jdbcType="VARCHAR"/>
+      <result column="terminal_Code" property="terminalCode" jdbcType="VARCHAR"/>
+
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    SYNC_SEQ_ID, CREATED_TIME, FIRST_PROC_TIME, PROC_COUNT, LAST_PROC_TIME, STATUS_CODE, 
+    ERROR_MESSAGE, SYNC_TYPE_ID, ORDER_ID, TRANS_ID, PERIOD_NO, QUEUE_NO, CLINIC_DATE, 
+    HOSPITAL_ID, RUSH_REQUIRED, QUEUE_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_RHIP_SYNC_EVT
+    where SYNC_SEQ_ID = #{syncSeqId,jdbcType=DECIMAL}
+  </select>
+
+  <select id="getByListId"  resultMap="InterfaceMap">
+    select t.*,o.*,h.*,d.*,o.PERIOD_NO as PERIOD_NO2,up.contact_phone as contactPhone ,pix.clinic_card_no as clinicCardNo
+    from T_RHIP_SYNC_EVT t left join T_RHIP_CONNECT_PARM h on t.hospital_id = h.hospital_id
+    left join T_RHIP_ORDER o on o.order_id = t.order_id
+    left join T_RHIP_HOSPITAL_DEPT d on d.hospital_id=o.hospital_id and d.dept_no=o.dept_code
+    left join T_COM_GENDER g on o.GENDER_ID=g.GENDER_ID
+    left join t_rhip_order_source s on o.order_source_id=s.order_source_id
+    left join t_rhip_user_person up on o.user_id=up.user_id and o.patient_name=up.person_name
+    left join t_rhip_pix pix on o.hospital_id=pix.hospital_id and up.empi_id=pix.empi_id
+    <where>
+      SYNC_SEQ_ID in
+      <foreach collection="array" index="index" item="syncSeqId" open="(" separator="," close=")">
+        #{syncSeqId}
+      </foreach>
+    </where>
+  </select>
+
+  <!--<select id="getByListId"  resultMap="InterfaceMap">-->
+    <!--select t.*,o.*,h.*,d.*,o.PERIOD_NO as PERIOD_NO2-->
+    <!--from T_RHIP_SYNC_EVT t left join T_RHIP_CONNECT_PARM h on t.hospital_id = h.hospital_id-->
+    <!--left join T_RHIP_ORDER o on o.order_id = t.order_id-->
+    <!--left join T_RHIP_HOSPITAL_DEPT d on d.hospital_id=o.hospital_id and d.dept_no=o.dept_code-->
+    <!--left join T_COM_GENDER g on o.GENDER_ID=g.GENDER_ID-->
+    <!--left join t_rhip_order_source s on o.order_source_id=s.order_source_id-->
+    <!--<where>-->
+      <!--SYNC_SEQ_ID in-->
+      <!--<foreach collection="array" index="index" item="syncSeqId" open="(" separator="," close=")">-->
+        <!--#{syncSeqId}-->
+      <!--</foreach>-->
+    <!--</where>-->
+  <!--</select>-->
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_RHIP_SYNC_EVT
+    where SYNC_SEQ_ID = #{syncSeqId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.SyncEvt">
+    insert into T_RHIP_SYNC_EVT (SYNC_SEQ_ID, CREATED_TIME, FIRST_PROC_TIME, 
+      PROC_COUNT, LAST_PROC_TIME, STATUS_CODE, 
+      ERROR_MESSAGE, SYNC_TYPE_ID, ORDER_ID, 
+      TRANS_ID, PERIOD_NO, QUEUE_NO, 
+      CLINIC_DATE, HOSPITAL_ID, RUSH_REQUIRED, 
+      QUEUE_ID)
+    values (#{syncSeqId,jdbcType=DECIMAL}, #{createdTime,jdbcType=TIMESTAMP}, #{firstProcTime,jdbcType=TIMESTAMP}, 
+      #{procCount,jdbcType=DECIMAL}, #{lastProcTime,jdbcType=TIMESTAMP}, #{statusCode,jdbcType=VARCHAR}, 
+      #{errorMessage,jdbcType=VARCHAR}, #{syncTypeId,jdbcType=DECIMAL}, #{orderId,jdbcType=DECIMAL}, 
+      #{transId,jdbcType=DECIMAL}, #{periodNo,jdbcType=DECIMAL}, #{queueNo,jdbcType=VARCHAR},
+      #{clinicDate,jdbcType=DECIMAL}, #{hospitalId,jdbcType=DECIMAL}, #{rushRequired,jdbcType=DECIMAL}, 
+      #{queueId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.SyncEvt">
+    insert into T_RHIP_SYNC_EVT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="syncSeqId != null">
+        SYNC_SEQ_ID,
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME,
+      </if>
+      <if test="firstProcTime != null">
+        FIRST_PROC_TIME,
+      </if>
+      <if test="procCount != null">
+        PROC_COUNT,
+      </if>
+      <if test="lastProcTime != null">
+        LAST_PROC_TIME,
+      </if>
+      <if test="statusCode != null">
+        STATUS_CODE,
+      </if>
+      <if test="errorMessage != null">
+        ERROR_MESSAGE,
+      </if>
+      <if test="syncTypeId != null">
+        SYNC_TYPE_ID,
+      </if>
+      <if test="orderId != null">
+        ORDER_ID,
+      </if>
+      <if test="transId != null">
+        TRANS_ID,
+      </if>
+      <if test="periodNo != null">
+        PERIOD_NO,
+      </if>
+      <if test="queueNo != null">
+        QUEUE_NO,
+      </if>
+      <if test="clinicDate != null">
+        CLINIC_DATE,
+      </if>
+      <if test="hospitalId != null">
+        HOSPITAL_ID,
+      </if>
+      <if test="rushRequired != null">
+        RUSH_REQUIRED,
+      </if>
+      <if test="queueId != null">
+        QUEUE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="syncSeqId != null">
+        #{syncSeqId,jdbcType=DECIMAL},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstProcTime != null">
+        #{firstProcTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="procCount != null">
+        #{procCount,jdbcType=DECIMAL},
+      </if>
+      <if test="lastProcTime != null">
+        #{lastProcTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statusCode != null">
+        #{statusCode,jdbcType=OTHER},
+      </if>
+      <if test="errorMessage != null">
+        #{errorMessage,jdbcType=OTHER},
+      </if>
+      <if test="syncTypeId != null">
+        #{syncTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=DECIMAL},
+      </if>
+      <if test="transId != null">
+        #{transId,jdbcType=DECIMAL},
+      </if>
+      <if test="periodNo != null">
+        #{periodNo,jdbcType=DECIMAL},
+      </if>
+      <if test="queueNo != null">
+        #{queueNo,jdbcType=DECIMAL},
+      </if>
+      <if test="clinicDate != null">
+        #{clinicDate,jdbcType=DECIMAL},
+      </if>
+      <if test="hospitalId != null">
+        #{hospitalId,jdbcType=DECIMAL},
+      </if>
+      <if test="rushRequired != null">
+        #{rushRequired,jdbcType=DECIMAL},
+      </if>
+      <if test="queueId != null">
+        #{queueId,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.SyncEvt">
+    update T_RHIP_SYNC_EVT
+    <set>
+      <if test="createdTime != null">
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstProcTime != null">
+        FIRST_PROC_TIME = #{firstProcTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="procCount != null">
+        PROC_COUNT = #{procCount,jdbcType=DECIMAL},
+      </if>
+      <if test="lastProcTime != null">
+        LAST_PROC_TIME = #{lastProcTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statusCode != null">
+        STATUS_CODE = #{statusCode,jdbcType=OTHER},
+      </if>
+      <if test="errorMessage != null">
+        ERROR_MESSAGE = #{errorMessage,jdbcType=OTHER},
+      </if>
+      <if test="syncTypeId != null">
+        SYNC_TYPE_ID = #{syncTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="orderId != null">
+        ORDER_ID = #{orderId,jdbcType=DECIMAL},
+      </if>
+      <if test="transId != null">
+        TRANS_ID = #{transId,jdbcType=DECIMAL},
+      </if>
+      <if test="periodNo != null">
+        PERIOD_NO = #{periodNo,jdbcType=DECIMAL},
+      </if>
+      <if test="queueNo != null">
+        QUEUE_NO = #{queueNo,jdbcType=VARCHAR},
+      </if>
+      <if test="clinicDate != null">
+        CLINIC_DATE = #{clinicDate,jdbcType=DECIMAL},
+      </if>
+      <if test="hospitalId != null">
+        HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL},
+      </if>
+      <if test="rushRequired != null">
+        RUSH_REQUIRED = #{rushRequired,jdbcType=DECIMAL},
+      </if>
+      <if test="queueId != null">
+        QUEUE_ID = #{queueId,jdbcType=OTHER},
+      </if>
+    </set>
+    where SYNC_SEQ_ID = #{syncSeqId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.SyncEvt">
+    update T_RHIP_SYNC_EVT
+    set CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      FIRST_PROC_TIME = #{firstProcTime,jdbcType=TIMESTAMP},
+      PROC_COUNT = #{procCount,jdbcType=DECIMAL},
+      LAST_PROC_TIME = #{lastProcTime,jdbcType=TIMESTAMP},
+      STATUS_CODE = #{statusCode,jdbcType=OTHER},
+      ERROR_MESSAGE = #{errorMessage,jdbcType=OTHER},
+      SYNC_TYPE_ID = #{syncTypeId,jdbcType=DECIMAL},
+      ORDER_ID = #{orderId,jdbcType=DECIMAL},
+      TRANS_ID = #{transId,jdbcType=DECIMAL},
+      PERIOD_NO = #{periodNo,jdbcType=DECIMAL},
+      QUEUE_NO = #{queueNo,jdbcType=VARCHAR},
+      CLINIC_DATE = #{clinicDate,jdbcType=DECIMAL},
+      HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL},
+      RUSH_REQUIRED = #{rushRequired,jdbcType=DECIMAL},
+      QUEUE_ID = #{queueId,jdbcType=OTHER}
+    where SYNC_SEQ_ID = #{syncSeqId,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateStatusByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.SyncEvt">
+    update T_RHIP_SYNC_EVT
+    set STATUS_CODE = #{statusCode,jdbcType=OTHER}
+    where SYNC_SEQ_ID = #{syncSeqId,jdbcType=DECIMAL}
+  </update>
+
+
+  <!--查询是否存在消息推送记录-->
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="cn.bxd.sip.bxd.model.entity.SyncEvt">
+    select
+    <include refid="Base_Column_List"/>
+    from T_RHIP_SYNC_EVT e
+    where 1=1
+    <if test="orderId != null">
+      and e.ORDER_ID=#{orderId,jdbcType=DECIMAL}
+    </if>
+    <if test="transId != null">
+      and e.TRANS_ID=#{transId,jdbcType=DECIMAL}
+    </if>
+    <if test="syncTypeId != null">
+      and e.SYNC_TYPE_ID=#{syncTypeId,jdbcType=DECIMAL}
+    </if>
+    <if test="hospitalId != null">
+      and e.HOSPITAL_ID=#{hospitalId,jdbcType=DECIMAL}
+    </if>
+  </select>
+</mapper>

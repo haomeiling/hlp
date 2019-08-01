@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="gb2312"?>
+<positions>
+  <!--终端位置文件，保存终端可配位置，管理平台终端管理用-->
+  <position>
+    <name>总院</name>
+    <code>总院</code>
+  </position>
+</positions>

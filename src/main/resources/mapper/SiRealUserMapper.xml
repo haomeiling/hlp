@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bxd.sip.bxd.dao.SiRealUserMapper">
+  <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.SiRealUser">
+    <id column="USER_ID" jdbcType="OTHER" property="userId" />
+    <result column="MOBILE_NO" jdbcType="OTHER" property="mobileNo" />
+    <result column="VISITCARD_NUM" jdbcType="OTHER" property="visitcardNum" />
+    <result column="VISITCARD_IS_BING" jdbcType="DECIMAL" property="visitcardIsBing" />
+    <result column="FINANCIAL_ACCOUNT" jdbcType="OTHER" property="financialAccount" />
+    <result column="FINANCIAL_IS_BING" jdbcType="DECIMAL" property="financialIsBing" />
+    <result column="REAL_PIC_URL" jdbcType="OTHER" property="realPicUrl" />
+    <result column="REAL_TIME" jdbcType="DATE" property="realTime" />
+    <result column="PAY_PASSWORD" jdbcType="OTHER" property="payPassword" />
+    <result column="USER_NO" jdbcType="OTHER" property="userNo" />
+    <result column="MEDICARE_TYPE" jdbcType="DECIMAL" property="medicareType" />
+    <result column="CARDINFO" jdbcType="OTHER" property="cardinfo" />
+    <result column="OVERALL_AREA" jdbcType="OTHER" property="overallArea" />
+    <result column="PATTERN" jdbcType="DECIMAL" property="pattern" />
+    <result column="PATIENT_NAME" jdbcType="OTHER" property="patientName" />
+    <result column="CARD_ID" jdbcType="OTHER" property="cardId" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    USER_ID, MOBILE_NO, VISITCARD_NUM, VISITCARD_IS_BING, FINANCIAL_ACCOUNT, FINANCIAL_IS_BING,
+    REAL_PIC_URL, REAL_TIME, PAY_PASSWORD, USER_NO, MEDICARE_TYPE, CARDINFO, OVERALL_AREA,
+    PATTERN, PATIENT_NAME, CARD_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Object" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from T_SI_REAL_USER
+    where USER_ID = #{userId,jdbcType=OTHER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Object">
+    delete from T_SI_REAL_USER
+    where USER_ID = #{userId,jdbcType=OTHER}
+  </delete>
+  <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.SiRealUser">
+    insert into T_SI_REAL_USER (USER_ID, MOBILE_NO, VISITCARD_NUM,
+      VISITCARD_IS_BING, FINANCIAL_ACCOUNT, FINANCIAL_IS_BING,
+      REAL_PIC_URL, REAL_TIME, PAY_PASSWORD,
+      USER_NO, MEDICARE_TYPE, CARDINFO,
+      OVERALL_AREA, PATTERN, PATIENT_NAME,
+      CARD_ID)
+    values (#{userId,jdbcType=OTHER}, #{mobileNo,jdbcType=OTHER}, #{visitcardNum,jdbcType=OTHER},
+      #{visitcardIsBing,jdbcType=DECIMAL}, #{financialAccount,jdbcType=OTHER}, #{financialIsBing,jdbcType=DECIMAL},
+      #{realPicUrl,jdbcType=OTHER}, #{realTime,jdbcType=DATE}, #{payPassword,jdbcType=OTHER},
+      #{userNo,jdbcType=OTHER}, #{medicareType,jdbcType=DECIMAL}, #{cardinfo,jdbcType=OTHER},
+      #{overallArea,jdbcType=OTHER}, #{pattern,jdbcType=DECIMAL}, #{patientName,jdbcType=OTHER},
+      #{cardId,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.SiRealUser">
+    insert into T_SI_REAL_USER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="mobileNo != null">
+        MOBILE_NO,
+      </if>
+      <if test="visitcardNum != null">
+        VISITCARD_NUM,
+      </if>
+      <if test="visitcardIsBing != null">
+        VISITCARD_IS_BING,
+      </if>
+      <if test="financialAccount != null">
+        FINANCIAL_ACCOUNT,
+      </if>
+      <if test="financialIsBing != null">
+        FINANCIAL_IS_BING,
+      </if>
+      <if test="realPicUrl != null">
+        REAL_PIC_URL,
+      </if>
+      <if test="realTime != null">
+        REAL_TIME,
+      </if>
+      <if test="payPassword != null">
+        PAY_PASSWORD,
+      </if>
+      <if test="userNo != null">
+        USER_NO,
+      </if>
+      <if test="medicareType != null">
+        MEDICARE_TYPE,
+      </if>
+      <if test="cardinfo != null">
+        CARDINFO,
+      </if>
+      <if test="overallArea != null">
+        OVERALL_AREA,
+      </if>
+      <if test="pattern != null">
+        PATTERN,
+      </if>
+      <if test="patientName != null">
+        PATIENT_NAME,
+      </if>
+      <if test="cardId != null">
+        CARD_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=OTHER},
+      </if>
+      <if test="mobileNo != null">
+        #{mobileNo,jdbcType=OTHER},
+      </if>
+      <if test="visitcardNum != null">
+        #{visitcardNum,jdbcType=OTHER},
+      </if>
+      <if test="visitcardIsBing != null">
+        #{visitcardIsBing,jdbcType=DECIMAL},
+      </if>
+      <if test="financialAccount != null">
+        #{financialAccount,jdbcType=OTHER},
+      </if>
+      <if test="financialIsBing != null">
+        #{financialIsBing,jdbcType=DECIMAL},
+      </if>
+      <if test="realPicUrl != null">
+        #{realPicUrl,jdbcType=OTHER},
+      </if>
+      <if test="realTime != null">
+        #{realTime,jdbcType=DATE},
+      </if>
+      <if test="payPassword != null">
+        #{payPassword,jdbcType=OTHER},
+      </if>
+      <if test="userNo != null">
+        #{userNo,jdbcType=OTHER},
+      </if>
+      <if test="medicareType != null">
+        #{medicareType,jdbcType=DECIMAL},
+      </if>
+      <if test="cardinfo != null">
+        #{cardinfo,jdbcType=OTHER},
+      </if>
+      <if test="overallArea != null">
+        #{overallArea,jdbcType=OTHER},
+      </if>
+      <if test="pattern != null">
+        #{pattern,jdbcType=DECIMAL},
+      </if>
+      <if test="patientName != null">
+        #{patientName,jdbcType=OTHER},
+      </if>
+      <if test="cardId != null">
+        #{cardId,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.SiRealUser">
+    update T_SI_REAL_USER
+    <set>
+      <if test="mobileNo != null">
+        MOBILE_NO = #{mobileNo,jdbcType=OTHER},
+      </if>
+      <if test="visitcardNum != null">
+        VISITCARD_NUM = #{visitcardNum,jdbcType=OTHER},
+      </if>
+      <if test="visitcardIsBing != null">
+        VISITCARD_IS_BING = #{visitcardIsBing,jdbcType=DECIMAL},
+      </if>
+      <if test="financialAccount != null">
+        FINANCIAL_ACCOUNT = #{financialAccount,jdbcType=OTHER},
+      </if>
+      <if test="financialIsBing != null">
+        FINANCIAL_IS_BING = #{financialIsBing,jdbcType=DECIMAL},
+      </if>
+      <if test="realPicUrl != null">
+        REAL_PIC_URL = #{realPicUrl,jdbcType=OTHER},
+      </if>
+      <if test="realTime != null">
+        REAL_TIME = #{realTime,jdbcType=DATE},
+      </if>
+      <if test="payPassword != null">
+        PAY_PASSWORD = #{payPassword,jdbcType=OTHER},
+      </if>
+      <if test="userNo != null">
+        USER_NO = #{userNo,jdbcType=OTHER},
+      </if>
+      <if test="medicareType != null">
+        MEDICARE_TYPE = #{medicareType,jdbcType=DECIMAL},
+      </if>
+      <if test="cardinfo != null">
+        CARDINFO = #{cardinfo,jdbcType=OTHER},
+      </if>
+      <if test="overallArea != null">
+        OVERALL_AREA = #{overallArea,jdbcType=OTHER},
+      </if>
+      <if test="pattern != null">
+        PATTERN = #{pattern,jdbcType=DECIMAL},
+      </if>
+      <if test="patientName != null">
+        PATIENT_NAME = #{patientName,jdbcType=OTHER},
+      </if>
+      <if test="cardId != null">
+        CARD_ID = #{cardId,jdbcType=OTHER},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=OTHER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.SiRealUser">
+    update T_SI_REAL_USER
+    set MOBILE_NO = #{mobileNo,jdbcType=OTHER},
+      VISITCARD_NUM = #{visitcardNum,jdbcType=OTHER},
+      VISITCARD_IS_BING = #{visitcardIsBing,jdbcType=DECIMAL},
+      FINANCIAL_ACCOUNT = #{financialAccount,jdbcType=OTHER},
+      FINANCIAL_IS_BING = #{financialIsBing,jdbcType=DECIMAL},
+      REAL_PIC_URL = #{realPicUrl,jdbcType=OTHER},
+      REAL_TIME = #{realTime,jdbcType=DATE},
+      PAY_PASSWORD = #{payPassword,jdbcType=OTHER},
+      USER_NO = #{userNo,jdbcType=OTHER},
+      MEDICARE_TYPE = #{medicareType,jdbcType=DECIMAL},
+      CARDINFO = #{cardinfo,jdbcType=OTHER},
+      OVERALL_AREA = #{overallArea,jdbcType=OTHER},
+      PATTERN = #{pattern,jdbcType=DECIMAL},
+      PATIENT_NAME = #{patientName,jdbcType=OTHER},
+      CARD_ID = #{cardId,jdbcType=OTHER}
+    where USER_ID = #{userId,jdbcType=OTHER}
+  </update>
+  
+  	<select id="selectByConditions" resultMap="BaseResultMap" parameterType="cn.bxd.sip.bxd.model.entity.SiRealUser">
+      select <include refid="Base_Column_List"/>
+        from t_si_real_user where 1=1
+	  <if test="mobileNo != null">
+         and MOBILE_NO = #{mobileNo,jdbcType=OTHER}
+      </if>
+      <if test="visitcardNum != null">
+        and VISITCARD_NUM = #{visitcardNum,jdbcType=OTHER}
+      </if>
+      <if test="visitcardIsBing != null">
+        and VISITCARD_IS_BING = #{visitcardIsBing,jdbcType=DECIMAL}
+      </if>
+      <if test="financialAccount != null">
+        and FINANCIAL_ACCOUNT = #{financialAccount,jdbcType=OTHER}
+      </if>
+      <if test="financialIsBing != null">
+        and FINANCIAL_IS_BING = #{financialIsBing,jdbcType=DECIMAL}
+      </if>
+      <if test="realPicUrl != null">
+        and REAL_PIC_URL = #{realPicUrl,jdbcType=OTHER}
+      </if>
+      <if test="realTime != null">
+        and REAL_TIME = #{realTime,jdbcType=DATE}
+      </if>
+      <if test="payPassword != null">
+        and PAY_PASSWORD = #{payPassword,jdbcType=OTHER}
+      </if>
+      <if test="userNo != null">
+        USER_NO = #{userNo,jdbcType=OTHER}
+      </if>
+      <if test="medicareType != null">
+        and MEDICARE_TYPE = #{medicareType,jdbcType=DECIMAL}
+      </if>
+      <if test="cardinfo != null">
+        and CARDINFO = #{cardinfo,jdbcType=OTHER}
+      </if>
+      <if test="overallArea != null">
+        and OVERALL_AREA = #{overallArea,jdbcType=OTHER}
+      </if>
+      <if test="pattern != null">
+        and PATTERN = #{pattern,jdbcType=DECIMAL}
+      </if>
+      <if test="patientName != null">
+        and PATIENT_NAME = #{patientName,jdbcType=OTHER}
+      </if>
+      <if test="cardId != null">
+        and CARD_ID = #{cardId,jdbcType=OTHER}
+      </if>                  
+    </select>
+    
+    <select id="findRealUserByOpenId" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT b.USER_ID,b.USER_NO,b.PATIENT_NAME,b.CARD_ID,b.VISITCARD_NUM,b.MOBILE_NO,b.CARDINFO, b.OVERALL_AREA
+		FROM t_si_USER a ,t_si_real_user b
+		WHERE a.user_id = b.user_id
+		AND a.bind_flag = '1'
+		AND a.STATUS = '1'
+		AND a.openid = #{1}
+	</select>
+</mapper>

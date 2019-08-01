@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.HospitalEmpMapper">
+    <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.HospitalEMP">
+        <id column="HOSPITAL_ID" property="hospitalId" jdbcType="DECIMAL"/>
+        <id column="EMP_NO" property="empNo" jdbcType="DECIMAL"/>
+        <result column="MEI_NO" property="meiNo" jdbcType="OTHER"/>
+        <result column="EMP_NAME" property="empName" jdbcType="OTHER"/>
+        <result column="GENDER_ID" property="genderId" jdbcType="DECIMAL"/>
+        <result column="PROFESSION_ID" property="professionId" jdbcType="DECIMAL"/>
+        <result column="FIRST_WORK_YEAR" property="firstWorkYear" jdbcType="DECIMAL"/>
+        <result column="HIRED_DATE" property="hiredDate" jdbcType="DECIMAL"/>
+        <result column="CAREER_CERT_NO" property="careerCertNo" jdbcType="OTHER"/>
+        <result column="COUNTRY_ID" property="countryId" jdbcType="DECIMAL"/>
+        <result column="QUALIFICATION_ID" property="qualificationId" jdbcType="DECIMAL"/>
+        <result column="CERT_IDNO" property="certIdno" jdbcType="DECIMAL"/>
+        <result column="CERT_TYPE_ID" property="certTypeId" jdbcType="DECIMAL"/>
+        <result column="CAREER_ID" property="careerId" jdbcType="DECIMAL"/>
+        <result column="DEGREE_ID" property="degreeId" jdbcType="DECIMAL"/>
+        <result column="IS_PROMOTION_DOCTOR" property="isPromotionDoctor" jdbcType="DECIMAL"/>
+        <result column="SOCIAL_TITLES" property="socialTitles" jdbcType="OTHER"/>
+        <result column="SPECIALITY" property="speciality" jdbcType="OTHER"/>
+        <result column="MAJOR_IN" property="majorIn" jdbcType="CHAR"/>
+        <result column="INTRODUCTION_URL" property="introductionUrl" jdbcType="OTHER"/>
+        <result column="EDU_BACKGROUND_ID" property="eduBackgroundId" jdbcType="DECIMAL"/>
+        <result column="BIRTH_DATE" property="birthDate" jdbcType="DECIMAL"/>
+        <result column="DEPT_NO" property="deptNo" jdbcType="DECIMAL"/>
+        <result column="EMP_LOGO_URL" property="empLogoUrl" jdbcType="OTHER"/>
+        <result column="EMEI_No" property="emeiNo" jdbcType="VARCHAR"/>
+        <result column="REGISTRATION_URL" property="registrationUrl" jdbcType="VARCHAR"/>
+        <result column="DISABLED" property="disable" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        HOSPITAL_ID, EMP_NO, MEI_NO, EMP_NAME, GENDER_ID, PROFESSION_ID, FIRST_WORK_YEAR,
+        HIRED_DATE, CAREER_CERT_NO, COUNTRY_ID, QUALIFICATION_ID, CERT_IDNO, CERT_TYPE_ID,
+        CAREER_ID, DEGREE_ID, IS_PROMOTION_DOCTOR, SOCIAL_TITLES, SPECIALITY, MAJOR_IN, INTRODUCTION_URL,
+        EDU_BACKGROUND_ID, BIRTH_DATE, DEPT_NO,EMP_LOGO_URL,EMEI_No,DISABLED
+    </sql>
+
+    <!-- 根据医院Id获取人员信息 -->
+    <select id="selectByHospitalId" resultMap="BaseResultMap">
+        select he.*
+        from T_RHIP_HOSPITAL_EMP he
+        where 1=1
+        and (he.DISABLED is null or he.DISABLED=0)
+        <if test="hospitalId != null">
+            and he.HOSPITAL_ID=#{hospitalId,jdbcType=DECIMAL}
+        </if>
+        <if test="deptId != null">
+            and he.DEPT_NO=#{deptId,jdbcType=DECIMAL}
+        </if>
+    </select>
+
+    <!-- 根据医院Id获取人员信息 -->
+    <select id="selectByEMP" resultMap="BaseResultMap"  parameterType="cn.bxd.sip.bxd.model.entity.HospitalEMP">
+        select he.*
+        from T_RHIP_HOSPITAL_EMP he
+        where 1=1
+        and (he.DISABLED is null or he.DISABLED=0)
+        <if test="hospitalId != null">
+            and he.HOSPITAL_ID=#{hospitalId,jdbcType=DECIMAL}
+        </if>
+        <if test="empNo != null">
+            and he.EMP_NO=#{empNo,jdbcType=DECIMAL}
+        </if>
+        <if test="meiNo != null">
+            and he.MEI_NO=#{meiNo,jdbcType=DECIMAL}
+        </if>
+        <if test="empName != null">
+            and he.EMP_NAME=#{empName,jdbcType=DECIMAL}
+        </if>
+        <if test="genderId != null">
+            and he.GENDER_ID=#{genderId,jdbcType=DECIMAL}
+        </if>
+        <if test="professionId != null">
+            and he.PROFESSION_ID=#{professionId,jdbcType=DECIMAL}
+        </if>
+        <if test="firstWorkYear != null">
+            and he.FIRST_WORK_YEAR=#{firstWorkYear,jdbcType=DECIMAL}
+        </if>
+        <if test="hiredDate != null">
+            and he.HIRED_DATE=#{hiredDate,jdbcType=DECIMAL}
+        </if>
+        <if test="careerCertNo != null">
+            and he.CAREER_CERT_NO=#{careerCertNo,jdbcType=DECIMAL}
+        </if>
+        <if test="countryId != null">
+            and he.COUNTRY_ID=#{countryId,jdbcType=DECIMAL}
+        </if>
+        <if test="qualificationId != null">
+            and he.QUALIFICATION_ID=#{qualificationId,jdbcType=DECIMAL}
+        </if>
+        <if test="certIdno != null">
+            and he.CERT_IDNO=#{certIdno,jdbcType=DECIMAL}
+        </if>
+        <if test="certTypeId != null">
+            and he.CERT_TYPE_ID=#{certTypeId,jdbcType=DECIMAL}
+        </if>
+        <if test="careerId != null">
+            and he.CAREER_ID=#{careerId,jdbcType=DECIMAL}
+        </if>
+        <if test="degreeId != null">
+            and he.DEGREE_ID=#{degreeId,jdbcType=DECIMAL}
+        </if>
+        <if test="isPromotionDoctor != null">
+            and he.IS_PROMOTION_DOCTOR=#{isPromotionDoctor,jdbcType=DECIMAL}
+        </if>
+        <if test="socialTitles != null">
+            and he.SOCIAL_TITLES=#{socialTitles,jdbcType=DECIMAL}
+        </if>
+        <if test="speciality != null">
+            and he.SPECIALITY=#{speciality,jdbcType=DECIMAL}
+        </if>
+        <if test="majorIn != null">
+            and he.MAJOR_IN=#{majorIn,jdbcType=DECIMAL}
+        </if>
+        <if test="introductionUrl != null">
+            and he.INTRODUCTION_URL=#{introductionUrl,jdbcType=DECIMAL}
+        </if>
+        <if test="eduBackgroundId != null">
+            and he.EDU_BACKGROUND_ID=#{eduBackgroundId,jdbcType=DECIMAL}
+        </if>
+        <if test="birthDate != null">
+            and he.BIRTH_DATE=#{birthDate,jdbcType=DECIMAL}
+        </if>
+        <if test="deptNo != null">
+            and he.DEPT_NO=#{deptNo,jdbcType=DECIMAL}
+        </if>
+        <if test="registrationPrice != null">
+            and he.REGISTRATION_PRICE=#{registrationPrice,jdbcType=DECIMAL}
+        </if>
+        <if test="emergencyAddPrice != null">
+            and he.EMERGENCY_ADD_PRICE=#{emergencyAddPrice,jdbcType=DECIMAL}
+        </if>
+        <if test="empLogoUrl != null">
+            and he.EMP_LOGO_URL=#{empLogoUrl,jdbcType=DECIMAL}
+        </if>
+        <if test="indagationPrice != null">
+            and he.INDAGATION_PRICE=#{indagationPrice,jdbcType=DECIMAL}
+        </if>
+        <if test="disabled != null">
+            and he.DISABLED=#{disabled,jdbcType=DECIMAL}
+        </if>
+        <if test="emeiNo != null">
+            and he.EMEI_NO=#{emeiNo,jdbcType=DECIMAL}
+        </if>
+        <if test="registrationUrl != null">
+            and he.REGISTRATION_URL=#{registrationUrl,jdbcType=DECIMAL}
+        </if>
+        <if test="displayOrder != null">
+            and he.DISPLAY_ORDER=#{displayOrder,jdbcType=DECIMAL}
+        </if>
+    </select>
+
+    <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.HospitalEMP">
+        insert into T_RHIP_HOSPITAL_EMP
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="hospitalId != null">
+                HOSPITAL_ID,
+            </if>
+            <if test="empNo != null">
+                EMP_NO,
+            </if>
+            <if test="meiNo != null">
+                MEI_NO,
+            </if>
+            <if test="empName != null">
+                EMP_NAME,
+            </if>
+            <if test="genderId != null">
+                GENDER_ID,
+            </if>
+            <if test="professionId != null">
+                PROFESSION_ID,
+            </if>
+            <if test="firstWorkYear != null">
+                FIRST_WORK_YEAR,
+            </if>
+            <if test="hiredDate != null">
+                HIRED_DATE,
+            </if>
+            <if test="careerCertNo != null">
+                CAREER_CERT_NO,
+            </if>
+            <if test="countryId != null">
+                COUNTRY_ID,
+            </if>
+            <if test="qualificationId != null">
+                QUALIFICATION_ID,
+            </if>
+            <if test="certIdno != null">
+                CERT_IDNO,
+            </if>
+            <if test="certTypeId != null">
+                CERT_TYPE_ID,
+            </if>
+            <if test="careerId != null">
+                CAREER_ID,
+            </if>
+            <if test="degreeId != null">
+                DEGREE_ID,
+            </if>
+            <if test="isPromotionDoctor != null">
+                IS_PROMOTION_DOCTOR,
+            </if>
+            <if test="socialTitles != null">
+                SOCIAL_TITLES,
+            </if>
+            <if test="speciality != null">
+                SPECIALITY,
+            </if>
+            <if test="majorIn != null">
+                MAJOR_IN,
+            </if>
+            <if test="introductionUrl != null">
+                INTRODUCTION_URL,
+            </if>
+            <if test="eduBackgroundId != null">
+                EDU_BACKGROUND_ID,
+            </if>
+            <if test="birthDate != null">
+                BIRTH_DATE,
+            </if>
+            <if test="deptNo != null">
+                DEPT_NO,
+            </if>
+            <if test="registrationPrice != null">
+                REGISTRATION_PRICE,
+            </if>
+            <if test="emergencyAddPrice != null">
+                EMERGENCY_ADD_PRICE,
+            </if>
+            <if test="empLogoUrl != null">
+                EMP_LOGO_URL,
+            </if>
+            <if test="indagationPrice != null">
+                INDAGATION_PRICE,
+            </if>
+            <if test="disabled != null">
+                DISABLED,
+            </if>
+            <if test="emeiNo != null">
+                EMEI_NO,
+            </if>
+            <if test="registrationUrl != null">
+                REGISTRATION_URL,
+            </if>
+            <if test="displayOrder != null">
+                DISPLAY_ORDER,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="hospitalId != null">
+                #{hospitalId,jdbcType=DECIMAL},
+            </if>
+            <if test="empNo != null">
+                #{empNo,jdbcType=DECIMAL},
+            </if>
+            <if test="meiNo != null">
+                #{meiNo,jdbcType=OTHER},
+            </if>
+            <if test="empName != null">
+                #{empName,jdbcType=OTHER},
+            </if>
+            <if test="genderId != null">
+                #{genderId,jdbcType=DECIMAL},
+            </if>
+            <if test="professionId != null">
+                #{professionId,jdbcType=DECIMAL},
+            </if>
+            <if test="firstWorkYear != null">
+                #{firstWorkYear,jdbcType=DECIMAL},
+            </if>
+            <if test="hiredDate != null">
+                #{hiredDate,jdbcType=DECIMAL},
+            </if>
+            <if test="careerCertNo != null">
+                #{careerCertNo,jdbcType=OTHER},
+            </if>
+            <if test="countryId != null">
+                #{countryId,jdbcType=DECIMAL},
+            </if>
+            <if test="qualificationId != null">
+                #{qualificationId,jdbcType=DECIMAL},
+            </if>
+            <if test="certIdno != null">
+                #{certIdno,jdbcType=OTHER},
+            </if>
+            <if test="certTypeId != null">
+                #{certTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="careerId != null">
+                #{careerId,jdbcType=DECIMAL},
+            </if>
+            <if test="degreeId != null">
+                #{degreeId,jdbcType=DECIMAL},
+            </if>
+            <if test="isPromotionDoctor != null">
+                #{isPromotionDoctor,jdbcType=DECIMAL},
+            </if>
+            <if test="socialTitles != null">
+                #{socialTitles,jdbcType=OTHER},
+            </if>
+            <if test="speciality != null">
+                #{speciality,jdbcType=OTHER},
+            </if>
+            <if test="majorIn != null">
+                #{majorIn,jdbcType=CHAR},
+            </if>
+            <if test="introductionUrl != null">
+                #{introductionUrl,jdbcType=OTHER},
+            </if>
+            <if test="eduBackgroundId != null">
+                #{eduBackgroundId,jdbcType=DECIMAL},
+            </if>
+            <if test="birthDate != null">
+                #{birthDate,jdbcType=DECIMAL},
+            </if>
+            <if test="deptNo != null">
+                #{deptNo,jdbcType=DECIMAL},
+            </if>
+            <if test="registrationPrice != null">
+                #{registrationPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="emergencyAddPrice != null">
+                #{emergencyAddPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="empLogoUrl != null">
+                #{empLogoUrl,jdbcType=OTHER},
+            </if>
+            <if test="indagationPrice != null">
+                #{indagationPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="disabled != null">
+                #{disabled,jdbcType=DECIMAL},
+            </if>
+            <if test="emeiNo != null">
+                #{emeiNo,jdbcType=OTHER},
+            </if>
+            <if test="registrationUrl != null">
+                #{registrationUrl,jdbcType=OTHER},
+            </if>
+            <if test="displayOrder != null">
+                #{displayOrder,jdbcType=DECIMAL},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.HospitalEMP">
+        update T_RHIP_HOSPITAL_EMP
+        <set>
+            <if test="meiNo != null">
+                MEI_NO = #{meiNo,jdbcType=OTHER},
+            </if>
+            <if test="empName != null">
+                EMP_NAME = #{empName,jdbcType=OTHER},
+            </if>
+            <if test="genderId != null">
+                GENDER_ID = #{genderId,jdbcType=DECIMAL},
+            </if>
+            <if test="professionId != null">
+                PROFESSION_ID = #{professionId,jdbcType=DECIMAL},
+            </if>
+            <if test="firstWorkYear != null">
+                FIRST_WORK_YEAR = #{firstWorkYear,jdbcType=DECIMAL},
+            </if>
+            <if test="hiredDate != null">
+                HIRED_DATE = #{hiredDate,jdbcType=DECIMAL},
+            </if>
+            <if test="careerCertNo != null">
+                CAREER_CERT_NO = #{careerCertNo,jdbcType=OTHER},
+            </if>
+            <if test="countryId != null">
+                COUNTRY_ID = #{countryId,jdbcType=DECIMAL},
+            </if>
+            <if test="qualificationId != null">
+                QUALIFICATION_ID = #{qualificationId,jdbcType=DECIMAL},
+            </if>
+            <if test="certIdno != null">
+                CERT_IDNO = #{certIdno,jdbcType=OTHER},
+            </if>
+            <if test="certTypeId != null">
+                CERT_TYPE_ID = #{certTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="careerId != null">
+                CAREER_ID = #{careerId,jdbcType=DECIMAL},
+            </if>
+            <if test="degreeId != null">
+                DEGREE_ID = #{degreeId,jdbcType=DECIMAL},
+            </if>
+            <if test="isPromotionDoctor != null">
+                IS_PROMOTION_DOCTOR = #{isPromotionDoctor,jdbcType=DECIMAL},
+            </if>
+            <if test="socialTitles != null">
+                SOCIAL_TITLES = #{socialTitles,jdbcType=OTHER},
+            </if>
+            <if test="speciality != null">
+                SPECIALITY = #{speciality,jdbcType=OTHER},
+            </if>
+            <if test="majorIn != null">
+                MAJOR_IN = #{majorIn,jdbcType=CHAR},
+            </if>
+            <if test="introductionUrl != null">
+                INTRODUCTION_URL = #{introductionUrl,jdbcType=OTHER},
+            </if>
+            <if test="eduBackgroundId != null">
+                EDU_BACKGROUND_ID = #{eduBackgroundId,jdbcType=DECIMAL},
+            </if>
+            <if test="birthDate != null">
+                BIRTH_DATE = #{birthDate,jdbcType=DECIMAL},
+            </if>
+            <if test="deptNo != null">
+                DEPT_NO = #{deptNo,jdbcType=DECIMAL},
+            </if>
+            <if test="registrationPrice != null">
+                REGISTRATION_PRICE = #{registrationPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="emergencyAddPrice != null">
+                EMERGENCY_ADD_PRICE = #{emergencyAddPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="empLogoUrl != null">
+                EMP_LOGO_URL = #{empLogoUrl,jdbcType=OTHER},
+            </if>
+            <if test="indagationPrice != null">
+                INDAGATION_PRICE = #{indagationPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="disabled != null">
+                DISABLED = #{disabled,jdbcType=DECIMAL},
+            </if>
+            <if test="emeiNo != null">
+                EMEI_NO = #{emeiNo,jdbcType=OTHER},
+            </if>
+            <if test="registrationUrl != null">
+                REGISTRATION_URL = #{registrationUrl,jdbcType=OTHER},
+            </if>
+            <if test="displayOrder != null">
+                DISPLAY_ORDER = #{displayOrder,jdbcType=DECIMAL},
+            </if>
+        </set>
+        where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+        and EMP_NO = #{empNo,jdbcType=DECIMAL}
+    </update>
+
+
+
+</mapper>

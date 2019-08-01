@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!--楼id和名称、科室-->
+<buildings>
+  <building id="0" name="内科大楼">
+    <floor id="1" order ="1">
+      <department id="1528" name="感染科诊室" />
+      <department id="1772" name="肛肠科诊室" />
+    </floor>
+    <floor id="2" order="2">
+      <department id="1533" name="妇科诊室" />
+      <department id="2665" name="产科诊室" />
+      <department id="1529" name="儿科诊室" />
+      <department id="1563" name="心理咨询诊室" />
+      <department id="2646" name="肿瘤科诊室" />
+      <department id="1535" name="中医科诊室" />
+
+      <department id="1530" name="皮肤科诊室" />
+      <department id="2645" name="中西医结合科诊室" />
+      <department id="1777" name="呼吸内科诊室" />
+      <department id="1527" name="心血管内科诊室" />
+      <department id="1525" name="消化内分泌诊室" />
+      <department id="2363" name="神经内科诊室" />
+     <department id="1526" name="肾脏血液诊室" />
+    </floor>
+   <floor id="3" order="3">
+    </floor>
+    <floor id="4" order="4">
+    </floor>
+    <floor id="5" order="5">
+    </floor>
+    <floor id="6" order="6">
+    </floor>
+    <floor id="7" order="7">
+    </floor>
+    <floor id="8" order="8">
+    </floor>
+    <floor id="9" order="9">
+    </floor>
+  </building>
+ <building id="1" name="外科大楼">
+    <floor id="-1" order="1">
+        <department id="114" name="急救部" />
+    </floor>
+    <floor id="1" order="2">
+        <department id="1603" name="疼痛科诊室" />
+    <department id="2606" name="胸心外科诊室" />
+    <department id="1531" name="肝胆外科诊室" />
+   <department id="1764" name="胃肠外科诊室 " />
+    <department id="1683" name="神经外科诊室" />
+    <department id="1532" name="骨关节外科诊室" />
+    <department id="2605" name="脊柱外科诊室" />
+    <department id="2607" name="泌尿外科诊室" />
+    </floor>
+    <floor id="1B" order="3">
+    </floor>
+    <floor id="2" order="4">
+    </floor>
+    <floor id="3" order="5">
+     <!--  <department id="1943" name="麻醉科诊室" />-->
+    </floor>
+    <floor id="4" order="6">
+     <!-- <department id="1943" name="麻醉科诊室" />-->
+    </floor>
+    <floor id="5" order="7">
+    <!--  <department id="2003" name="ICU诊室" />-->
+    </floor>
+    <floor id="6" order="8">
+    </floor>
+    <floor id="7" order="9">
+    </floor>
+    <floor id="8" order="10">
+    </floor>
+    <floor id="9" order="11">
+    </floor>
+    <floor id="10" order="12">
+    </floor>
+    <floor id="11" order="13">
+    </floor>
+    <floor id="12" order="14">
+    </floor>
+  </building>
+</buildings>

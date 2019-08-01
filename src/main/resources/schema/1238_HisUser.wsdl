@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="queryPatientInfoByIdNO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryPatientInfoByIdNOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryPatientInfoByIdNOResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryPatientInfoBySocialsecurityNO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="socialsecurityNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankCardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="visitCardNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryPatientInfoBySocialsecurityNOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryPatientInfoBySocialsecurityNOResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doCreatCardInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paramList" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doCreatCardInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="doCreatCardInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updatePatientInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="socialsecurityNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankCardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="visitCardNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updatePatientInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updatePatientInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryExaminationRecordStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportNos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryExaminationRecordStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryExaminationRecordStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateExaminationRecordStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportNos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateExaminationRecordStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateExaminationRecordStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryExaminationRecordList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryExaminationRecordListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryExaminationRecordListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryHisUserRecordList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryHisUserRecordListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryHisUserRecordListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="queryPatientInfoByIdNOSoapIn">
+    <wsdl:part name="parameters" element="tns:queryPatientInfoByIdNO" />
+  </wsdl:message>
+  <wsdl:message name="queryPatientInfoByIdNOSoapOut">
+    <wsdl:part name="parameters" element="tns:queryPatientInfoByIdNOResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryPatientInfoBySocialsecurityNOSoapIn">
+    <wsdl:part name="parameters" element="tns:queryPatientInfoBySocialsecurityNO" />
+  </wsdl:message>
+  <wsdl:message name="queryPatientInfoBySocialsecurityNOSoapOut">
+    <wsdl:part name="parameters" element="tns:queryPatientInfoBySocialsecurityNOResponse" />
+  </wsdl:message>
+  <wsdl:message name="doCreatCardInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:doCreatCardInfo" />
+  </wsdl:message>
+  <wsdl:message name="doCreatCardInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:doCreatCardInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="updatePatientInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:updatePatientInfo" />
+  </wsdl:message>
+  <wsdl:message name="updatePatientInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:updatePatientInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryExaminationRecordStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:queryExaminationRecordStatus" />
+  </wsdl:message>
+  <wsdl:message name="queryExaminationRecordStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:queryExaminationRecordStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateExaminationRecordStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:updateExaminationRecordStatus" />
+  </wsdl:message>
+  <wsdl:message name="updateExaminationRecordStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:updateExaminationRecordStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryExaminationRecordListSoapIn">
+    <wsdl:part name="parameters" element="tns:queryExaminationRecordList" />
+  </wsdl:message>
+  <wsdl:message name="queryExaminationRecordListSoapOut">
+    <wsdl:part name="parameters" element="tns:queryExaminationRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryHisUserRecordListSoapIn">
+    <wsdl:part name="parameters" element="tns:queryHisUserRecordList" />
+  </wsdl:message>
+  <wsdl:message name="queryHisUserRecordListSoapOut">
+    <wsdl:part name="parameters" element="tns:queryHisUserRecordListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="HisUserSoap">
+    <wsdl:operation name="queryPatientInfoByIdNO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">身份证号码查看患者信息</wsdl:documentation>
+      <wsdl:input message="tns:queryPatientInfoByIdNOSoapIn" />
+      <wsdl:output message="tns:queryPatientInfoByIdNOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryPatientInfoBySocialsecurityNO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">社保、银行、就诊卡号查看患者信息</wsdl:documentation>
+      <wsdl:input message="tns:queryPatientInfoBySocialsecurityNOSoapIn" />
+      <wsdl:output message="tns:queryPatientInfoBySocialsecurityNOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="doCreatCardInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">创建患者详细档案：姓名、性别、身份证号、社保号、电话</wsdl:documentation>
+      <wsdl:input message="tns:doCreatCardInfoSoapIn" />
+      <wsdl:output message="tns:doCreatCardInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新患者信息</wsdl:documentation>
+      <wsdl:input message="tns:updatePatientInfoSoapIn" />
+      <wsdl:output message="tns:updatePatientInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryExaminationRecordStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询检查,检验数据打印状态状态</wsdl:documentation>
+      <wsdl:input message="tns:queryExaminationRecordStatusSoapIn" />
+      <wsdl:output message="tns:queryExaminationRecordStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateExaminationRecordStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新检查,检验数据打印状态</wsdl:documentation>
+      <wsdl:input message="tns:updateExaminationRecordStatusSoapIn" />
+      <wsdl:output message="tns:updateExaminationRecordStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryExaminationRecordList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取检查,检验数据</wsdl:documentation>
+      <wsdl:input message="tns:queryExaminationRecordListSoapIn" />
+      <wsdl:output message="tns:queryExaminationRecordListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryHisUserRecordList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">病历记录查询</wsdl:documentation>
+      <wsdl:input message="tns:queryHisUserRecordListSoapIn" />
+      <wsdl:output message="tns:queryHisUserRecordListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HisUserSoap" type="tns:HisUserSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryPatientInfoByIdNO">
+      <soap:operation soapAction="http://tempuri.org/queryPatientInfoByIdNO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryPatientInfoBySocialsecurityNO">
+      <soap:operation soapAction="http://tempuri.org/queryPatientInfoBySocialsecurityNO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doCreatCardInfo">
+      <soap:operation soapAction="http://tempuri.org/doCreatCardInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientInfo">
+      <soap:operation soapAction="http://tempuri.org/updatePatientInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryExaminationRecordStatus">
+      <soap:operation soapAction="http://tempuri.org/queryExaminationRecordStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateExaminationRecordStatus">
+      <soap:operation soapAction="http://tempuri.org/updateExaminationRecordStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryExaminationRecordList">
+      <soap:operation soapAction="http://tempuri.org/queryExaminationRecordList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryHisUserRecordList">
+      <soap:operation soapAction="http://tempuri.org/queryHisUserRecordList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="HisUserSoap12" type="tns:HisUserSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryPatientInfoByIdNO">
+      <soap12:operation soapAction="http://tempuri.org/queryPatientInfoByIdNO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryPatientInfoBySocialsecurityNO">
+      <soap12:operation soapAction="http://tempuri.org/queryPatientInfoBySocialsecurityNO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doCreatCardInfo">
+      <soap12:operation soapAction="http://tempuri.org/doCreatCardInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatientInfo">
+      <soap12:operation soapAction="http://tempuri.org/updatePatientInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryExaminationRecordStatus">
+      <soap12:operation soapAction="http://tempuri.org/queryExaminationRecordStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateExaminationRecordStatus">
+      <soap12:operation soapAction="http://tempuri.org/updateExaminationRecordStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryExaminationRecordList">
+      <soap12:operation soapAction="http://tempuri.org/queryExaminationRecordList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryHisUserRecordList">
+      <soap12:operation soapAction="http://tempuri.org/queryHisUserRecordList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HisUser">
+    <wsdl:port name="HisUserSoap" binding="tns:HisUserSoap">
+      <soap:address location="http://bxd.nnfybjy.gxhealth.xin/HisUser.asmx" />
+    </wsdl:port>
+    <wsdl:port name="HisUserSoap12" binding="tns:HisUserSoap12">
+      <soap12:address location="http://bxd.nnfybjy.gxhealth.xin/HisUser.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

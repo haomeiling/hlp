@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.PolicyMapper">
+<!-- 社保政策查询(110110) -->  
+
+    <resultMap id="PolicyListResultMap" type="cn.bxd.sip.bxd.model.policy.Policy">
+        <id column="PolicyCode" property="PolicyCode" jdbcType="VARCHAR"/>
+        <result column="PolicyType" property="PolicyType" jdbcType="VARCHAR"/>
+        <result column="PolicyTypeName" property="PolicyTypeName" jdbcType="VARCHAR"/>
+        <result column="Year" property="Year" jdbcType="VARCHAR"/>
+        <result column="Title" property="Title" jdbcType="VARCHAR"/>
+        <result column="SubTitle" property="SubTitle" jdbcType="VARCHAR"/>
+        <result column="Summary" property="Summary" jdbcType="VARCHAR"/>
+        <result column="Publisher" property="Publisher" jdbcType="VARCHAR"/>
+        <result column="ReleaseTime" property="ReleaseTime" jdbcType="VARCHAR"/>
+        <result column="Remark" property="Remark" jdbcType="VARCHAR"/>
+        <result column="CONTENT_PATH" property="ContentPath" jdbcType="VARCHAR"/>
+    </resultMap>
+
+<!-- 政策详细查询(110111) -->
+    <resultMap id="PolicyDetailResultMap" type="cn.bxd.sip.bxd.model.policy.PolicyDetailResData">
+     	<id column="PolicyCode" property="PolicyCode" jdbcType="VARCHAR"/>
+        <result column="PolicyType" property="PolicyType" jdbcType="VARCHAR"/>
+        <result column="PolicyTypeName" property="PolicyTypeName" jdbcType="VARCHAR"/>
+        <result column="Summary" property="Summary" jdbcType="VARCHAR"/>
+        <result column="InfoBlob" property="PolicyInfoBlob" jdbcType="BLOB"/>
+        <result column="Publisher" property="Publisher" jdbcType="VARCHAR"/>
+        <result column="ReleaseTime" property="ReleaseTime" jdbcType="VARCHAR"/>
+        <result column="Title" property="Title" jdbcType="VARCHAR"/>
+        <result column="CONTENT_PATH" property="ContentPath" jdbcType="VARCHAR"/>
+    </resultMap>
+    
+    <select id="findPolicyList"  resultMap="PolicyListResultMap" parameterType="cn.bxd.sip.bxd.model.policy.PolicyListResData">
+        SELECT PolicyCode, PolicyType,(SELECT VALUE FROM v_level_code WHERE culoum ='AAE140JC' AND CODE=POLICYTYPE) PolicyTypeName, T.Year, T.Title, T.SubTitle, T.Summary, T.Publisher, 
+        TO_CHAR(T.ReleaseTime,'YYYY-MM-DD HH24:MI:SS') ReleaseTime, T.Remark,T.CONTENT_PATH
+        from T_POLICY t
+        where status = '1' 
+           <if test="PolicyType != null and  PolicyType != ''">
+        	    and PolicyType = #{PolicyType,jdbcType=VARCHAR} 
+       	   </if>
+           <if test="PolicyCode != null and  PolicyCode != ''">
+        	    and PolicyCode = #{PolicyCode,jdbcType=VARCHAR} 
+       	   </if>
+           <if test="StartTime != null and  StartTime != ''">
+	       		<![CDATA[ and T.ReleaseTime >= to_date(#{StartTime,jdbcType=DATE},'yyyy-MM-dd')]]>
+	       </if>
+	       <if test="EndTime != null and  EndTime != ''">
+	       		<![CDATA[ and T.ReleaseTime <= to_date(#{EndTime,jdbcType=DATE},'yyyy-MM-dd')]]>
+	       </if>
+    </select>
+    
+    <select id="findPolicyDetail"  resultMap="PolicyDetailResultMap" parameterType="cn.bxd.sip.bxd.model.policy.PolicyDetailReqData">
+        SELECT PolicyCode,
+       PolicyType,
+       (SELECT VALUE FROM v_level_code WHERE culoum ='AAE140JC' AND CODE=POLICYTYPE) PolicyTypeName, 
+       Summary,
+       NULL InfoBlob,
+       Publisher,
+       TO_CHAR(RELEASETIME, 'YYYY-MM-DD HH24:MI:SS') ReleaseTime,
+       Title,
+       CONTENT_PATH 
+       FROM T_POLICY where status = '1'  and  PolicyCode = #{PolicyCode,jdbcType=VARCHAR} 
+    </select>
+	
+</mapper>

@@ -1,0 +1,40 @@
+spring:
+   datasource:
+      url: jdbc:oracle:thin:@localhost:1521:bxd
+      username: bxd
+      password: bxd#1688
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      max-idle: 10
+      max-wait: 10000
+      min-idle: 5
+      initial-size: 5
+      type: com.alibaba.druid.pool.DruidDataSource
+
+server:
+  port: 9081
+  context-path: /sip
+  
+limit:
+  control: false
+
+#社保内网中转服务
+view:
+  server:
+    address: http://10.153.151.23:9080/siservice/services/siservice?wsdl
+    username: root
+    password: admin
+#社保核心系统服务
+si:
+  url: http://10.153.152.24:8002/eapdomain/SiInterfaceAction.do?method=siInterface
+#基本信息平台地址（社保）
+sip1:
+  url: http://10.153.151.23:9081/sip/services/HisUser?wsdl
+#消息中心地址
+messagecenter:
+  messagecenterUrl: http://10.153.149.254:5180/service/messagecenterwebservice?wsdl
+#支付网关地址  
+paygate:
+  url: http://10.153.149.254:5180/paygate
+#支付网关回调医院外联平台地址，该地址由外联平台提供，需能正确处理支付回调通知时的数据以及相关的业务逻辑
+payCallBack:
+  url: http://10.0.254.254:7080/pay/receive

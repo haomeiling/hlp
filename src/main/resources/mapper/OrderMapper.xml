@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bxd.sip.bxd.dao.OrderMapper">
+    <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.dto.QueryOrderInfo">
+        <id column="ORDER_ID" property="orderId" jdbcType="DECIMAL"/>
+        <result column="CREATED_TIME" property="createdTime" jdbcType="TIMESTAMP"/>
+        <result column="USER_ID" property="userId" jdbcType="DECIMAL"/>
+        <result column="HOSPITAL_ID" property="hospitalId" jdbcType="DECIMAL"/>
+        <result column="CERT_TYPE_ID" property="certTypeId" jdbcType="DECIMAL"/>
+        <result column="CERT_IDNO" property="certIdno" jdbcType="VARCHAR"/>
+        <result column="PATIENT_NAME" property="patientName" jdbcType="VARCHAR"/>
+        <result column="GENDER_ID" property="genderId" jdbcType="DECIMAL"/>
+        <result column="ORDER_TYPE_ID" property="orderTypeId" jdbcType="DECIMAL"/>
+        <result column="DEPT_TYPE_ID" property="deptTypeId" jdbcType="DECIMAL"/>
+        <result column="DEPT_CODE" property="deptCode" jdbcType="VARCHAR"/>
+        <result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR"/>
+        <result column="DOCTOR_CODE" property="doctorCode" jdbcType="VARCHAR"/>
+        <result column="DOCTOR_NAME" property="doctorName" jdbcType="VARCHAR"/>
+        <result column="QUALIFICATION_ID" property="qualificationId" jdbcType="DECIMAL"/>
+        <result column="AMOUNT" property="amount" jdbcType="DECIMAL"/>
+        <result column="STATUS" property="status" jdbcType="DECIMAL"/>
+        <result column="CLINIC_NO" property="clinicNo" jdbcType="VARCHAR"/>
+        <result column="ACTUAL_TIME" property="actualTime" jdbcType="TIMESTAMP"/>
+        <result column="TRANS_ID" property="transId" jdbcType="DECIMAL"/>
+        <result column="ORDER_DAY" property="orderDay" jdbcType="DECIMAL"/>
+        <result column="ORDER_PERIOD" property="orderPeriod" jdbcType="VARCHAR"/>
+        <result column="CLINIC_DATE" property="clinicDate" jdbcType="DECIMAL"/>
+        <result column="QUEUE_ID" property="queueId" jdbcType="VARCHAR"/>
+        <result column="PERIOD_NO" property="periodNo" jdbcType="DECIMAL"/>
+        <result column="PERIOD_START" property="periodStart" jdbcType="DECIMAL"/>
+        <result column="PERIOD_END" property="periodEnd" jdbcType="DECIMAL"/>
+        <result column="QUEUE_NO" property="queueNo" jdbcType="VARCHAR"/>
+        <result column="APP_ID" property="appId" jdbcType="VARCHAR"/>
+        <result column="ORDER_SOURCE_ID" property="orderSourceId" jdbcType="DECIMAL"/>
+        <result column="NORMAL_RESCHEDULED" property="normalRescheduled" jdbcType="DECIMAL"/>
+        <result column="EXPIRED_RESCHEDULED" property="expiredRescheduled" jdbcType="DECIMAL"/>
+        <result column="PAY_FLAG" property="payFlag" jdbcType="DECIMAL"/>
+        <result column="REVIEW_FLAG" property="reviewFlag" jdbcType="DECIMAL"/>
+        <result column="LAST_UPDATED_TIME" property="lastUpdatedTime" jdbcType="TIMESTAMP"/>
+        <result column="VALIDATED_TIME" property="validatedTime" jdbcType="TIMESTAMP"/>
+        <result column="CANCELED_TIME" property="canceledTime" jdbcType="TIMESTAMP"/>
+        <result column="CANCELED_REASON" property="canceledReason" jdbcType="VARCHAR"/>
+        <result column="ORIGIN_ORDER_ID" property="originOrderId" jdbcType="DECIMAL"/>
+        <result column="IS_ADDITION_NO" property="isAdditionNo" jdbcType="DECIMAL"/>
+        <result column="Peer_Order_No" property="peerOrderNo" jdbcType="VARCHAR"/>
+        <result column="DISPLAY_QUEUE_NO" property="displayQueueNo" jdbcType="VARCHAR"/>
+        <result column="WAITING_ORDER_ID" property="waitingOrderID" jdbcType="DECIMAL"/>
+        <result column="QUEUE_ADDR" property="queueAddr" jdbcType="VARCHAR"/>
+        <result column="SENT_FLAG" property="sentFlag" jdbcType="DECIMAL"/>
+        <result column="INITIAL_ORDER_ID" property="initialOrderID" jdbcType="DECIMAL"/>
+        <result column="VERIFICATION_CODE" property="verificationCode" jdbcType="VARCHAR"/>
+        <result column="CASHER_NAME" property="casherName" jdbcType="VARCHAR"/>
+        <result column="CASHER_CODE" property="casherCode" jdbcType="VARCHAR"/>
+        <result column="PAY_BODY" property="payBody" jdbcType="VARCHAR"/>
+
+        <result column="PAY_TYPE" property="payType" jdbcType="DECIMAL"/>
+        <result column="IS_OVER_ALL" property="isOverAll" jdbcType="DECIMAL"/>
+        <result column="SOCIAL_NO" property="socialNo" jdbcType="VARCHAR"/>
+        <result column="PATIENT_NO" property="patientNo" jdbcType="VARCHAR"/>
+        <result column="MEDICARE_TYPE" property="medicareType" jdbcType="DECIMAL"/>
+        <result column="MEDICARE_PAY_TIME" property="medicarePayTime" jdbcType="TIMESTAMP"/>
+        <result column="MEDICARE_PAY_STATE" property="medicarePayState" jdbcType="DECIMAL"/>
+        <result column="PAY_PATTERN" property="payPattern" jdbcType="DECIMAL"/>
+        <result column="MEDICARE_RECORD_ID" property="medicareRecordId" jdbcType="DECIMAL"/>
+        <result column="CASH_MONEY" property="cashMoney" jdbcType="VARCHAR"/>
+        <result column="MEDICARE_MONEY" property="medicareMoney" jdbcType="VARCHAR"/>
+        <result column="OVER_ALL_MONEY" property="overAllMoney" jdbcType="VARCHAR"/>
+        <result column="ACC_TYPE" property="accType" jdbcType="VARCHAR"/>
+        <result column="CARD_NAME" property="cardName" jdbcType="VARCHAR"/>
+
+        <result column="NEED_SIGN" property="needSign" jdbcType="DECIMAL"/>
+        <result column="HOSPITAL_NAME" property="hospitalName" jdbcType="VARCHAR"/>
+        <result column="HOSPITAL_Address" property="hospitalAddress" jdbcType="VARCHAR"/>
+        <result column="LONGITUDE" property="longitude" jdbcType="DECIMAL"/>
+        <result column="LATITUDE" property="latitude" jdbcType="DECIMAL"/>
+        <result column="CONTACT_PERSON_PHONE" property="contactPersonPhone" jdbcType="VARCHAR"/>
+        <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR"/>
+        <result column="ORDER_DATE" property="orderDate" jdbcType="TIMESTAMP"/>
+        <result column="EMP_LOGO_URL" property="empLogoUrl" jdbcType="VARCHAR"/>
+        <result column="QUALIFICATION_NAME" property="qualificationName" jdbcType="VARCHAR"/>
+        <result column="CLINIC_CARD_NO" property="clinicCardNo" jdbcType="VARCHAR"/>
+		<result column="HMPI" property="hmpi" jdbcType="VARCHAR"/>
+        <result column="medical_code" property="medicalCode" jdbcType="VARCHAR"/>
+		<result column="clearing_no" property="clearingNO" jdbcType="VARCHAR"/>
+		<result column="dispensary_win" property="dispensaryWin" jdbcType="VARCHAR"/>
+		<result column="guidelines_info" property="guidelinesInfo" jdbcType="VARCHAR"/>
+        <result column="HIS_DEPT_CODE" property="hisDeptCode" jdbcType="VARCHAR"/>
+        <result column="terminal_code" property="terminalCode" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+        o.ORDER_ID, o.CREATED_TIME, o.HOSPITAL_ID,
+        o.CERT_TYPE_ID, o.CERT_IDNO, o.PATIENT_NAME,
+        o.GENDER_ID, o.ORDER_TYPE_ID, o.DEPT_TYPE_ID, o.DEPT_CODE, o.DEPT_NAME, o.DOCTOR_CODE, o.DOCTOR_NAME,
+        o.QUALIFICATION_ID, o.AMOUNT, o.STATUS, o.CLINIC_NO, o.ACTUAL_TIME,o.TRANS_ID,
+        o.ORDER_DAY, o.ORDER_PERIOD,
+        o.CLINIC_DATE, o.QUEUE_ID, o.PERIOD_NO, o.PERIOD_START, o.PERIOD_END, o.QUEUE_NO, o.APP_ID, o.ORDER_SOURCE_ID,
+        o.NORMAL_RESCHEDULED, o.EXPIRED_RESCHEDULED, o.PAY_FLAG, o.REVIEW_FLAG, o.LAST_UPDATED_TIME,
+        o.VALIDATED_TIME, o.CANCELED_TIME,
+        o.ORIGIN_ORDER_ID,
+        o.Peer_Order_No,o.DISPLAY_QUEUE_NO,
+        o.WAITING_ORDER_ID,
+        o.QUEUE_ADDR,o.SENT_FLAG ,
+        o.INITIAL_ORDER_ID,
+        o.VERIFICATION_CODE,
+        o.CANCELED_REASON,
+        o.CASH_MONEY,
+        o.terminal_code
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select *
+        from T_RHIP_ORDER o
+        where 1=1
+        AND o.ORDER_ID = #{orderId,jdbcType=DECIMAL}
+    </select>
+
+    <select id="selectRegOrderListByPatient" resultMap="BaseResultMap" >
+         SELECT t.*,d.dept_code as HIS_DEPT_CODE  FROM t_rhip_order t left join  t_rhip_hospital_dept d  on  t.hospital_id=d.hospital_id and t.dept_code=d.dept_no
+         WHERE 1=1
+         AND t.hospital_id = #{hospitalId}
+         AND Peer_Order_No=#{patientId}
+         AND order_type_id=1
+         AND status=1
+         order by order_id desc
+    </select>
+    
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from T_RHIP_ORDER
+        where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+    </delete>
+
+    <update id="updateByPrimaryKey">
+        update T_RHIP_ORDER
+        set
+        <if test="status != null">
+            STATUS = #{status,jdbcType=DECIMAL},
+        </if>
+
+        <if test="transId != null">
+            TRANS_ID = #{transId,jdbcType=DECIMAL},
+        </if>
+
+        <if test="normalRescheduled != null">
+            NORMAL_RESCHEDULED = #{normalRescheduled,jdbcType=DECIMAL},
+        </if>
+
+        <if test="expiredRescheduled != null">
+            EXPIRED_RESCHEDULED = #{expiredRescheduled,jdbcType=DECIMAL},
+        </if>
+
+        <if test="payFlag != null">
+            PAY_FLAG = #{payFlag,jdbcType=DECIMAL},
+        </if>
+
+        <if test="reviewFlag != null">
+            REVIEW_FLAG = #{reviewFlag,jdbcType=DECIMAL},
+        </if>
+
+        <if test="originOrderId != null">
+            ORIGIN_ORDER_ID = #{originOrderId,jdbcType=DECIMAL},
+        </if>
+
+        <if test="waitingOrderID != null">
+            WAITING_ORDER_ID = #{waitingOrderID,jdbcType=DECIMAL},
+        </if>
+
+        <if test="initialOrderID != null">
+            INITIAL_ORDER_ID = #{initialOrderID,jdbcType=DECIMAL},
+        </if>
+
+        <if test="clinicNo != null">
+            CLINIC_NO = #{clinicNo,jdbcType=VARCHAR},
+        </if>
+
+        <if test="peerOrderNo != null and peerOrderNo != ''">
+            PEER_ORDER_NO = #{peerOrderNo,jdbcType=VARCHAR},
+        </if>
+
+        <if test="displayQueueNo != null">
+            DISPLAY_QUEUE_NO = #{displayQueueNo,jdbcType=VARCHAR},
+        </if>
+
+        <if test="sentFlag != null">
+            SENT_FLAG = #{sentFlag,jdbcType=DECIMAL},
+        </if>
+
+        <if test="validatedTime != null">
+            VALIDATED_TIME =SYSDATE ,
+        </if>
+
+        <if test="queueAddr != null">
+            QUEUE_ADDR = #{queueAddr,jdbcType=VARCHAR},
+        </if>
+
+        <if test="verificationCode != null">
+            VERIFICATION_CODE = #{verificationCode,jdbcType=VARCHAR},
+        </if>
+
+        <if test="payBody != null">
+            PAY_BODY = #{payBody,jdbcType=VARCHAR},
+        </if>
+        <if test="payType != null">
+            PAY_TYPE = #{payType,jdbcType=DECIMAL},
+        </if>
+        <if test="isOverAll != null">
+            IS_OVER_ALL = #{isOverAll,jdbcType=DECIMAL},
+        </if>
+        <if test="socialNo != null">
+            SOCIAL_NO = #{socialNo,jdbcType=VARCHAR},
+        </if>
+        <if test="patientNo != null">
+            PATIENT_NO = #{patientNo,jdbcType=VARCHAR},
+        </if>
+        <if test="medicareType != null">
+            MEDICARE_TYPE = #{medicareType,jdbcType=DECIMAL},
+        </if>
+        <if test="medicarePayTime != null">
+            MEDICARE_PAY_TIME = #{medicarePayTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="medicarePayState != null">
+            MEDICARE_PAY_STATE = #{medicarePayState,jdbcType=DECIMAL},
+        </if>
+        <if test="payPattern != null">
+            PAY_PATTERN = #{payPattern,jdbcType=DECIMAL},
+        </if>
+        <if test="medicareRecordId != null">
+            MEDICARE_RECORD_ID = #{medicareRecordId,jdbcType=DECIMAL},
+        </if>
+        <if test="cashMoney != null and cashMoney != ''" >
+            CASH_MONEY = #{cashMoney,jdbcType=VARCHAR},
+        </if>
+        <if test="medicareMoney != null">
+            MEDICARE_MONEY = #{medicareMoney,jdbcType=VARCHAR},
+        </if>
+        <if test="overAllMoney != null">
+            OVER_ALL_MONEY = #{overAllMoney,jdbcType=VARCHAR},
+        </if>
+        <if test="accType != null">
+            ACC_TYPE = #{accType,jdbcType=VARCHAR},
+        </if>
+        <if test="cardName != null">
+            CARD_NAME = #{cardName,jdbcType=VARCHAR},
+        </if>
+        <if test="medicalCode != null">
+            medical_code = #{medicalCode,jdbcType=VARCHAR},
+        </if>
+        <if test="clearingNO != null">
+            clearing_no = #{clearingNO,jdbcType=VARCHAR},
+        </if>
+        <if test="dispensaryWin != null">
+            dispensary_win = #{dispensaryWin,jdbcType=VARCHAR},
+        </if>
+        <if test="guidelinesInfo != null">
+            guidelines_info = #{guidelinesInfo,jdbcType=VARCHAR},
+        </if>                       
+
+        LAST_UPDATED_TIME =SYSDATE
+
+        where ORDER_ID = #{orderId,jdbcType=DECIMAL}
+    </update>
+
+    <!--处理超时订单-->
+    <select id="orderCancel" statementType="CALLABLE">
+        <![CDATA[
+
+       {call  PACKAGE_ORDER.ORDER_CANCEL(
+      #{orderId,mode=IN,jdbcType=DECIMAL},
+      #{canceledReason,mode=IN,jdbcType=VARCHAR},
+      #{msg,mode=OUT,jdbcType=VARCHAR},
+      #{code,mode=OUT,jdbcType=VARCHAR})}
+
+        ]]>
+    </select>
+
+    <select id="selectOrderByOrderId" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>,o.user_id,to_date(o.order_day,'yyyy-MM-dd') as ORDER_DATE,
+        h.hospital_name,h.contact_person_phone,h.hospital_Address,p.CONTACT_PHONE,
+        q.QUALIFICATION_NAME,pix.CLINIC_CARD_NO,pix.HMPI,
+        hm.LONGITUDE,hm.LATITUDE
+        from T_RHIP_ORDER o, T_RHIP_HOSPITAL H, T_RHIP_USER_PERSON P,T_COM_QUALIFICATION q,T_RHIP_PIX
+        pix,T_RHIP_HOSPITAL_MAP hm
+        where 1=1
+        AND O.HOSPITAL_ID = H.HOSPITAL_ID(+)
+        AND O.PATIENT_NAME = P.PERSON_NAME(+)
+        AND O.USER_ID = P.USER_ID(+)
+        AND O.QUALIFICATION_ID=q.QUALIFICATION_ID(+)
+        AND P.EMPI_ID=pix.EMPI_ID(+)
+        AND(o.HOSPITAL_ID=pix.HOSPITAL_ID or pix.HOSPITAL_ID is null)
+        AND O.HOSPITAL_ID=HM.HOSPITAL_ID(+)
+        AND Rownum&lt;=1
+        AND o.ORDER_ID = #{orderId,jdbcType=DECIMAL}
+    </select>
+
+    <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.Order">
+        insert into T_RHIP_ORDER
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">
+                ORDER_ID,
+            </if>
+                CREATED_TIME,
+            <if test="userId != null">
+                USER_ID,
+            </if>
+            <if test="hospitalId != null">
+                HOSPITAL_ID,
+            </if>
+            <if test="certTypeId != null">
+                CERT_TYPE_ID,
+            </if>
+            <if test="certIdno != null">
+                CERT_IDNO,
+            </if>
+            <if test="patientName != null">
+                PATIENT_NAME,
+            </if>
+            <if test="genderId != null">
+                GENDER_ID,
+            </if>
+            <if test="orderTypeId != null">
+                ORDER_TYPE_ID,
+            </if>
+            <if test="deptTypeId != null">
+                DEPT_TYPE_ID,
+            </if>
+            <if test="deptCode != null">
+                DEPT_CODE,
+            </if>
+            <if test="deptName != null">
+                DEPT_NAME,
+            </if>
+            <if test="doctorCode != null">
+                DOCTOR_CODE,
+            </if>
+            <if test="doctorName != null">
+                DOCTOR_NAME,
+            </if>
+            <if test="qualificationId != null">
+                QUALIFICATION_ID,
+            </if>
+            <if test="amount != null">
+                AMOUNT,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="clinicNo != null">
+                CLINIC_NO,
+            </if>
+            <if test="actualTime != null">
+                ACTUAL_TIME,
+            </if>
+            <if test="transId != null">
+                TRANS_ID,
+            </if>
+            <if test="orderDay != null">
+                ORDER_DAY,
+            </if>
+            <if test="orderPeriod != null">
+                ORDER_PERIOD,
+            </if>
+            <if test="clinicDate != null">
+                CLINIC_DATE,
+            </if>
+            <if test="periodNo != null">
+                PERIOD_NO,
+            </if>
+            <if test="periodStart != null">
+                PERIOD_START,
+            </if>
+            <if test="periodEnd != null">
+                PERIOD_END,
+            </if>
+            <if test="queueNo != null">
+                QUEUE_NO,
+            </if>
+            <if test="appId != null">
+                APP_ID,
+            </if>
+            <if test="orderSourceId != null">
+                ORDER_SOURCE_ID,
+            </if>
+            <if test="normalRescheduled != null">
+                NORMAL_RESCHEDULED,
+            </if>
+            <if test="expiredRescheduled != null">
+                EXPIRED_RESCHEDULED,
+            </if>
+            <if test="payFlag != null">
+                PAY_FLAG,
+            </if>
+            <if test="reviewFlag != null">
+                REVIEW_FLAG,
+            </if>
+            <if test="lastUpdatedTime != null">
+                LAST_UPDATED_TIME,
+            </if>
+            <if test="validatedTime != null">
+                VALIDATED_TIME,
+            </if>
+            <if test="canceledTime != null">
+                CANCELED_TIME,
+            </if>
+            <if test="originOrderId != null">
+                ORIGIN_ORDER_ID,
+            </if>
+            <if test="isAdditionNo != null">
+                IS_ADDITION_NO,
+            </if>
+            <if test="displayQueueNo != null">
+                DISPLAY_QUEUE_NO,
+            </if>
+            <if test="waitingOrderID != null">
+                WAITING_ORDER_ID,
+            </if>
+            <if test="queueAddr != null">
+                QUEUE_ADDR,
+            </if>
+            <if test="sentFlag != null">
+                SENT_FLAG,
+            </if>
+            <if test="initialOrderID != null">
+                INITIAL_ORDER_ID,
+            </if>
+            <if test="peerOrderNo != null and peerOrderNo != ''">
+                PEER_ORDER_NO,
+            </if>
+            <if test="verificationCode != null">
+                VERIFICATION_CODE,
+            </if>
+            <if test="queueId != null">
+                QUEUE_ID,
+            </if>
+            <if test="canceledReason != null">
+                CANCELED_REASON,
+            </if>
+            <if test="casherName != null">
+                CASHER_NAME,
+            </if>
+            <if test="casherCode != null">
+                CASHER_CODE,
+            </if>
+            <if test="payBody != null">
+                PAY_BODY,
+            </if>
+            <if test="payType != null">
+                PAY_TYPE,
+            </if>
+            <if test="isOverAll != null">
+                IS_OVER_ALL,
+            </if>
+            <if test="socialNo != null">
+                SOCIAL_NO,
+            </if>
+            <if test="patientNo != null">
+                PATIENT_NO,
+            </if>
+            <if test="medicareType != null">
+                MEDICARE_TYPE,
+            </if>
+            <if test="medicarePayTime != null">
+                MEDICARE_PAY_TIME,
+            </if>
+            <if test="medicarePayState != null">
+                MEDICARE_PAY_STATE,
+            </if>
+            <if test="payPattern != null">
+                PAY_PATTERN,
+            </if>
+            <if test="medicareRecordId != null">
+                MEDICARE_RECORD_ID,
+            </if>
+            <if test="cashMoney != null and cashMoney != ''">
+                CASH_MONEY,
+            </if>
+            <if test="medicareMoney != null">
+                MEDICARE_MONEY,
+            </if>
+            <if test="overAllMoney != null">
+                OVER_ALL_MONEY,
+            </if>
+            <if test="accType != null">
+                ACC_TYPE,
+            </if>
+            <if test="cardName != null">
+                CARD_NAME,
+            </if>
+            <if test="terminalCode != null">
+                terminal_code,
+            </if>            
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">
+                #{orderId,jdbcType=DECIMAL},
+            </if>
+                sysdate,
+            <if test="userId != null">
+                #{userId,jdbcType=DECIMAL},
+            </if>
+            <if test="hospitalId != null">
+                #{hospitalId,jdbcType=DECIMAL},
+            </if>
+            <if test="certTypeId != null">
+                #{certTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="certIdno != null">
+                #{certIdno,jdbcType=OTHER},
+            </if>
+            <if test="patientName != null">
+                #{patientName,jdbcType=OTHER},
+            </if>
+            <if test="genderId != null">
+                #{genderId,jdbcType=DECIMAL},
+            </if>
+            <if test="orderTypeId != null">
+                #{orderTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="deptTypeId != null">
+                #{deptTypeId,jdbcType=DECIMAL},
+            </if>
+            <if test="deptCode != null">
+                #{deptCode,jdbcType=OTHER},
+            </if>
+            <if test="deptName != null">
+                #{deptName,jdbcType=OTHER},
+            </if>
+            <if test="doctorCode != null">
+                #{doctorCode,jdbcType=OTHER},
+            </if>
+            <if test="doctorName != null">
+                #{doctorName,jdbcType=OTHER},
+            </if>
+            <if test="qualificationId != null">
+                #{qualificationId,jdbcType=DECIMAL},
+            </if>
+            <if test="amount != null">
+                #{amount,jdbcType=DECIMAL},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=DECIMAL},
+            </if>
+            <if test="clinicNo != null">
+                #{clinicNo,jdbcType=OTHER},
+            </if>
+            <if test="actualTime != null">
+                #{actualTime,jdbcType=DATE},
+            </if>
+            <if test="transId != null">
+                #{transId,jdbcType=DECIMAL},
+            </if>
+            <if test="orderDay != null">
+                #{orderDay,jdbcType=DECIMAL},
+            </if>
+            <if test="orderPeriod != null">
+                #{orderPeriod,jdbcType=OTHER},
+            </if>
+            <if test="clinicDate != null">
+                #{clinicDate,jdbcType=DECIMAL},
+            </if>
+            <if test="periodNo != null">
+                #{periodNo,jdbcType=DECIMAL},
+            </if>
+            <if test="periodStart != null">
+                #{periodStart,jdbcType=DECIMAL},
+            </if>
+            <if test="periodEnd != null">
+                #{periodEnd,jdbcType=DECIMAL},
+            </if>
+            <if test="queueNo != null">
+                #{queueNo,jdbcType=VARCHAR},
+            </if>
+            <if test="appId != null">
+                #{appId,jdbcType=OTHER},
+            </if>
+            <if test="orderSourceId != null">
+                #{orderSourceId,jdbcType=DECIMAL},
+            </if>
+            <if test="normalRescheduled != null">
+                #{normalRescheduled,jdbcType=DECIMAL},
+            </if>
+            <if test="expiredRescheduled != null">
+                #{expiredRescheduled,jdbcType=DECIMAL},
+            </if>
+            <if test="payFlag != null">
+                #{payFlag,jdbcType=DECIMAL},
+            </if>
+            <if test="reviewFlag != null">
+                #{reviewFlag,jdbcType=DECIMAL},
+            </if>
+            <if test="lastUpdatedTime != null">
+                #{lastUpdatedTime,jdbcType=DATE},
+            </if>
+            <if test="validatedTime != null">
+                #{validatedTime,jdbcType=DATE},
+            </if>
+            <if test="canceledTime != null">
+                #{canceledTime,jdbcType=DATE},
+            </if>
+            <if test="originOrderId != null">
+                #{originOrderId,jdbcType=DECIMAL},
+            </if>
+            <if test="isAdditionNo != null">
+                #{isAdditionNo,jdbcType=DECIMAL},
+            </if>
+            <if test="displayQueueNo != null">
+                #{displayQueueNo,jdbcType=OTHER},
+            </if>
+            <if test="waitingOrderID != null">
+                #{waitingOrderID,jdbcType=DECIMAL},
+            </if>
+            <if test="queueAddr != null">
+                #{queueAddr,jdbcType=OTHER},
+            </if>
+            <if test="sentFlag != null">
+                #{sentFlag,jdbcType=DECIMAL},
+            </if>
+            <if test="initialOrderID != null">
+                #{initialOrderID,jdbcType=DECIMAL},
+            </if>
+            <if test="peerOrderNo != null and peerOrderNo != ''">
+                #{peerOrderNo,jdbcType=OTHER},
+            </if>
+            <if test="verificationCode != null">
+                #{verificationCode,jdbcType=OTHER},
+            </if>
+            <if test="queueId != null">
+                #{queueId,jdbcType=OTHER},
+            </if>
+            <if test="canceledReason != null">
+                #{canceledReason,jdbcType=VARCHAR},
+            </if>
+            <if test="casherName != null">
+                #{casherName,jdbcType=VARCHAR},
+            </if>
+            <if test="casherCode != null">
+                #{casherCode,jdbcType=VARCHAR},
+            </if>
+            <if test="payBody != null">
+                #{payBody,jdbcType=VARCHAR},
+            </if>
+            <if test="payType != null">
+                #{payType,jdbcType=DECIMAL},
+            </if>
+            <if test="isOverAll != null">
+                #{isOverAll,jdbcType=DECIMAL},
+            </if>
+            <if test="socialNo != null">
+                #{socialNo,jdbcType=OTHER},
+            </if>
+            <if test="patientNo != null">
+                #{patientNo,jdbcType=OTHER},
+            </if>
+            <if test="medicareType != null">
+                #{medicareType,jdbcType=DECIMAL},
+            </if>
+            <if test="medicarePayTime != null">
+                #{medicarePayTime,jdbcType=DATE},
+            </if>
+            <if test="medicarePayState != null">
+                #{medicarePayState,jdbcType=DECIMAL},
+            </if>
+            <if test="payPattern != null">
+                #{payPattern,jdbcType=DECIMAL},
+            </if>
+            <if test="medicareRecordId != null">
+                #{medicareRecordId,jdbcType=DECIMAL},
+            </if>
+            <if test="cashMoney != null and cashMoney != ''">
+                #{cashMoney,jdbcType=OTHER},
+            </if>
+            <if test="medicareMoney != null">
+                #{medicareMoney,jdbcType=OTHER},
+            </if>
+            <if test="overAllMoney != null">
+                #{overAllMoney,jdbcType=OTHER},
+            </if>
+            <if test="accType != null">
+                #{accType,jdbcType=OTHER},
+            </if>
+            <if test="cardName != null">
+                #{cardName,jdbcType=OTHER},
+            </if>
+            <if test="terminalCode != null">
+                 #{terminalCode,jdbcType=VARCHAR},
+            </if>              
+        </trim>
+    </insert>
+
+    <!--支付完成后对订单的业务处理-->
+    <select id="orderPayPre" statementType="CALLABLE">
+        <![CDATA[
+       {call  PACKAGE_ORDER.ORDER_PAY_PRE(
+      #{orderId,mode=IN,jdbcType=INTEGER},
+      #{transId,mode=IN,jdbcType=INTEGER},
+      #{msg,mode=OUT,jdbcType=VARCHAR},
+      #{code,mode=OUT,jdbcType=VARCHAR})
+       }
+        ]]>
+    </select>
+
+    <!--支付完成后对订单的业务处理-->
+    <select id="orderPayResult" statementType="CALLABLE">
+        <![CDATA[
+       {call  PACKAGE_ORDER.ORDER_PAY_RESULT(
+      #{orderId,mode=IN,jdbcType=INTEGER},
+      #{transId,mode=IN,jdbcType=INTEGER},
+      #{transTypeId,mode=IN,jdbcType=DECIMAL},
+      #{result,mode=IN,jdbcType=VARCHAR},
+      #{msg,mode=OUT,jdbcType=VARCHAR},
+      #{code,mode=OUT,jdbcType=VARCHAR})
+       }
+
+        ]]>
+    </select>
+    
+    <select id="queryOrdersByIds" resultMap="BaseResultMap" parameterType="java.util.List">
+		select order_id,Peer_Order_No,ORDER_TYPE_ID,APP_ID from T_RHIP_ORDER where order_id in 
+		<foreach collection="orderIds" index="index" item="id" open="(" separator="," close=")">
+				#{id}
+		</foreach>
+    </select>
+</mapper>

@@ -1,0 +1,50 @@
+spring:
+   datasource:
+      url: jdbc:oracle:thin:@127.0.0.1:1521:ORCL
+      username: bxd
+      password: bxd1688
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      max-idle: 10
+      max-wait: 10000
+      min-idle: 5
+      initial-size: 5
+      type: com.alibaba.druid.pool.DruidDataSource
+
+server:
+  port: 7777
+  context-path: /sip
+
+limit:
+  control: false
+
+#热部署
+devtools:
+  restart:
+    enabled: true #热部署生效
+    #设置重启的目录
+    additional-paths: src/main/java
+    exclude: WEB-INF/** #classpath目录下的WEB-INF文件夹内容修改不重启
+
+view:
+  server:
+    address: http://localhost:8888/siservice/services/siservice?wsdl
+    username: root
+    password: admin
+
+si:
+  url: http://ylbxd.siservice.gxhealth.xin/eapdomain/SiInterfaceAction.do?method=siInterface
+
+#基本信息平台地址
+sip1:
+  url: http://127.0.0.1:7777/sip/services/HisUser?wsdl
+
+#消息中心地址
+messagecenter:
+  messagecenterUrl: http://127.0.0.1:9086/service/messagecenterwebservice?wsdl
+  #messagecenterUrl: http://10.153.149.254:8084/service/messagecenterwebservice?wsdl
+#支付网关地址
+paygate:
+  url: http://127.0.0.1:9084/paygate
+
+payCallBack:
+  url: http://127.0.0.1:7777/pay/receive

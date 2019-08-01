@@ -1,0 +1,53 @@
+2018-04-28 16:22:22.888  INFO 9548 --- [nio-7777-exec-4] cn.bxd.sip.webservice.SiWebServiceImpl   : 
+接收到入参===
+<?xml version="1.0" encoding="GBK" ?>
+<SIMSG>
+<HEADER>
+<Version>V1.0</Version>
+<MsgType>610103</MsgType>
+<MsgID>2018042707100003</MsgID>
+<AppID>070000000999</AppID>
+<MsgTime>20180427151515</MsgTime>
+</HEADER>
+<BODY>
+<UserNo>4509014504594</UserNo>
+<PayTotal>180</PayTotal>
+<Count>1</Count>
+<ListItems>
+<Item>
+<StartTime>201801</StartTime>
+<EndTime>201812</EndTime>
+<PayLevel>100</PayLevel>
+<Cardinality>180</Cardinality>
+<PayMonth>12</PayMonth>
+<Principal>180</Principal>
+<Interest>0</Interest>
+<LateFee>0</LateFee>
+<Total>180</Total>
+<InsuranceCode>38</InsuranceCode>
+</Item>
+</ListItems>
+</BODY>
+<DSIGN></DSIGN>
+</SIMSG>
+1003|2018042707100003|070000000999|99999|4509014504594|180|1|201801|201812|100|180|12|180|0|0|180|38|
+002|1003|2018042707100003|4509014504594|180|
+2018-04-28 16:22:25.135  INFO 9548 --- [nio-7777-exec-4] cn.bxd.sip.webservice.SiWebServiceImpl   : 
+输出参数===
+<?xml version="1.0" encoding="GBK"?><SIMSG>
+  <HEADER>
+    <Version>V1.0</Version>
+    <MsgType>610103</MsgType>
+    <MsgID>2018042707100003</MsgID>
+    <AppID>070000000999</AppID>
+    <MsgTime>20180428162225</MsgTime>
+    <ResultCode>90000</ResultCode>
+    <ResultMsg>交易成功</ResultMsg>
+  </HEADER>
+  <BODY>
+    <StatusNO>002</StatusNO>
+    <UserNo>4509014504594</UserNo>
+    <PayTotal>180</PayTotal>
+  </BODY>
+  <DSIGN>No_Signature</DSIGN>
+</SIMSG>

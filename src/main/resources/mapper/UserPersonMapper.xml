@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.UserPersonMapper">
+    <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.dto.user.UserPersonBiz">
+        <id column="USER_ID" property="userId" jdbcType="DECIMAL"/>
+        <id column="PERSON_NO" property="personNo" jdbcType="DECIMAL"/>
+        <result column="PERSON_NAME" property="personName" jdbcType="VARCHAR"/>
+        <result column="BIRTH_DATE" property="birthDate" jdbcType="TIMESTAMP"/>
+        <result column="CERT_TYPE_ID" property="certTypeId" jdbcType="DECIMAL"/>
+        <result column="CERT_IDNO" property="certIdno" jdbcType="VARCHAR"/>
+        <result column="GENDER_ID" property="genderId" jdbcType="DECIMAL"/>
+        <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR"/>
+        <result column="WECHART_ACCOUNT" property="wechartAccount" jdbcType="VARCHAR"/>
+        <result column="ALIPAY_ACCOUNT" property="alipayAccount" jdbcType="VARCHAR"/>
+        <result column="EMPI_ID" property="empiId" jdbcType="DECIMAL"/>
+
+        <result column="CLINIC_CARD_NO" property="clinicCardNo" jdbcType="VARCHAR"/>
+        <result column="HMPI" property="hmpi" jdbcType="VARCHAR"/>
+        <result column="PATIENT_NO" property="patientNo" jdbcType="VARCHAR"/>
+        <result column="GENDER_CODE" property="genderCode" jdbcType="VARCHAR"/>
+        <result column="GENDER_NAME" property="genderName" jdbcType="VARCHAR"/>
+        <result column="HOSPITAL_ID" property="hospitalId" jdbcType="DECIMAL"/>
+        <result column="HOSPITAL_NAME" property="hospitalName" jdbcType="VARCHAR"/>
+
+        <result column="PATIENT_TYPE" property="patientType" jdbcType="DECIMAL"/>
+        <result column="IS_HAVE_CARD" property="ishaveCard" jdbcType="DECIMAL"/>
+        <result column="HOME_ADDRESS" property="homeAddress" jdbcType="VARCHAR"/>
+        <result column="MARITAL_STATUS" property="maritalStatus" jdbcType="DECIMAL"/>
+        <result column="NATIONALITY" property="nationality" jdbcType="VARCHAR"/>
+        <result column="PARENTS_NAME" property="parentsName" jdbcType="VARCHAR"/>
+        <result column="PARENTS_PHONE" property="parentsPhone" jdbcType="VARCHAR"/>
+        <result column="PARENTS_IDNO" property="parentsIDNO" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        USER_ID, PERSON_NO, PERSON_NAME, BIRTH_DATE, CERT_TYPE_ID, CERT_IDNO, GENDER_ID,
+        CONTACT_PHONE, WECHART_ACCOUNT, ALIPAY_ACCOUNT,EMPI_ID,PATIENT_TYPE,IS_HAVE_CARD,HOME_ADDRESS,
+        MARITAL_STATUS,NATIONALITY,PARENTS_NAME,PARENTS_PHONE,PARENTS_IDNO
+    </sql>
+
+    <!--根据Key获取信息  -->
+    <select id="selectByConditions" resultMap="BaseResultMap"
+            parameterType="cn.bxd.sip.bxd.model.entity.UserPerson">
+        select
+        <include refid="Base_Column_List"/>
+        from T_RHIP_USER_PERSON
+        where 1=1
+        AND EMPI_ID IS NOT NULL
+        <if test="userId != null">
+            and USER_ID = #{userId,jdbcType=DECIMAL}
+        </if>
+        <if test="personNo != null">
+            and PERSON_NO = #{personNo,jdbcType=DECIMAL}
+        </if>
+        <if test="personName != null">
+            and PERSON_NAME in (#{personName,jdbcType=VARCHAR})
+        </if>
+    </select>
+
+
+    <!--根据Key获取信息  -->
+    <select id="selectByMapConditions" resultMap="BaseResultMap" parameterType="map">
+        select
+        p.*,F.*,G.GENDER_CODE,G.GENDER_NAME,H.HOSPITAL_NAME,H.HOSPITAL_ID
+        from T_RHIP_USER_PERSON P ,
+        <if test="hosId==0">
+            (select * from T_RHIP_PIX pix where pix.hospital_id in (select p.hospital_id from t_rhip_pix p where p.empi_id in (select p.empi_id from t_rhip_user_person p where p.user_id=#{userId,jdbcType=DECIMAL}) )) F ,
+        </if>
+        <if test="hosId!=0">
+            (select * from T_RHIP_PIX pix where pix.hospital_id=#{hosId,jdbcType=DECIMAL} ) F ,
+        </if>
+        T_RHIP_HOSPITAL H,
+        T_COM_GENDER G
+        where 1=1
+        and P.EMPI_ID is not null
+        and P.EMPI_ID=F.EMPI_ID(+)
+        and P.USER_ID = #{userId,jdbcType=DECIMAL}
+        and p.gender_id=g.gender_id(+)
+        and  H.HOSPITAL_ID=F.HOSPITAL_ID
+    </select>
+
+    <!--根据Key获取信息  -->
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap"
+            parameterType="cn.bxd.sip.bxd.model.entity.UserPersonKey">
+        select
+        <include refid="Base_Column_List"/>
+        from T_RHIP_USER_PERSON
+        where USER_ID = #{userId,jdbcType=DECIMAL}
+        and PERSON_NO = #{personNo,jdbcType=DECIMAL}
+    </select>
+
+    <!--删除  -->
+    <delete id="deleteByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.UserPersonKey">
+        delete from T_RHIP_USER_PERSON
+        where USER_ID = #{userId,jdbcType=DECIMAL}
+        and PERSON_NO = #{personNo,jdbcType=DECIMAL}
+    </delete>
+
+    <!-- 新增 -->
+    <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.UserPerson">
+        <selectKey resultType="short" keyProperty="personNo" order="BEFORE">
+            select
+            ( case when max(PERSON_NO) is null
+            then 1
+            else (max(PERSON_NO)+1)
+            end)
+            as personNo
+            from T_RHIP_USER_PERSON where user_id=#{userId,jdbcType=DECIMAL}
+        </selectKey>
+        insert into T_RHIP_USER_PERSON (USER_ID, PERSON_NO, PERSON_NAME,
+        BIRTH_DATE, CERT_TYPE_ID, CERT_IDNO,
+        GENDER_ID, CONTACT_PHONE, WECHART_ACCOUNT,
+        ALIPAY_ACCOUNT,EMPI_ID,PATIENT_TYPE,IS_HAVE_CARD,HOME_ADDRESS,
+        MARITAL_STATUS,NATIONALITY,PARENTS_NAME,PARENTS_PHONE,PARENTS_IDNO)
+        values (#{userId,jdbcType=DECIMAL}, #{personNo,jdbcType=DECIMAL}, #{personName,jdbcType=VARCHAR},
+        #{birthDate,jdbcType=TIMESTAMP}, #{certTypeId,jdbcType=DECIMAL}, #{certIdno,jdbcType=VARCHAR},
+        #{genderId,jdbcType=DECIMAL}, #{contactPhone,jdbcType=VARCHAR}, #{wechartAccount,jdbcType=VARCHAR},
+        #{alipayAccount,jdbcType=VARCHAR},#{empiId,jdbcType=DECIMAL},
+        #{patientType,jdbcType=DECIMAL},#{ishaveCard,jdbcType=DECIMAL},#{homeAddress,jdbcType=VARCHAR},
+        #{maritalStatus,jdbcType=DECIMAL},#{Nationality,jdbcType=VARCHAR},#{parentsName,jdbcType=VARCHAR},
+        #{parentsPhone,jdbcType=VARCHAR},#{parentsIDNO,jdbcType=VARCHAR})
+    </insert>
+
+    <!-- 修改 -->
+    <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.UserPerson">
+        update T_RHIP_USER_PERSON
+        set PERSON_NAME = #{personName,jdbcType=VARCHAR},
+        BIRTH_DATE = #{birthDate,jdbcType=TIMESTAMP},
+        CERT_TYPE_ID = #{certTypeId,jdbcType=DECIMAL},
+        CERT_IDNO = #{certIdno,jdbcType=VARCHAR},
+        GENDER_ID = #{genderId,jdbcType=DECIMAL},
+        CONTACT_PHONE = #{contactPhone,jdbcType=VARCHAR},
+        WECHART_ACCOUNT = #{wechartAccount,jdbcType=VARCHAR},
+        ALIPAY_ACCOUNT = #{alipayAccount,jdbcType=VARCHAR},
+        PATIENT_TYPE= #{patientType,jdbcType=DECIMAL},
+        IS_HAVE_CARD=#{ishaveCard,jdbcType=DECIMAL},
+        HOME_ADDRESS=#{homeAddress,jdbcType=VARCHAR},
+        MARITAL_STATUS= #{maritalStatus,jdbcType=DECIMAL},
+        NATIONALITY=#{Nationality,jdbcType=VARCHAR},
+        PARENTS_NAME=#{parentsName,jdbcType=VARCHAR},
+        PARENTS_PHONE=#{parentsPhone,jdbcType=VARCHAR},
+        PARENTS_IDNO=#{parentsIDNO,jdbcType=VARCHAR}
+        where USER_ID = #{userId,jdbcType=DECIMAL}
+        and PERSON_NO = #{personNo,jdbcType=DECIMAL}
+    </update>
+</mapper>

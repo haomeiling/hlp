@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bxd.sip.bxd.dao.HospitalMapper">
+  <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.Hospital">
+    <id column="HOSPITAL_ID" jdbcType="DECIMAL" property="hospitalId" />
+    <result column="HOSPITAL_CODE" jdbcType="OTHER" property="hospitalCode" />
+    <result column="HOSPITAL_NAME" jdbcType="OTHER" property="hospitalName" />
+    <result column="CREATED_DATE" jdbcType="DECIMAL" property="createdDate" />
+    <result column="DETROYED_DATE" jdbcType="DATE" property="detroyedDate" />
+    <result column="DISPLAY_ORDER" jdbcType="DECIMAL" property="displayOrder" />
+    <result column="ZONE_ID" jdbcType="DECIMAL" property="zoneId" />
+    <result column="REGISTRATION_STATUS" jdbcType="DECIMAL" property="registrationStatus" />
+    <result column="RESTRICT_LEVEL_ID" jdbcType="DECIMAL" property="restrictLevelId" />
+    <result column="AUTHORIZED_BEDS" jdbcType="DECIMAL" property="authorizedBeds" />
+    <result column="OPENED_BEDS" jdbcType="DECIMAL" property="openedBeds" />
+    <result column="HOSPITAL_TYPE_ID" jdbcType="DECIMAL" property="hospitalTypeId" />
+    <result column="HOSPITAL_GRADE_ID" jdbcType="DECIMAL" property="hospitalGradeId" />
+    <result column="HOSPITAL_LEVEL_ID" jdbcType="DECIMAL" property="hospitalLevelId" />
+    <result column="TOWN_TYPE_ID" jdbcType="DECIMAL" property="townTypeId" />
+    <result column="OWNERSHIP_ID" jdbcType="DECIMAL" property="ownershipId" />
+    <result column="CHARACTER_TYPE_ID" jdbcType="DECIMAL" property="characterTypeId" />
+    <result column="HOSPITAL_ADDRESS" jdbcType="OTHER" property="hospitalAddress" />
+    <result column="TOTAL_EMPLOYEE" jdbcType="DECIMAL" property="totalEmployee" />
+    <result column="MT_EMPLOYEE" jdbcType="DECIMAL" property="mtEmployee" />
+    <result column="LAST_YEAR_OUT_PATIENTS" jdbcType="DECIMAL" property="lastYearOutPatients" />
+    <result column="LAST_YEAR_IN_PATIENTS" jdbcType="DECIMAL" property="lastYearInPatients" />
+    <result column="LAST_YEAR_OPERATIONS" jdbcType="DECIMAL" property="lastYearOperations" />
+    <result column="CONTACT_PERSON_NAME" jdbcType="OTHER" property="contactPersonName" />
+    <result column="CONTACT_PERSON_PHONE" jdbcType="OTHER" property="contactPersonPhone" />
+    <result column="ART_PERSON_NAME" jdbcType="OTHER" property="artPersonName" />
+    <result column="ART_PERSON_PHONE" jdbcType="OTHER" property="artPersonPhone" />
+    <result column="FINANCIAL_HEADER_NAME" jdbcType="OTHER" property="financialHeaderName" />
+    <result column="FINANCIAL_HEADER_PHONE" jdbcType="OTHER" property="financialHeaderPhone" />
+    <result column="TECHNICAL_HEADER_NAME" jdbcType="OTHER" property="technicalHeaderName" />
+    <result column="TECHNICAL_HEADER_PHONE" jdbcType="OTHER" property="technicalHeaderPhone" />
+    <result column="FINANCIAL_HEADER_POSITION" jdbcType="OTHER" property="financialHeaderPosition" />
+    <result column="TECHNICAL_HEADER_POSITION" jdbcType="OTHER" property="technicalHeaderPosition" />
+    <result column="INTRODUCTION_URL" jdbcType="OTHER" property="introductionUrl" />
+    <result column="LASTDEPTNO" jdbcType="DECIMAL" property="lastdeptno" />
+    <result column="LASTEMPNO" jdbcType="DECIMAL" property="lastempno" />
+    <result column="LOGO_URL" jdbcType="OTHER" property="logoUrl" />
+    <result column="IC_LEVEL_ID" jdbcType="DECIMAL" property="icLevelId" />
+    <result column="ALIAS_NAME" jdbcType="OTHER" property="aliasName" />
+    <result column="SPECIAL_NOTES" jdbcType="OTHER" property="specialNotes" />
+    <result column="OUTPATIENT_NOTICE_URL" jdbcType="OTHER" property="outpatientNoticeUrl" />
+    <result column="LAST_PRICE_NOTIFY" jdbcType="DATE" property="lastPriceNotify" />
+    <result column="QUEUE_COUNT" jdbcType="DECIMAL" property="queueCount" />
+    <result column="IS_ADMINISTRATOR" jdbcType="DECIMAL" property="isAdministrator" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    HOSPITAL_ID, HOSPITAL_CODE, HOSPITAL_NAME, CREATED_DATE, DETROYED_DATE, DISPLAY_ORDER, 
+    ZONE_ID, REGISTRATION_STATUS, RESTRICT_LEVEL_ID, AUTHORIZED_BEDS, OPENED_BEDS, HOSPITAL_TYPE_ID, 
+    HOSPITAL_GRADE_ID, HOSPITAL_LEVEL_ID, TOWN_TYPE_ID, OWNERSHIP_ID, CHARACTER_TYPE_ID, 
+    HOSPITAL_ADDRESS, TOTAL_EMPLOYEE, MT_EMPLOYEE, LAST_YEAR_OUT_PATIENTS, LAST_YEAR_IN_PATIENTS, 
+    LAST_YEAR_OPERATIONS, CONTACT_PERSON_NAME, CONTACT_PERSON_PHONE, ART_PERSON_NAME, 
+    ART_PERSON_PHONE, FINANCIAL_HEADER_NAME, FINANCIAL_HEADER_PHONE, TECHNICAL_HEADER_NAME, 
+    TECHNICAL_HEADER_PHONE, FINANCIAL_HEADER_POSITION, TECHNICAL_HEADER_POSITION, INTRODUCTION_URL, 
+    LASTDEPTNO, LASTEMPNO, LOGO_URL, IC_LEVEL_ID, ALIAS_NAME, SPECIAL_NOTES, OUTPATIENT_NOTICE_URL, 
+    LAST_PRICE_NOTIFY, QUEUE_COUNT, IS_ADMINISTRATOR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BXD.T_RHIP_HOSPITAL
+    where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from BXD.T_RHIP_HOSPITAL
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from BXD.T_RHIP_HOSPITAL
+    where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.Hospital">
+    insert into BXD.T_RHIP_HOSPITAL (HOSPITAL_ID, HOSPITAL_CODE, HOSPITAL_NAME, 
+      CREATED_DATE, DETROYED_DATE, DISPLAY_ORDER, 
+      ZONE_ID, REGISTRATION_STATUS, RESTRICT_LEVEL_ID, 
+      AUTHORIZED_BEDS, OPENED_BEDS, HOSPITAL_TYPE_ID, 
+      HOSPITAL_GRADE_ID, HOSPITAL_LEVEL_ID, TOWN_TYPE_ID, 
+      OWNERSHIP_ID, CHARACTER_TYPE_ID, HOSPITAL_ADDRESS, 
+      TOTAL_EMPLOYEE, MT_EMPLOYEE, LAST_YEAR_OUT_PATIENTS, 
+      LAST_YEAR_IN_PATIENTS, LAST_YEAR_OPERATIONS, 
+      CONTACT_PERSON_NAME, CONTACT_PERSON_PHONE, ART_PERSON_NAME, 
+      ART_PERSON_PHONE, FINANCIAL_HEADER_NAME, FINANCIAL_HEADER_PHONE, 
+      TECHNICAL_HEADER_NAME, TECHNICAL_HEADER_PHONE, 
+      FINANCIAL_HEADER_POSITION, TECHNICAL_HEADER_POSITION, 
+      INTRODUCTION_URL, LASTDEPTNO, LASTEMPNO, 
+      LOGO_URL, IC_LEVEL_ID, ALIAS_NAME, 
+      SPECIAL_NOTES, OUTPATIENT_NOTICE_URL, LAST_PRICE_NOTIFY, 
+      QUEUE_COUNT, IS_ADMINISTRATOR)
+    values (#{hospitalId,jdbcType=DECIMAL}, #{hospitalCode,jdbcType=OTHER}, #{hospitalName,jdbcType=OTHER}, 
+      #{createdDate,jdbcType=DECIMAL}, #{detroyedDate,jdbcType=DATE}, #{displayOrder,jdbcType=DECIMAL}, 
+      #{zoneId,jdbcType=DECIMAL}, #{registrationStatus,jdbcType=DECIMAL}, #{restrictLevelId,jdbcType=DECIMAL}, 
+      #{authorizedBeds,jdbcType=DECIMAL}, #{openedBeds,jdbcType=DECIMAL}, #{hospitalTypeId,jdbcType=DECIMAL}, 
+      #{hospitalGradeId,jdbcType=DECIMAL}, #{hospitalLevelId,jdbcType=DECIMAL}, #{townTypeId,jdbcType=DECIMAL}, 
+      #{ownershipId,jdbcType=DECIMAL}, #{characterTypeId,jdbcType=DECIMAL}, #{hospitalAddress,jdbcType=OTHER}, 
+      #{totalEmployee,jdbcType=DECIMAL}, #{mtEmployee,jdbcType=DECIMAL}, #{lastYearOutPatients,jdbcType=DECIMAL}, 
+      #{lastYearInPatients,jdbcType=DECIMAL}, #{lastYearOperations,jdbcType=DECIMAL}, 
+      #{contactPersonName,jdbcType=OTHER}, #{contactPersonPhone,jdbcType=OTHER}, #{artPersonName,jdbcType=OTHER}, 
+      #{artPersonPhone,jdbcType=OTHER}, #{financialHeaderName,jdbcType=OTHER}, #{financialHeaderPhone,jdbcType=OTHER}, 
+      #{technicalHeaderName,jdbcType=OTHER}, #{technicalHeaderPhone,jdbcType=OTHER}, 
+      #{financialHeaderPosition,jdbcType=OTHER}, #{technicalHeaderPosition,jdbcType=OTHER}, 
+      #{introductionUrl,jdbcType=OTHER}, #{lastdeptno,jdbcType=DECIMAL}, #{lastempno,jdbcType=DECIMAL}, 
+      #{logoUrl,jdbcType=OTHER}, #{icLevelId,jdbcType=DECIMAL}, #{aliasName,jdbcType=OTHER}, 
+      #{specialNotes,jdbcType=OTHER}, #{outpatientNoticeUrl,jdbcType=OTHER}, #{lastPriceNotify,jdbcType=DATE}, 
+      #{queueCount,jdbcType=DECIMAL}, #{isAdministrator,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.Hospital">
+    insert into BXD.T_RHIP_HOSPITAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hospitalId != null">
+        HOSPITAL_ID,
+      </if>
+      <if test="hospitalCode != null">
+        HOSPITAL_CODE,
+      </if>
+      <if test="hospitalName != null">
+        HOSPITAL_NAME,
+      </if>
+      <if test="createdDate != null">
+        CREATED_DATE,
+      </if>
+      <if test="detroyedDate != null">
+        DETROYED_DATE,
+      </if>
+      <if test="displayOrder != null">
+        DISPLAY_ORDER,
+      </if>
+      <if test="zoneId != null">
+        ZONE_ID,
+      </if>
+      <if test="registrationStatus != null">
+        REGISTRATION_STATUS,
+      </if>
+      <if test="restrictLevelId != null">
+        RESTRICT_LEVEL_ID,
+      </if>
+      <if test="authorizedBeds != null">
+        AUTHORIZED_BEDS,
+      </if>
+      <if test="openedBeds != null">
+        OPENED_BEDS,
+      </if>
+      <if test="hospitalTypeId != null">
+        HOSPITAL_TYPE_ID,
+      </if>
+      <if test="hospitalGradeId != null">
+        HOSPITAL_GRADE_ID,
+      </if>
+      <if test="hospitalLevelId != null">
+        HOSPITAL_LEVEL_ID,
+      </if>
+      <if test="townTypeId != null">
+        TOWN_TYPE_ID,
+      </if>
+      <if test="ownershipId != null">
+        OWNERSHIP_ID,
+      </if>
+      <if test="characterTypeId != null">
+        CHARACTER_TYPE_ID,
+      </if>
+      <if test="hospitalAddress != null">
+        HOSPITAL_ADDRESS,
+      </if>
+      <if test="totalEmployee != null">
+        TOTAL_EMPLOYEE,
+      </if>
+      <if test="mtEmployee != null">
+        MT_EMPLOYEE,
+      </if>
+      <if test="lastYearOutPatients != null">
+        LAST_YEAR_OUT_PATIENTS,
+      </if>
+      <if test="lastYearInPatients != null">
+        LAST_YEAR_IN_PATIENTS,
+      </if>
+      <if test="lastYearOperations != null">
+        LAST_YEAR_OPERATIONS,
+      </if>
+      <if test="contactPersonName != null">
+        CONTACT_PERSON_NAME,
+      </if>
+      <if test="contactPersonPhone != null">
+        CONTACT_PERSON_PHONE,
+      </if>
+      <if test="artPersonName != null">
+        ART_PERSON_NAME,
+      </if>
+      <if test="artPersonPhone != null">
+        ART_PERSON_PHONE,
+      </if>
+      <if test="financialHeaderName != null">
+        FINANCIAL_HEADER_NAME,
+      </if>
+      <if test="financialHeaderPhone != null">
+        FINANCIAL_HEADER_PHONE,
+      </if>
+      <if test="technicalHeaderName != null">
+        TECHNICAL_HEADER_NAME,
+      </if>
+      <if test="technicalHeaderPhone != null">
+        TECHNICAL_HEADER_PHONE,
+      </if>
+      <if test="financialHeaderPosition != null">
+        FINANCIAL_HEADER_POSITION,
+      </if>
+      <if test="technicalHeaderPosition != null">
+        TECHNICAL_HEADER_POSITION,
+      </if>
+      <if test="introductionUrl != null">
+        INTRODUCTION_URL,
+      </if>
+      <if test="lastdeptno != null">
+        LASTDEPTNO,
+      </if>
+      <if test="lastempno != null">
+        LASTEMPNO,
+      </if>
+      <if test="logoUrl != null">
+        LOGO_URL,
+      </if>
+      <if test="icLevelId != null">
+        IC_LEVEL_ID,
+      </if>
+      <if test="aliasName != null">
+        ALIAS_NAME,
+      </if>
+      <if test="specialNotes != null">
+        SPECIAL_NOTES,
+      </if>
+      <if test="outpatientNoticeUrl != null">
+        OUTPATIENT_NOTICE_URL,
+      </if>
+      <if test="lastPriceNotify != null">
+        LAST_PRICE_NOTIFY,
+      </if>
+      <if test="queueCount != null">
+        QUEUE_COUNT,
+      </if>
+      <if test="isAdministrator != null">
+        IS_ADMINISTRATOR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hospitalId != null">
+        #{hospitalId,jdbcType=DECIMAL},
+      </if>
+      <if test="hospitalCode != null">
+        #{hospitalCode,jdbcType=OTHER},
+      </if>
+      <if test="hospitalName != null">
+        #{hospitalName,jdbcType=OTHER},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=DECIMAL},
+      </if>
+      <if test="detroyedDate != null">
+        #{detroyedDate,jdbcType=DATE},
+      </if>
+      <if test="displayOrder != null">
+        #{displayOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="zoneId != null">
+        #{zoneId,jdbcType=DECIMAL},
+      </if>
+      <if test="registrationStatus != null">
+        #{registrationStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="restrictLevelId != null">
+        #{restrictLevelId,jdbcType=DECIMAL},
+      </if>
+      <if test="authorizedBeds != null">
+        #{authorizedBeds,jdbcType=DECIMAL},
+      </if>
+      <if test="openedBeds != null">
+        #{openedBeds,jdbcType=DECIMAL},
+      </if>
+      <if test="hospitalTypeId != null">
+        #{hospitalTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="hospitalGradeId != null">
+        #{hospitalGradeId,jdbcType=DECIMAL},
+      </if>
+      <if test="hospitalLevelId != null">
+        #{hospitalLevelId,jdbcType=DECIMAL},
+      </if>
+      <if test="townTypeId != null">
+        #{townTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="ownershipId != null">
+        #{ownershipId,jdbcType=DECIMAL},
+      </if>
+      <if test="characterTypeId != null">
+        #{characterTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="hospitalAddress != null">
+        #{hospitalAddress,jdbcType=OTHER},
+      </if>
+      <if test="totalEmployee != null">
+        #{totalEmployee,jdbcType=DECIMAL},
+      </if>
+      <if test="mtEmployee != null">
+        #{mtEmployee,jdbcType=DECIMAL},
+      </if>
+      <if test="lastYearOutPatients != null">
+        #{lastYearOutPatients,jdbcType=DECIMAL},
+      </if>
+      <if test="lastYearInPatients != null">
+        #{lastYearInPatients,jdbcType=DECIMAL},
+      </if>
+      <if test="lastYearOperations != null">
+        #{lastYearOperations,jdbcType=DECIMAL},
+      </if>
+      <if test="contactPersonName != null">
+        #{contactPersonName,jdbcType=OTHER},
+      </if>
+      <if test="contactPersonPhone != null">
+        #{contactPersonPhone,jdbcType=OTHER},
+      </if>
+      <if test="artPersonName != null">
+        #{artPersonName,jdbcType=OTHER},
+      </if>
+      <if test="artPersonPhone != null">
+        #{artPersonPhone,jdbcType=OTHER},
+      </if>
+      <if test="financialHeaderName != null">
+        #{financialHeaderName,jdbcType=OTHER},
+      </if>
+      <if test="financialHeaderPhone != null">
+        #{financialHeaderPhone,jdbcType=OTHER},
+      </if>
+      <if test="technicalHeaderName != null">
+        #{technicalHeaderName,jdbcType=OTHER},
+      </if>
+      <if test="technicalHeaderPhone != null">
+        #{technicalHeaderPhone,jdbcType=OTHER},
+      </if>
+      <if test="financialHeaderPosition != null">
+        #{financialHeaderPosition,jdbcType=OTHER},
+      </if>
+      <if test="technicalHeaderPosition != null">
+        #{technicalHeaderPosition,jdbcType=OTHER},
+      </if>
+      <if test="introductionUrl != null">
+        #{introductionUrl,jdbcType=OTHER},
+      </if>
+      <if test="lastdeptno != null">
+        #{lastdeptno,jdbcType=DECIMAL},
+      </if>
+      <if test="lastempno != null">
+        #{lastempno,jdbcType=DECIMAL},
+      </if>
+      <if test="logoUrl != null">
+        #{logoUrl,jdbcType=OTHER},
+      </if>
+      <if test="icLevelId != null">
+        #{icLevelId,jdbcType=DECIMAL},
+      </if>
+      <if test="aliasName != null">
+        #{aliasName,jdbcType=OTHER},
+      </if>
+      <if test="specialNotes != null">
+        #{specialNotes,jdbcType=OTHER},
+      </if>
+      <if test="outpatientNoticeUrl != null">
+        #{outpatientNoticeUrl,jdbcType=OTHER},
+      </if>
+      <if test="lastPriceNotify != null">
+        #{lastPriceNotify,jdbcType=DATE},
+      </if>
+      <if test="queueCount != null">
+        #{queueCount,jdbcType=DECIMAL},
+      </if>
+      <if test="isAdministrator != null">
+        #{isAdministrator,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.Hospital">
+    update BXD.T_RHIP_HOSPITAL
+    <set>
+      <if test="hospitalCode != null">
+        HOSPITAL_CODE = #{hospitalCode,jdbcType=OTHER},
+      </if>
+      <if test="hospitalName != null">
+        HOSPITAL_NAME = #{hospitalName,jdbcType=OTHER},
+      </if>
+      <if test="createdDate != null">
+        CREATED_DATE = #{createdDate,jdbcType=DECIMAL},
+      </if>
+      <if test="detroyedDate != null">
+        DETROYED_DATE = #{detroyedDate,jdbcType=DATE},
+      </if>
+      <if test="displayOrder != null">
+        DISPLAY_ORDER = #{displayOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="zoneId != null">
+        ZONE_ID = #{zoneId,jdbcType=DECIMAL},
+      </if>
+      <if test="registrationStatus != null">
+        REGISTRATION_STATUS = #{registrationStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="restrictLevelId != null">
+        RESTRICT_LEVEL_ID = #{restrictLevelId,jdbcType=DECIMAL},
+      </if>
+      <if test="authorizedBeds != null">
+        AUTHORIZED_BEDS = #{authorizedBeds,jdbcType=DECIMAL},
+      </if>
+      <if test="openedBeds != null">
+        OPENED_BEDS = #{openedBeds,jdbcType=DECIMAL},
+      </if>
+      <if test="hospitalTypeId != null">
+        HOSPITAL_TYPE_ID = #{hospitalTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="hospitalGradeId != null">
+        HOSPITAL_GRADE_ID = #{hospitalGradeId,jdbcType=DECIMAL},
+      </if>
+      <if test="hospitalLevelId != null">
+        HOSPITAL_LEVEL_ID = #{hospitalLevelId,jdbcType=DECIMAL},
+      </if>
+      <if test="townTypeId != null">
+        TOWN_TYPE_ID = #{townTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="ownershipId != null">
+        OWNERSHIP_ID = #{ownershipId,jdbcType=DECIMAL},
+      </if>
+      <if test="characterTypeId != null">
+        CHARACTER_TYPE_ID = #{characterTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="hospitalAddress != null">
+        HOSPITAL_ADDRESS = #{hospitalAddress,jdbcType=OTHER},
+      </if>
+      <if test="totalEmployee != null">
+        TOTAL_EMPLOYEE = #{totalEmployee,jdbcType=DECIMAL},
+      </if>
+      <if test="mtEmployee != null">
+        MT_EMPLOYEE = #{mtEmployee,jdbcType=DECIMAL},
+      </if>
+      <if test="lastYearOutPatients != null">
+        LAST_YEAR_OUT_PATIENTS = #{lastYearOutPatients,jdbcType=DECIMAL},
+      </if>
+      <if test="lastYearInPatients != null">
+        LAST_YEAR_IN_PATIENTS = #{lastYearInPatients,jdbcType=DECIMAL},
+      </if>
+      <if test="lastYearOperations != null">
+        LAST_YEAR_OPERATIONS = #{lastYearOperations,jdbcType=DECIMAL},
+      </if>
+      <if test="contactPersonName != null">
+        CONTACT_PERSON_NAME = #{contactPersonName,jdbcType=OTHER},
+      </if>
+      <if test="contactPersonPhone != null">
+        CONTACT_PERSON_PHONE = #{contactPersonPhone,jdbcType=OTHER},
+      </if>
+      <if test="artPersonName != null">
+        ART_PERSON_NAME = #{artPersonName,jdbcType=OTHER},
+      </if>
+      <if test="artPersonPhone != null">
+        ART_PERSON_PHONE = #{artPersonPhone,jdbcType=OTHER},
+      </if>
+      <if test="financialHeaderName != null">
+        FINANCIAL_HEADER_NAME = #{financialHeaderName,jdbcType=OTHER},
+      </if>
+      <if test="financialHeaderPhone != null">
+        FINANCIAL_HEADER_PHONE = #{financialHeaderPhone,jdbcType=OTHER},
+      </if>
+      <if test="technicalHeaderName != null">
+        TECHNICAL_HEADER_NAME = #{technicalHeaderName,jdbcType=OTHER},
+      </if>
+      <if test="technicalHeaderPhone != null">
+        TECHNICAL_HEADER_PHONE = #{technicalHeaderPhone,jdbcType=OTHER},
+      </if>
+      <if test="financialHeaderPosition != null">
+        FINANCIAL_HEADER_POSITION = #{financialHeaderPosition,jdbcType=OTHER},
+      </if>
+      <if test="technicalHeaderPosition != null">
+        TECHNICAL_HEADER_POSITION = #{technicalHeaderPosition,jdbcType=OTHER},
+      </if>
+      <if test="introductionUrl != null">
+        INTRODUCTION_URL = #{introductionUrl,jdbcType=OTHER},
+      </if>
+      <if test="lastdeptno != null">
+        LASTDEPTNO = #{lastdeptno,jdbcType=DECIMAL},
+      </if>
+      <if test="lastempno != null">
+        LASTEMPNO = #{lastempno,jdbcType=DECIMAL},
+      </if>
+      <if test="logoUrl != null">
+        LOGO_URL = #{logoUrl,jdbcType=OTHER},
+      </if>
+      <if test="icLevelId != null">
+        IC_LEVEL_ID = #{icLevelId,jdbcType=DECIMAL},
+      </if>
+      <if test="aliasName != null">
+        ALIAS_NAME = #{aliasName,jdbcType=OTHER},
+      </if>
+      <if test="specialNotes != null">
+        SPECIAL_NOTES = #{specialNotes,jdbcType=OTHER},
+      </if>
+      <if test="outpatientNoticeUrl != null">
+        OUTPATIENT_NOTICE_URL = #{outpatientNoticeUrl,jdbcType=OTHER},
+      </if>
+      <if test="lastPriceNotify != null">
+        LAST_PRICE_NOTIFY = #{lastPriceNotify,jdbcType=DATE},
+      </if>
+      <if test="queueCount != null">
+        QUEUE_COUNT = #{queueCount,jdbcType=DECIMAL},
+      </if>
+      <if test="isAdministrator != null">
+        IS_ADMINISTRATOR = #{isAdministrator,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.Hospital">
+    update BXD.T_RHIP_HOSPITAL
+    set HOSPITAL_CODE = #{hospitalCode,jdbcType=OTHER},
+      HOSPITAL_NAME = #{hospitalName,jdbcType=OTHER},
+      CREATED_DATE = #{createdDate,jdbcType=DECIMAL},
+      DETROYED_DATE = #{detroyedDate,jdbcType=DATE},
+      DISPLAY_ORDER = #{displayOrder,jdbcType=DECIMAL},
+      ZONE_ID = #{zoneId,jdbcType=DECIMAL},
+      REGISTRATION_STATUS = #{registrationStatus,jdbcType=DECIMAL},
+      RESTRICT_LEVEL_ID = #{restrictLevelId,jdbcType=DECIMAL},
+      AUTHORIZED_BEDS = #{authorizedBeds,jdbcType=DECIMAL},
+      OPENED_BEDS = #{openedBeds,jdbcType=DECIMAL},
+      HOSPITAL_TYPE_ID = #{hospitalTypeId,jdbcType=DECIMAL},
+      HOSPITAL_GRADE_ID = #{hospitalGradeId,jdbcType=DECIMAL},
+      HOSPITAL_LEVEL_ID = #{hospitalLevelId,jdbcType=DECIMAL},
+      TOWN_TYPE_ID = #{townTypeId,jdbcType=DECIMAL},
+      OWNERSHIP_ID = #{ownershipId,jdbcType=DECIMAL},
+      CHARACTER_TYPE_ID = #{characterTypeId,jdbcType=DECIMAL},
+      HOSPITAL_ADDRESS = #{hospitalAddress,jdbcType=OTHER},
+      TOTAL_EMPLOYEE = #{totalEmployee,jdbcType=DECIMAL},
+      MT_EMPLOYEE = #{mtEmployee,jdbcType=DECIMAL},
+      LAST_YEAR_OUT_PATIENTS = #{lastYearOutPatients,jdbcType=DECIMAL},
+      LAST_YEAR_IN_PATIENTS = #{lastYearInPatients,jdbcType=DECIMAL},
+      LAST_YEAR_OPERATIONS = #{lastYearOperations,jdbcType=DECIMAL},
+      CONTACT_PERSON_NAME = #{contactPersonName,jdbcType=OTHER},
+      CONTACT_PERSON_PHONE = #{contactPersonPhone,jdbcType=OTHER},
+      ART_PERSON_NAME = #{artPersonName,jdbcType=OTHER},
+      ART_PERSON_PHONE = #{artPersonPhone,jdbcType=OTHER},
+      FINANCIAL_HEADER_NAME = #{financialHeaderName,jdbcType=OTHER},
+      FINANCIAL_HEADER_PHONE = #{financialHeaderPhone,jdbcType=OTHER},
+      TECHNICAL_HEADER_NAME = #{technicalHeaderName,jdbcType=OTHER},
+      TECHNICAL_HEADER_PHONE = #{technicalHeaderPhone,jdbcType=OTHER},
+      FINANCIAL_HEADER_POSITION = #{financialHeaderPosition,jdbcType=OTHER},
+      TECHNICAL_HEADER_POSITION = #{technicalHeaderPosition,jdbcType=OTHER},
+      INTRODUCTION_URL = #{introductionUrl,jdbcType=OTHER},
+      LASTDEPTNO = #{lastdeptno,jdbcType=DECIMAL},
+      LASTEMPNO = #{lastempno,jdbcType=DECIMAL},
+      LOGO_URL = #{logoUrl,jdbcType=OTHER},
+      IC_LEVEL_ID = #{icLevelId,jdbcType=DECIMAL},
+      ALIAS_NAME = #{aliasName,jdbcType=OTHER},
+      SPECIAL_NOTES = #{specialNotes,jdbcType=OTHER},
+      OUTPATIENT_NOTICE_URL = #{outpatientNoticeUrl,jdbcType=OTHER},
+      LAST_PRICE_NOTIFY = #{lastPriceNotify,jdbcType=DATE},
+      QUEUE_COUNT = #{queueCount,jdbcType=DECIMAL},
+      IS_ADMINISTRATOR = #{isAdministrator,jdbcType=DECIMAL}
+    where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+  </update>
+
+</mapper>

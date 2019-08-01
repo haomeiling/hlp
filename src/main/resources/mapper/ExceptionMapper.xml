@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bxd.sip.bxd.dao.ExceptionMapper">
+
+  <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.Exception">
+    <id column="EXC_SEQ_ID" jdbcType="DECIMAL" property="excSeqId" />
+    <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="RETRIES" jdbcType="DECIMAL" property="retries" />
+    <result column="EXC_TYPE_ID" jdbcType="DECIMAL" property="excTypeId" />
+    <result column="HANDLE_NOTES" jdbcType="OTHER" property="handleNotes" />
+    <result column="HANDLE_TIME" jdbcType="TIMESTAMP" property="handleTime" />
+    <result column="HANDLER_NAME" jdbcType="OTHER" property="handlerName" />
+    <result column="MSG_SEQ_ID" jdbcType="DECIMAL" property="msgSeqId" />
+    <result column="SYNC_SEQ_ID" jdbcType="CHAR" property="syncSeqId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    EXC_SEQ_ID, CREATED_TIME, RETRIES, EXC_TYPE_ID, HANDLE_NOTES, HANDLE_TIME, HANDLER_NAME, 
+    MSG_SEQ_ID, SYNC_SEQ_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_RHIP_EXCEPTION
+    where EXC_SEQ_ID = #{excSeqId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_RHIP_EXCEPTION
+    where EXC_SEQ_ID = #{excSeqId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.Exception">
+    insert into T_RHIP_EXCEPTION (EXC_SEQ_ID, CREATED_TIME, RETRIES, 
+      EXC_TYPE_ID, HANDLE_NOTES, HANDLE_TIME, 
+      HANDLER_NAME, MSG_SEQ_ID, SYNC_SEQ_ID
+      )
+    values (#{excSeqId,jdbcType=DECIMAL}, #{createdTime,jdbcType=TIMESTAMP}, #{retries,jdbcType=DECIMAL}, 
+      #{excTypeId,jdbcType=DECIMAL}, #{handleNotes,jdbcType=OTHER}, #{handleTime,jdbcType=TIMESTAMP}, 
+      #{handlerName,jdbcType=OTHER}, #{msgSeqId,jdbcType=DECIMAL}, #{syncSeqId,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.Exception">
+    insert into T_RHIP_EXCEPTION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="excSeqId != null">
+        EXC_SEQ_ID,
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME,
+      </if>
+      <if test="retries != null">
+        RETRIES,
+      </if>
+      <if test="excTypeId != null">
+        EXC_TYPE_ID,
+      </if>
+      <if test="handleNotes != null">
+        HANDLE_NOTES,
+      </if>
+      <if test="handleTime != null">
+        HANDLE_TIME,
+      </if>
+      <if test="handlerName != null">
+        HANDLER_NAME,
+      </if>
+      <if test="msgSeqId != null">
+        MSG_SEQ_ID,
+      </if>
+      <if test="syncSeqId != null">
+        SYNC_SEQ_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="excSeqId != null">
+        #{excSeqId,jdbcType=DECIMAL},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="retries != null">
+        #{retries,jdbcType=DECIMAL},
+      </if>
+      <if test="excTypeId != null">
+        #{excTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="handleNotes != null">
+        #{handleNotes,jdbcType=OTHER},
+      </if>
+      <if test="handleTime != null">
+        #{handleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="handlerName != null">
+        #{handlerName,jdbcType=OTHER},
+      </if>
+      <if test="msgSeqId != null">
+        #{msgSeqId,jdbcType=DECIMAL},
+      </if>
+      <if test="syncSeqId != null">
+        #{syncSeqId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.Exception">
+    update T_RHIP_EXCEPTION
+    <set>
+      <if test="createdTime != null">
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="retries != null">
+        RETRIES = #{retries,jdbcType=DECIMAL},
+      </if>
+      <if test="excTypeId != null">
+        EXC_TYPE_ID = #{excTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="handleNotes != null">
+        HANDLE_NOTES = #{handleNotes,jdbcType=OTHER},
+      </if>
+      <if test="handleTime != null">
+        HANDLE_TIME = #{handleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="handlerName != null">
+        HANDLER_NAME = #{handlerName,jdbcType=OTHER},
+      </if>
+      <if test="msgSeqId != null">
+        MSG_SEQ_ID = #{msgSeqId,jdbcType=DECIMAL},
+      </if>
+      <if test="syncSeqId != null">
+        SYNC_SEQ_ID = #{syncSeqId,jdbcType=CHAR},
+      </if>
+    </set>
+    where EXC_SEQ_ID = #{excSeqId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.Exception">
+    update T_RHIP_EXCEPTION
+    set CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      RETRIES = #{retries,jdbcType=DECIMAL},
+      EXC_TYPE_ID = #{excTypeId,jdbcType=DECIMAL},
+      HANDLE_NOTES = #{handleNotes,jdbcType=OTHER},
+      HANDLE_TIME = #{handleTime,jdbcType=TIMESTAMP},
+      HANDLER_NAME = #{handlerName,jdbcType=OTHER},
+      MSG_SEQ_ID = #{msgSeqId,jdbcType=DECIMAL},
+      SYNC_SEQ_ID = #{syncSeqId,jdbcType=CHAR}
+    where EXC_SEQ_ID = #{excSeqId,jdbcType=DECIMAL}
+  </update>
+</mapper>

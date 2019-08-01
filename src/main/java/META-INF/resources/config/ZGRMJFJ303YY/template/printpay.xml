@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="gb2312"?>
+<content>
+	<line type="text" static="1" show="==========================================" />
+	<line type="text" static="1" doubleHeight="2" doubleWidth="1" bold="1" underline="0" show="宾阳县人民医院自助缴费凭条" />
+	<line type="text" static="1" show="==========================================" />
+	<line type="text" static="0" show="交易类型：自助缴费"/>
+	<line type="text" static="0" show="单据号：[1:单据号]" >
+		<variable index="1" default="20130120102030"/>
+	</line>
+  <line type="space" />
+	<line type="bar" static="0" show="[1:病人ID]" >
+		<variable index="1" default="12345678"/>
+	</line>	
+	<line type="text" static="0" show="门诊号：[1:病人ID]" >
+		<variable index="1" default="12345678"/>
+	</line>
+	<line type="text" static="0" show="诊疗卡号：[1:诊疗卡号]" >
+		<variable index="1" default="12345678"/>
+	</line>
+	<line type="text" static="0" show="姓名：[1:姓名]        性别：[2:性别]" >
+		<variable index="1" default="李洪"/>
+		<variable index="2" default="男"/>
+	</line>
+  <line type="text" static="0" show="身份证号：[1:身份证号]" >
+		<variable index="1" default="2101021985****1234"/>
+	</line>
+  <line type="space" />
+  <line type="text" static="0" show="合计：[1:合计]元" bold="1">
+    <variable index="1" default="2101021985****1234"/>
+  </line>
+  <line type="space" />
+  <line type="text" static="1" show="[银行卡支付信息]" />
+	<line type="text" static="0" show="银行账号：[1:银行账号]" >
+		<variable index="1" default="20130120102030"/>
+	</line>
+	<line type="text" static="0" show="消费金额：[1:消费金额]" >
+		<variable index="1" default="20.00"/>
+	</line>
+	<line type="text" static="0" show="POS流水号：[1:POS流水号]" >
+		<variable index="1" default="12345"/>
+	</line>
+	<line type="text" static="0" show="POS参考号：[1:参考号]" >
+		<variable index="1" default="12345"/>
+	</line>
+	<line type="text" static="0" show="POS终端号：[1:POS终端号]" >
+		<variable index="1" default="12345"/>
+	</line>
+	<line type="text" static="0" show="交易日期：[1:交易日期]  [2:交易时间]" >
+    <variable index="1" default="2014-05-06"/>
+    <variable index="2" default="2014-05-06"/>
+	</line>
+	<line type="text" static="1" show="------------------------------------------" />
+	<line type="text" static="0" show="终端编号：[1:终端编号]" >
+		<variable index="1" default="HP1004"/>
+	</line>
+	<line type="text" static="0" bold="1" show="交易结果：[1:交易结果]" >
+		<variable index="1" default="成功"/>
+	</line>
+	<line type="text" static="0" show="打印时间：[1:打印时间]" >
+		<variable index="1" default="2013-02-01 10:12:20"/>
+	</line>
+	<line type="text" static="1" show="==========================================" />
+	<line type="text" static="1" show="温馨提示：" />
+	<line type="text" static="1" show="请保管好凭条，以便退款时使用。"/>
+</content>

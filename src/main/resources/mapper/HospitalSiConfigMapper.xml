@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.HospitalSiConfigMapper">
+
+    <resultMap id="ResultMap" type="cn.bxd.sip.bxd.model.entity.HospitalSiConfig">
+		<id column="HOSPITAL_ID" property="hospitalId" jdbcType="VARCHAR"/>
+		<result column="HOSPITAL_NO" property="hospitalNo" jdbcType="VARCHAR"/>
+		<result column="MEDICARE_TYPE" property="medicareType" jdbcType="VARCHAR"/>
+        <result column="OPERATOR_NO" property="operatorNo" jdbcType="VARCHAR"/>
+        <result column="DYNAMIC" property="dynamic" jdbcType="VARCHAR"/>
+        <result column="CYCLE_NO" property="cycleNo" jdbcType="VARCHAR"/>
+        <result column="centralCode" property="centralCode" jdbcType="VARCHAR"/>
+        <result column="onlineSign" property="onlineSign" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectTRhipHospitalSiConfig"  resultMap="ResultMap" parameterType="java.lang.String">
+	    SELECT HOSPITAL_ID,
+		       HOSPITAL_NO,
+		       MEDICARE_TYPE,
+		       OPERATOR_NO,
+		       DYNAMIC,
+		       CYCLE_NO,
+		       'NEW' CENTRALCODE,
+		       '1' ONLINESIGN
+		  FROM T_RHIP_HOSPITAL_SI_CONFIG
+		        where HOSPITAL_ID = #{hospitalId}
+		        and MEDICARE_TYPE = #{medicareType}
+		        and STATUS ='1'
+    </select>
+
+</mapper>

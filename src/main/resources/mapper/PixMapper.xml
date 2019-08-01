@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.PixMapper">
+    <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.Pix">
+        <id column="EMPI_ID" property="empiId" jdbcType="DECIMAL"/>
+        <id column="HOSPITAL_ID" property="hospitalId" jdbcType="DECIMAL"/>
+        <result column="CLINIC_CARD_NO" property="clinicCardNo" jdbcType="VARCHAR"/>
+        <result column="HMPI" property="hmpi" jdbcType="VARCHAR"/>
+        <result column="PATIENT_NO" property="patientNo" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        EMPI_ID, HOSPITAL_ID, CLINIC_CARD_NO, HMPI ,PATIENT_NO
+    </sql>
+
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="cn.bxd.sip.bxd.model.entity.PixKey">
+        select
+        <include refid="Base_Column_List"/>
+        from T_RHIP_PIX
+        where EMPI_ID = #{empiId,jdbcType=DECIMAL}
+        and HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+    </select>
+
+    <select id="selectPixByConditions" resultMap="BaseResultMap" parameterType="cn.bxd.sip.bxd.model.entity.Pix">
+        select
+        <include refid="Base_Column_List"/>
+        from T_RHIP_PIX
+        where 1=1
+        <if test="hmpi!=null">
+            and HMPI = #{hmpi,jdbcType=DECIMAL}
+        </if>
+        <if test="hospitalId!=null">
+            and HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+        </if>
+
+        order by HMPI desc
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.PixKey">
+        delete from T_RHIP_PIX
+        where EMPI_ID = #{empiId,jdbcType=DECIMAL}
+        and HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+    </delete>
+
+
+    <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.Pix">
+        insert into T_RHIP_PIX (EMPI_ID, HOSPITAL_ID, CLINIC_CARD_NO,
+        HMPI,PATIENT_NO)
+        values (#{empiId,jdbcType=DECIMAL}, #{hospitalId,jdbcType=DECIMAL}, #{clinicCardNo,jdbcType=OTHER},
+        #{hmpi,jdbcType=OTHER}, #{patientNo,jdbcType=VARCHAR})
+    </insert>
+
+
+    <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.Pix">
+        insert into T_RHIP_PIX
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="empiId != null">
+                EMPI_ID,
+            </if>
+            <if test="hospitalId != null">
+                HOSPITAL_ID,
+            </if>
+            <if test="clinicCardNo != null">
+                CLINIC_CARD_NO,
+            </if>
+            <if test="hmpi != null">
+                HMPI,
+            </if>
+            <if test="patientNo != null">
+                PATIENT_NO,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="empiId != null">
+                #{empiId,jdbcType=DECIMAL},
+            </if>
+            <if test="hospitalId != null">
+                #{hospitalId,jdbcType=DECIMAL},
+            </if>
+            <if test="clinicCardNo != null">
+                #{clinicCardNo,jdbcType=OTHER},
+            </if>
+            <if test="hmpi != null">
+                #{hmpi,jdbcType=OTHER},
+            </if>
+            <if test="patientNo != null">
+                #{patientNo,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+
+    <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.Pix">
+        update T_RHIP_PIX
+        <set>
+            <if test="clinicCardNo != null">
+                CLINIC_CARD_NO = #{clinicCardNo,jdbcType=OTHER},
+            </if>
+            <if test="hmpi != null">
+                HMPI = #{hmpi,jdbcType=OTHER},
+            </if>
+        </set>
+        where EMPI_ID = #{empiId,jdbcType=DECIMAL}
+        and HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+    </update>
+
+
+    <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.Pix">
+        update T_RHIP_PIX
+        set CLINIC_CARD_NO = #{clinicCardNo,jdbcType=OTHER},
+        HMPI = #{hmpi,jdbcType=OTHER},
+        PATIENT_NO = #{patientNo,jdbcType=VARCHAR}
+        where EMPI_ID = #{empiId,jdbcType=DECIMAL}
+        and HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+    </update>
+
+</mapper>

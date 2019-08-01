@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="gb2312"?>
+<content>
+	<line type="image"/>
+	<line type="text" static="1" show="==========================================" />
+	<line type="text" static="1" doubleHeight="2" doubleWidth="1" bold="1" underline="0" show="自助交易凭条" />
+	<line type="text" static="1" show="==========================================" />
+	<line type="text" static="1" show="交易类型：购买病历本" />
+	<line type="text" static="0" show="编号：[1:流水号]" >
+		<variable index="1" default="20130120102030"/>
+	</line>
+	<line type="space" />
+	<line type="text" static="0" show="门诊病历号：[1:病历号]" >
+		<variable index="1" default="12345678"/>
+	</line>
+	<line type="text" static="0" show="姓名：[1:姓名]        性别：[2:性别]" >
+		<variable index="1" default="李洪"/>
+		<variable index="2" default="男"/>
+	</line>
+        <line type="text" static="0" show="身份证号：[1:身份证号]" >
+		<variable index="1" default="210102198505251234"/>
+	</line>
+	<line type="text" static="0" show="合    计：[1:合计]元" >
+		<variable index="1" default="0.50"/>
+	</line>
+	<line type="text" static="1" show="------------------------------------------" />
+	<line type="text" static="0" show="终端编号：[1:终端编号]" >
+		<variable index="1" default="HP1004"/>
+	</line>
+	<line type="text" static="0" bold="1" show="交易结果：[1:交易结果]" >
+		<variable index="1" default="成功"/>
+	</line>
+	<line type="text" static="0" show="打印时间：[1:打印时间]" >
+		<variable index="1" default="2013-02-01 10:12:20"/>
+	</line>
+	<line type="text" static="1" show="==========================================" />
+        <line type="image"/>
+	<line type="text" static="1" show="温馨提示：" />
+	<line type="text" static="1" show="如果病历本打印失败，可凭付费凭证到大厅服务台预约取号窗口领取。"/>
+</content>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="gb2312"?>
+<content>
+	<line type="text" static="1" show="牡丹江市第一人民医院自助终端业务凭条" />
+	<line type="text" static="1" show="==========================================" />
+	<line type="space" />
+	<line type="text" static="1" doubleHeight="2" doubleWidth="1" bold="1" underline="0" show="崇左市人民医院-清账日结凭条" />
+	<line type="space" />
+	<line type="text" static="1" show="==========================================" />
+	<line type="text" static="0" show="管理用户：[1:登录名]" >
+		<variable index="1" default="admin"/>
+	</line>
+	<line type="text" static="0" show="登录时间：[1:登录时间]" >
+		<variable index="1" default="2013-02-01 10:12:20"/>
+	</line>	
+	<line type="text" static="0" show="清账流水: [1:清账流水]">
+		<variable index="1" default=" "/>
+	</line>
+        <line type="space" /> 
+	<line type="text" static="1" show="终端交易明细" />
+	<line type="text" static="1" show="　类别　　成功笔数　失败笔数　成功金额  失败金额" />
+  <line type="text" static="0" show="[1:项目1] [2:成功笔数1][3:失败笔数1][4:金额1][5:失败金额1]" >
+		<variable index="1" default=" "/>
+		<variable index="2" default=" "/>
+		<variable index="3" default=" "/>
+		<variable index="4" default=" "/>
+		<variable index="5" default=" "/>
+	</line>
+  <line type="text" static="0" show="[1:项目2] [2:成功笔数2][3:失败笔数2][4:金额2][5:失败金额2]" >
+		<variable index="1" default=" "/>
+		<variable index="2" default=" "/>
+		<variable index="3" default=" "/>
+		<variable index="4" default=" "/>
+		<variable index="5" default=" "/>
+	</line>
+  <line type="text" static="0" show="[1:项目3] [2:成功笔数3][3:失败笔数3][4:金额3][5:失败金额3]" >
+		<variable index="1" default=" "/>
+		<variable index="2" default=" "/>
+		<variable index="3" default=" "/>
+		<variable index="4" default=" "/>
+		<variable index="5" default=" "/>
+	</line>
+  <line type="text" static="0" show="[1:项目4] [2:成功笔数4][3:失败笔数4][4:金额4][5:失败金额4]" >
+		<variable index="1" default=" "/>
+		<variable index="2" default=" "/>
+		<variable index="3" default=" "/>
+		<variable index="4" default=" "/>
+		<variable index="5" default=" "/>
+	</line>
+<line type="space" />
+<line type="text" static="1" show="终端发卡明细" />
+<line type="text" static="1" show="　类别　　  成功笔数　失败笔数　" />
+<line type="text" static="0" show="[1:项目5]　  [2:成功笔数5]      [3:失败笔数5]"  >
+		<variable index="1" default=" "/>
+		<variable index="2" default=" "/>
+		<variable index="3" default=" "/>
+	</line>
+	<line type="text" static="1" show="------------------------------------------" />
+	<line type="text" static="0" show="终端编号：[1:终端编号]" >
+		<variable index="1" default="HP1004"/>
+	</line>
+	<line type="text" static="0" show="清账结果：[1:交易结果]" >
+		<variable index="1" default="成功"/>
+	</line>
+	<line type="text" static="0" show="打印时间：[1:打印时间]" >
+		<variable index="1" default="2013-02-01 10:12:20"/>
+	</line>
+	<line type="text" static="1" show="==========================================" />
+	<line type="text" static="1" show="温馨提示：" />
+	<line type="text" static="1" show="请您在完成清账日结后，将此凭条与现金一并提交给财务部门。" />
+</content>

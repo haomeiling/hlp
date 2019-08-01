@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="doRegCancel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceMark" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doRegCancelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="doRegCancelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doReg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DoRegIn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doRegResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="doRegResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryToRegDoctorList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryToRegDoctorListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryToRegDoctorListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryToRegDoctorListByDoctorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="doctorID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryToRegDoctorListByDoctorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryToRegDoctorListByDoctorIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryRegWaitNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceMark" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryRegWaitNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryRegWaitNumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryToRegDoctorTimes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="organdoctorId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceTimeType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryToRegDoctorTimesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryToRegDoctorTimesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryDoctorRegWaitNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="organdoctorId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryDoctorRegWaitNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryDoctorRegWaitNumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryTaketheNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceMark" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryTaketheNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryTaketheNoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doTaketheNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceMark" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payRecord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payMoney" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doTaketheNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="doTaketheNoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doRegAndTaketheNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DoRegIn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doRegAndTaketheNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="doRegAndTaketheNoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryRegBypatientNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryRegBypatientNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryRegBypatientNoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryAppointmentPayStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceMark" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryAppointmentPayStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryAppointmentPayStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doctorStopped">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paramList" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doctorStoppedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="doctorStoppedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doregFeeInterface">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="organdoctorId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentorganId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="timestypeNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceTimeType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doregFeeInterfaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="doregFeeInterfaceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doRegMedicareInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="doRegIn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doRegMedicareInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="doRegMedicareInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="doRegCancelSoapIn">
+    <wsdl:part name="parameters" element="tns:doRegCancel" />
+  </wsdl:message>
+  <wsdl:message name="doRegCancelSoapOut">
+    <wsdl:part name="parameters" element="tns:doRegCancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="doRegSoapIn">
+    <wsdl:part name="parameters" element="tns:doReg" />
+  </wsdl:message>
+  <wsdl:message name="doRegSoapOut">
+    <wsdl:part name="parameters" element="tns:doRegResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryToRegDoctorListSoapIn">
+    <wsdl:part name="parameters" element="tns:queryToRegDoctorList" />
+  </wsdl:message>
+  <wsdl:message name="queryToRegDoctorListSoapOut">
+    <wsdl:part name="parameters" element="tns:queryToRegDoctorListResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryToRegDoctorListByDoctorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:queryToRegDoctorListByDoctorId" />
+  </wsdl:message>
+  <wsdl:message name="queryToRegDoctorListByDoctorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:queryToRegDoctorListByDoctorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryRegWaitNumSoapIn">
+    <wsdl:part name="parameters" element="tns:queryRegWaitNum" />
+  </wsdl:message>
+  <wsdl:message name="queryRegWaitNumSoapOut">
+    <wsdl:part name="parameters" element="tns:queryRegWaitNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryToRegDoctorTimesSoapIn">
+    <wsdl:part name="parameters" element="tns:queryToRegDoctorTimes" />
+  </wsdl:message>
+  <wsdl:message name="queryToRegDoctorTimesSoapOut">
+    <wsdl:part name="parameters" element="tns:queryToRegDoctorTimesResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryDoctorRegWaitNumSoapIn">
+    <wsdl:part name="parameters" element="tns:queryDoctorRegWaitNum" />
+  </wsdl:message>
+  <wsdl:message name="queryDoctorRegWaitNumSoapOut">
+    <wsdl:part name="parameters" element="tns:queryDoctorRegWaitNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryTaketheNoSoapIn">
+    <wsdl:part name="parameters" element="tns:queryTaketheNo" />
+  </wsdl:message>
+  <wsdl:message name="queryTaketheNoSoapOut">
+    <wsdl:part name="parameters" element="tns:queryTaketheNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="doTaketheNoSoapIn">
+    <wsdl:part name="parameters" element="tns:doTaketheNo" />
+  </wsdl:message>
+  <wsdl:message name="doTaketheNoSoapOut">
+    <wsdl:part name="parameters" element="tns:doTaketheNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="doRegAndTaketheNoSoapIn">
+    <wsdl:part name="parameters" element="tns:doRegAndTaketheNo" />
+  </wsdl:message>
+  <wsdl:message name="doRegAndTaketheNoSoapOut">
+    <wsdl:part name="parameters" element="tns:doRegAndTaketheNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryRegBypatientNoSoapIn">
+    <wsdl:part name="parameters" element="tns:queryRegBypatientNo" />
+  </wsdl:message>
+  <wsdl:message name="queryRegBypatientNoSoapOut">
+    <wsdl:part name="parameters" element="tns:queryRegBypatientNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryAppointmentPayStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:queryAppointmentPayStatus" />
+  </wsdl:message>
+  <wsdl:message name="queryAppointmentPayStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:queryAppointmentPayStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="doctorStoppedSoapIn">
+    <wsdl:part name="parameters" element="tns:doctorStopped" />
+  </wsdl:message>
+  <wsdl:message name="doctorStoppedSoapOut">
+    <wsdl:part name="parameters" element="tns:doctorStoppedResponse" />
+  </wsdl:message>
+  <wsdl:message name="doregFeeInterfaceSoapIn">
+    <wsdl:part name="parameters" element="tns:doregFeeInterface" />
+  </wsdl:message>
+  <wsdl:message name="doregFeeInterfaceSoapOut">
+    <wsdl:part name="parameters" element="tns:doregFeeInterfaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="doRegMedicareInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:doRegMedicareInfo" />
+  </wsdl:message>
+  <wsdl:message name="doRegMedicareInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:doRegMedicareInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RegSoap">
+    <wsdl:operation name="doRegCancel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取消预约</wsdl:documentation>
+      <wsdl:input message="tns:doRegCancelSoapIn" />
+      <wsdl:output message="tns:doRegCancelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="doReg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">预约挂号</wsdl:documentation>
+      <wsdl:input message="tns:doRegSoapIn" />
+      <wsdl:output message="tns:doRegSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryToRegDoctorList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询号源</wsdl:documentation>
+      <wsdl:input message="tns:queryToRegDoctorListSoapIn" />
+      <wsdl:output message="tns:queryToRegDoctorListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryToRegDoctorListByDoctorId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据医生查询号源</wsdl:documentation>
+      <wsdl:input message="tns:queryToRegDoctorListByDoctorIdSoapIn" />
+      <wsdl:output message="tns:queryToRegDoctorListByDoctorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryRegWaitNum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">排取人数</wsdl:documentation>
+      <wsdl:input message="tns:queryRegWaitNumSoapIn" />
+      <wsdl:output message="tns:queryRegWaitNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryToRegDoctorTimes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询医生号源时间段</wsdl:documentation>
+      <wsdl:input message="tns:queryToRegDoctorTimesSoapIn" />
+      <wsdl:output message="tns:queryToRegDoctorTimesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryDoctorRegWaitNum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询医生当前排队人数</wsdl:documentation>
+      <wsdl:input message="tns:queryDoctorRegWaitNumSoapIn" />
+      <wsdl:output message="tns:queryDoctorRegWaitNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryTaketheNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取号查询接口</wsdl:documentation>
+      <wsdl:input message="tns:queryTaketheNoSoapIn" />
+      <wsdl:output message="tns:queryTaketheNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="doTaketheNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取号</wsdl:documentation>
+      <wsdl:input message="tns:doTaketheNoSoapIn" />
+      <wsdl:output message="tns:doTaketheNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="doRegAndTaketheNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">预约当天并取号</wsdl:documentation>
+      <wsdl:input message="tns:doRegAndTaketheNoSoapIn" />
+      <wsdl:output message="tns:doRegAndTaketheNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryRegBypatientNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询未取号的预约挂号</wsdl:documentation>
+      <wsdl:input message="tns:queryRegBypatientNoSoapIn" />
+      <wsdl:output message="tns:queryRegBypatientNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryAppointmentPayStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询挂号支付状态</wsdl:documentation>
+      <wsdl:input message="tns:queryAppointmentPayStatusSoapIn" />
+      <wsdl:output message="tns:queryAppointmentPayStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="doctorStopped">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">医生停诊</wsdl:documentation>
+      <wsdl:input message="tns:doctorStoppedSoapIn" />
+      <wsdl:output message="tns:doctorStoppedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="doregFeeInterface">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">挂号费</wsdl:documentation>
+      <wsdl:input message="tns:doregFeeInterfaceSoapIn" />
+      <wsdl:output message="tns:doregFeeInterfaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="doRegMedicareInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">医保挂号</wsdl:documentation>
+      <wsdl:input message="tns:doRegMedicareInfoSoapIn" />
+      <wsdl:output message="tns:doRegMedicareInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RegSoap" type="tns:RegSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="doRegCancel">
+      <soap:operation soapAction="http://tempuri.org/doRegCancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doReg">
+      <soap:operation soapAction="http://tempuri.org/doReg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryToRegDoctorList">
+      <soap:operation soapAction="http://tempuri.org/queryToRegDoctorList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryToRegDoctorListByDoctorId">
+      <soap:operation soapAction="http://tempuri.org/queryToRegDoctorListByDoctorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryRegWaitNum">
+      <soap:operation soapAction="http://tempuri.org/queryRegWaitNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryToRegDoctorTimes">
+      <soap:operation soapAction="http://tempuri.org/queryToRegDoctorTimes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryDoctorRegWaitNum">
+      <soap:operation soapAction="http://tempuri.org/queryDoctorRegWaitNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryTaketheNo">
+      <soap:operation soapAction="http://tempuri.org/queryTaketheNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doTaketheNo">
+      <soap:operation soapAction="http://tempuri.org/doTaketheNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doRegAndTaketheNo">
+      <soap:operation soapAction="http://tempuri.org/doRegAndTaketheNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryRegBypatientNo">
+      <soap:operation soapAction="http://tempuri.org/queryRegBypatientNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryAppointmentPayStatus">
+      <soap:operation soapAction="http://tempuri.org/queryAppointmentPayStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doctorStopped">
+      <soap:operation soapAction="http://tempuri.org/doctorStopped" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doregFeeInterface">
+      <soap:operation soapAction="http://tempuri.org/doregFeeInterface" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doRegMedicareInfo">
+      <soap:operation soapAction="http://tempuri.org/doRegMedicareInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RegSoap12" type="tns:RegSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="doRegCancel">
+      <soap12:operation soapAction="http://tempuri.org/doRegCancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doReg">
+      <soap12:operation soapAction="http://tempuri.org/doReg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryToRegDoctorList">
+      <soap12:operation soapAction="http://tempuri.org/queryToRegDoctorList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryToRegDoctorListByDoctorId">
+      <soap12:operation soapAction="http://tempuri.org/queryToRegDoctorListByDoctorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryRegWaitNum">
+      <soap12:operation soapAction="http://tempuri.org/queryRegWaitNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryToRegDoctorTimes">
+      <soap12:operation soapAction="http://tempuri.org/queryToRegDoctorTimes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryDoctorRegWaitNum">
+      <soap12:operation soapAction="http://tempuri.org/queryDoctorRegWaitNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryTaketheNo">
+      <soap12:operation soapAction="http://tempuri.org/queryTaketheNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doTaketheNo">
+      <soap12:operation soapAction="http://tempuri.org/doTaketheNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doRegAndTaketheNo">
+      <soap12:operation soapAction="http://tempuri.org/doRegAndTaketheNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryRegBypatientNo">
+      <soap12:operation soapAction="http://tempuri.org/queryRegBypatientNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryAppointmentPayStatus">
+      <soap12:operation soapAction="http://tempuri.org/queryAppointmentPayStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doctorStopped">
+      <soap12:operation soapAction="http://tempuri.org/doctorStopped" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doregFeeInterface">
+      <soap12:operation soapAction="http://tempuri.org/doregFeeInterface" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doRegMedicareInfo">
+      <soap12:operation soapAction="http://tempuri.org/doRegMedicareInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Reg">
+    <wsdl:port name="RegSoap" binding="tns:RegSoap">
+      <soap:address location="http://bxd.nnfybjy.gxhealth.xin/Reg.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RegSoap12" binding="tns:RegSoap12">
+      <soap12:address location="http://bxd.nnfybjy.gxhealth.xin/Reg.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

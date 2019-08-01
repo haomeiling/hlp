@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bxd.sip.bxd.dao.SyncEvtPendingMapper">
+  <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.SyncEvtPending">
+    <id column="SYNC_SEQ_ID" jdbcType="DECIMAL" property="syncSeqId" />
+    <result column="NEXT_TRY_TIME" jdbcType="TIMESTAMP" property="nextTryTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SYNC_SEQ_ID, NEXT_TRY_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_RHIP_SYNC_EVT_PENDING
+    where SYNC_SEQ_ID = #{syncSeqId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_RHIP_SYNC_EVT_PENDING
+    where SYNC_SEQ_ID = #{syncSeqId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.SyncEvtPending">
+    insert into T_RHIP_SYNC_EVT_PENDING (SYNC_SEQ_ID, NEXT_TRY_TIME)
+    values (#{syncSeqId,jdbcType=DECIMAL}, #{nextTryTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.bxd.sip.bxd.model.entity.SyncEvtPending">
+    insert into T_RHIP_SYNC_EVT_PENDING
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="syncSeqId != null">
+        SYNC_SEQ_ID,
+      </if>
+      <if test="nextTryTime != null">
+        NEXT_TRY_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="syncSeqId != null">
+        #{syncSeqId,jdbcType=DECIMAL},
+      </if>
+      <if test="nextTryTime != null">
+        #{nextTryTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.bxd.sip.bxd.model.entity.SyncEvtPending">
+    update T_RHIP_SYNC_EVT_PENDING
+    <set>
+      <if test="nextTryTime != null">
+        NEXT_TRY_TIME = #{nextTryTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SYNC_SEQ_ID = #{syncSeqId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.bxd.sip.bxd.model.entity.SyncEvtPending">
+    update T_RHIP_SYNC_EVT_PENDING
+    set NEXT_TRY_TIME = #{nextTryTime,jdbcType=TIMESTAMP}
+    where SYNC_SEQ_ID = #{syncSeqId,jdbcType=DECIMAL}
+  </update>
+
+  <update id="updateFlagingByPrimaryKey" parameterType="java.lang.Long">
+    update T_RHIP_SYNC_EVT_PENDING
+    set FLAGING = null
+    where SYNC_SEQ_ID = #{syncSeqId,jdbcType=DECIMAL}
+  </update>
+
+  <select id="getPending" statementType="CALLABLE">
+    <![CDATA[
+    {call PACKAGE_SYNC_EVN.getSyncEvnIdStr(
+     #{id_str,mode=OUT,jdbcType=VARCHAR}
+    )}
+    ]]>
+  </select>
+
+</mapper>

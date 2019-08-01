@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="gb2312"?>
+<terminals>
+  <terminal>
+    <name>挂号缴费一体机</name>
+    <brand>NEU-MG008(B)</brand>
+  </terminal>
+  <terminal>
+    <name>住院一体机</name>
+    <brand>NEU-MG008(A-Z)</brand>
+  </terminal>
+  <terminal>
+    <name>发卡一体机</name>
+    <brand>NEU-MF008(B)</brand>
+  </terminal>
+  <terminal>
+    <name>打印一体机</name>
+    <brand>NEU-MD008(B)</brand>
+  </terminal>
+</terminals>

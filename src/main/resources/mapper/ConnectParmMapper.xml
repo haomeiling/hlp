@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bxd.sip.bxd.dao.ConnectParmMapper">
+    <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.ConnectParm">
+        <id column="HOSPITAL_ID" jdbcType="DECIMAL" property="hospitalId"/>
+        <result column="CONNECT_TYPE" jdbcType="DECIMAL" property="connectType"/>
+        <result column="SEVER_NAME" jdbcType="OTHER" property="severName"/>
+        <result column="WS_URL" jdbcType="OTHER" property="wsUrl"/>
+        <result column="QUEUE_NAME" jdbcType="OTHER" property="queueName"/>
+        <result column="REST_URL" jdbcType="OTHER" property="restUrl"/>
+        <result column="QMANAGER_NAME" jdbcType="OTHER" property="qmanagerName"/>
+        <result column="CHANNEL_NAME" jdbcType="OTHER" property="channelName"/>
+        <result column="LAST_LOGIN_TIME" jdbcType="TIMESTAMP" property="lastLoginTime"/>
+        <result column="LAST_LOGOUT_TIME" jdbcType="TIMESTAMP" property="lastLogoutTime"/>
+        <result column="SESSION_SEQID" jdbcType="DECIMAL" property="sessionSeqid"/>
+        <result column="ONLINE_PAY" jdbcType="DECIMAL" property="onlinePay"/>
+        <result column="LOGIN_PASSWORD" jdbcType="OTHER" property="loginPassword"/>
+        <result column="ONLINE_PAY_START_TIME" jdbcType="TIMESTAMP" property="onlinePayStartTime"/>
+        <result column="TEST_PASSED_TIME" jdbcType="TIMESTAMP" property="testPassedTime"/>
+        <result column="USE_SIMPLE_QUEUEING" jdbcType="DECIMAL" property="useSimpleQueueing"/>
+        <result column="USE_STANDARD_QUEUEING" jdbcType="DECIMAL" property="useStandardQueueing"/>
+        <result column="UNIFIED_DEPT_REG" jdbcType="DECIMAL" property="unifiedDeptReg"/>
+        <result column="UNIFIED_DOCTOR_REG" jdbcType="DECIMAL" property="unifiedDoctorReg"/>
+        <result column="DEPT_REG_URL" jdbcType="OTHER" property="deptRegUrl"/>
+        <result column="DOCTOR_REG_URL" jdbcType="OTHER" property="doctorRegUrl"/>
+        <result column="HOSPITAL_REG_URL" jdbcType="OTHER" property="hospitalRegUrl"/>
+        <result column="TRANS_SERVER_URL" jdbcType="OTHER" property="transServerUrl"/>
+        <result column="PAID_PRIORTO_REGISITRATION" jdbcType="DECIMAL" property="paidPriortoRegisitration"/>
+        <result column="LEADING_DAYS" jdbcType="DECIMAL" property="leadingDays"/>
+        <result column="LEADING_MINUTES" jdbcType="DECIMAL" property="leadingMinutes"/>
+        <result column="RESERVATION_SOURCE_URL" jdbcType="OTHER" property="reservationSourceUrl"/>
+        <result column="WEBSITE_HOME_URL" jdbcType="OTHER" property="websiteHomeUrl"/>
+        <result column="PRIVATE_SMS_GATEWAY" jdbcType="DECIMAL" property="privateSmsGateway"/>
+        <result column="CHECK_CLINICAL_NO" jdbcType="DECIMAL" property="checkClinicalNo"/>
+        <result column="RESERVATION_REDIRECT_URL" jdbcType="OTHER" property="reservationRedirectUrl"/>
+        <result column="PAY_NUM" jdbcType="DECIMAL" property="payNum"/>
+        <result column="USER_NAME" jdbcType="OTHER" property="userName"/>
+        <result column="CHECK_CODE" jdbcType="OTHER" property="checkCode"/>
+        <result column="WS_URL2" jdbcType="OTHER" property="wsUrl2"/>
+        <result column="WS_URL3" jdbcType="OTHER" property="wsUrl3"/>
+        <result column="WS_URL4" jdbcType="OTHER" property="wsUrl4"/>
+        <result column="WS_URL5" jdbcType="OTHER" property="wsUrl5"/>
+        <result column="SOCIAL_SECURITY_CODE" jdbcType="OTHER" property="socialSecurityCode"/>
+        <result column="WS_FLAG" jdbcType="DECIMAL" property="wsFlag"/>
+        <result column="HIS_COM_SERVICE" jdbcType="OTHER" property="hisComSoap"/>
+        <result column="HIS_USER_SERVICE" jdbcType="OTHER" property="hisUserSoap"/>
+        <result column="IN_HOS_SERVICE" jdbcType="OTHER" property="inHosSoap"/>
+        <result column="PAY_SERVICE" jdbcType="OTHER" property="paySoap"/>
+        <result column="REG_SERVICE" jdbcType="OTHER" property="regSoap"/>
+        <result column="PALM_TERMINAL_CODE" jdbcType="OTHER" property="palmTerminalCode"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    HOSPITAL_ID, CONNECT_TYPE, SEVER_NAME, WS_URL, QUEUE_NAME, REST_URL, QMANAGER_NAME,
+    CHANNEL_NAME, LAST_LOGIN_TIME, LAST_LOGOUT_TIME, SESSION_SEQID, ONLINE_PAY, LOGIN_PASSWORD,
+    ONLINE_PAY_START_TIME, TEST_PASSED_TIME, USE_SIMPLE_QUEUEING, USE_STANDARD_QUEUEING,
+    UNIFIED_DEPT_REG, UNIFIED_DOCTOR_REG, DEPT_REG_URL, DOCTOR_REG_URL, HOSPITAL_REG_URL,
+    TRANS_SERVER_URL, PAID_PRIORTO_REGISITRATION, LEADING_DAYS, LEADING_MINUTES, RESERVATION_SOURCE_URL,
+    WEBSITE_HOME_URL, PRIVATE_SMS_GATEWAY, CHECK_CLINICAL_NO, RESERVATION_REDIRECT_URL,
+    PAY_NUM, USER_NAME, CHECK_CODE, WS_URL2, WS_URL3, WS_URL4, WS_URL5, SOCIAL_SECURITY_CODE,WS_FLAG,
+    HIS_COM_SERVICE,HIS_USER_SERVICE,IN_HOS_SERVICE,PAY_SERVICE,REG_SERVICE,PALM_TERMINAL_CODE
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from T_RHIP_CONNECT_PARM
+        where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+    </select>
+
+    <!--HISInterfaceQkbSoap-->
+    <select id="selectAllConnectParm" resultMap="BaseResultMap">
+      select p.*,
+       (case
+         when p.hospital_id = 1238 then
+          'HisComSoap'
+         WHEN P.HOSPITAL_ID = 14037 THEN
+          'ServiceSoap'
+         ELSE
+        to_char(p.his_com_service)
+       end) HIS_COM_SERVICE,
+       (case
+         when p.hospital_id = 1238 then
+          'HisUserSoap'
+         WHEN P.HOSPITAL_ID = 14037 THEN
+          'ServiceSoap'
+         ELSE
+          to_char( p.his_user_service)
+       end) HIS_USER_SERVICE,
+       (case
+         when p.hospital_id = 1238 then
+          'InHosSoap'
+         WHEN P.HOSPITAL_ID = 14037 THEN
+          'ServiceSoap'
+         ELSE
+          to_char( p.in_hos_service)
+       end) IN_HOS_SERVICE,
+       (case
+         when p.hospital_id = 1238 then
+          'PaySoap'
+         WHEN P.HOSPITAL_ID = 14037 THEN
+          'ServiceSoap'
+         ELSE
+           to_char(p.pay_service)
+       end) PAY_SERVICE,
+       (case
+         when p.hospital_id = 1238 then
+          'RegSoap'
+         WHEN P.HOSPITAL_ID = 14037 THEN
+          'ServiceSoap'
+         ELSE
+          to_char(p.reg_service)
+       end) REG_SERVICE
+      from T_RHIP_CONNECT_PARM p
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from T_RHIP_CONNECT_PARM
+    where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+    </delete>
+    <insert id="insert" parameterType="cn.bxd.sip.bxd.model.entity.ConnectParm">
+    insert into T_RHIP_CONNECT_PARM (HOSPITAL_ID, CONNECT_TYPE, SEVER_NAME,
+      WS_URL, QUEUE_NAME, REST_URL,
+      QMANAGER_NAME, CHANNEL_NAME, LAST_LOGIN_TIME,
+      LAST_LOGOUT_TIME, SESSION_SEQID, ONLINE_PAY,
+      LOGIN_PASSWORD, ONLINE_PAY_START_TIME, TEST_PASSED_TIME,
+      USE_SIMPLE_QUEUEING, USE_STANDARD_QUEUEING,
+      UNIFIED_DEPT_REG, UNIFIED_DOCTOR_REG, DEPT_REG_URL,
+      DOCTOR_REG_URL, HOSPITAL_REG_URL, TRANS_SERVER_URL,
+      PAID_PRIORTO_REGISITRATION, LEADING_DAYS,
+      LEADING_MINUTES, RESERVATION_SOURCE_URL, WEBSITE_HOME_URL,
+      PRIVATE_SMS_GATEWAY, CHECK_CLINICAL_NO, RESERVATION_REDIRECT_URL,
+      PAY_NUM, USER_NAME, CHECK_CODE,
+      WS_URL2, WS_URL3, WS_URL4, WS_URL5,
+      SOCIAL_SECURITY_CODE,PALM_TERMINAL_CODE)
+    values (#{hospitalId,jdbcType=DECIMAL}, #{connectType,jdbcType=DECIMAL}, #{severName,jdbcType=OTHER},
+      #{wsUrl,jdbcType=OTHER}, #{queueName,jdbcType=OTHER}, #{restUrl,jdbcType=OTHER},
+      #{qmanagerName,jdbcType=OTHER}, #{channelName,jdbcType=OTHER}, #{lastLoginTime,jdbcType=TIMESTAMP},
+      #{lastLogoutTime,jdbcType=TIMESTAMP}, #{sessionSeqid,jdbcType=DECIMAL}, #{onlinePay,jdbcType=DECIMAL},
+      #{loginPassword,jdbcType=OTHER}, #{onlinePayStartTime,jdbcType=TIMESTAMP}, #{testPassedTime,jdbcType=TIMESTAMP},
+      #{useSimpleQueueing,jdbcType=DECIMAL}, #{useStandardQueueing,jdbcType=DECIMAL},
+      #{unifiedDeptReg,jdbcType=DECIMAL}, #{unifiedDoctorReg,jdbcType=DECIMAL}, #{deptRegUrl,jdbcType=OTHER},
+      #{doctorRegUrl,jdbcType=OTHER}, #{hospitalRegUrl,jdbcType=OTHER}, #{transServerUrl,jdbcType=OTHER},
+      #{paidPriortoRegisitration,jdbcType=DECIMAL}, #{leadingDays,jdbcType=DECIMAL},
+      #{leadingMinutes,jdbcType=DECIMAL}, #{reservationSourceUrl,jdbcType=OTHER}, #{websiteHomeUrl,jdbcType=OTHER},
+      #{privateSmsGateway,jdbcType=DECIMAL}, #{checkClinicalNo,jdbcType=DECIMAL}, #{reservationRedirectUrl,jdbcType=OTHER},
+      #{payNum,jdbcType=DECIMAL}, #{userName,jdbcType=OTHER}, #{checkCode,jdbcType=OTHER},
+      #{wsUrl2,jdbcType=OTHER}, #{wsUrl3,jdbcType=OTHER}, #{wsUrl4,jdbcType=OTHER}, #{wsUrl5,jdbcType=OTHER},
+      #{socialSecurityCode,jdbcType=OTHER},#{palmTerminalCode,jdbcType=OTHER})
+  </insert>
+    <insert id="insertSelective"
+            parameterType="cn.bxd.sip.bxd.model.entity.ConnectParm">
+        insert into T_RHIP_CONNECT_PARM
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="hospitalId != null">
+                HOSPITAL_ID,
+            </if>
+            <if test="connectType != null">
+                CONNECT_TYPE,
+            </if>
+            <if test="severName != null">
+                SEVER_NAME,
+            </if>
+            <if test="wsUrl != null">
+                WS_URL,
+            </if>
+            <if test="queueName != null">
+                QUEUE_NAME,
+            </if>
+            <if test="restUrl != null">
+                REST_URL,
+            </if>
+            <if test="qmanagerName != null">
+                QMANAGER_NAME,
+            </if>
+            <if test="channelName != null">
+                CHANNEL_NAME,
+            </if>
+            <if test="lastLoginTime != null">
+                LAST_LOGIN_TIME,
+            </if>
+            <if test="lastLogoutTime != null">
+                LAST_LOGOUT_TIME,
+            </if>
+            <if test="sessionSeqid != null">
+                SESSION_SEQID,
+            </if>
+            <if test="onlinePay != null">
+                ONLINE_PAY,
+            </if>
+            <if test="loginPassword != null">
+                LOGIN_PASSWORD,
+            </if>
+            <if test="onlinePayStartTime != null">
+                ONLINE_PAY_START_TIME,
+            </if>
+            <if test="testPassedTime != null">
+                TEST_PASSED_TIME,
+            </if>
+            <if test="useSimpleQueueing != null">
+                USE_SIMPLE_QUEUEING,
+            </if>
+            <if test="useStandardQueueing != null">
+                USE_STANDARD_QUEUEING,
+            </if>
+            <if test="unifiedDeptReg != null">
+                UNIFIED_DEPT_REG,
+            </if>
+            <if test="unifiedDoctorReg != null">
+                UNIFIED_DOCTOR_REG,
+            </if>
+            <if test="deptRegUrl != null">
+                DEPT_REG_URL,
+            </if>
+            <if test="doctorRegUrl != null">
+                DOCTOR_REG_URL,
+            </if>
+            <if test="hospitalRegUrl != null">
+                HOSPITAL_REG_URL,
+            </if>
+            <if test="transServerUrl != null">
+                TRANS_SERVER_URL,
+            </if>
+            <if test="paidPriortoRegisitration != null">
+                PAID_PRIORTO_REGISITRATION,
+            </if>
+            <if test="leadingDays != null">
+                LEADING_DAYS,
+            </if>
+            <if test="leadingMinutes != null">
+                LEADING_MINUTES,
+            </if>
+            <if test="reservationSourceUrl != null">
+                RESERVATION_SOURCE_URL,
+            </if>
+            <if test="websiteHomeUrl != null">
+                WEBSITE_HOME_URL,
+            </if>
+            <if test="privateSmsGateway != null">
+                PRIVATE_SMS_GATEWAY,
+            </if>
+            <if test="checkClinicalNo != null">
+                CHECK_CLINICAL_NO,
+            </if>
+            <if test="reservationRedirectUrl != null">
+                RESERVATION_REDIRECT_URL,
+            </if>
+            <if test="payNum != null">
+                PAY_NUM,
+            </if>
+            <if test="userName != null">
+                USER_NAME,
+            </if>
+            <if test="checkCode != null">
+                CHECK_CODE,
+            </if>
+            <if test="wsUrl2 != null">
+                WS_URL2,
+            </if>
+            <if test="wsUrl3 != null">
+                WS_URL3,
+            </if>
+            <if test="wsUrl4 != null">
+                WS_URL4,
+            </if>
+            <if test="wsUrl5 != null">
+                WS_URL5,
+            </if>
+            <if test="socialSecurityCode != null">
+                SOCIAL_SECURITY_CODE,
+            </if>
+            <if test="palmTerminalCode != null">
+                PALM_TERMINAL_CODE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="hospitalId != null">
+                #{hospitalId,jdbcType=DECIMAL},
+            </if>
+            <if test="connectType != null">
+                #{connectType,jdbcType=DECIMAL},
+            </if>
+            <if test="severName != null">
+                #{severName,jdbcType=OTHER},
+            </if>
+            <if test="wsUrl != null">
+                #{wsUrl,jdbcType=OTHER},
+            </if>
+            <if test="queueName != null">
+                #{queueName,jdbcType=OTHER},
+            </if>
+            <if test="restUrl != null">
+                #{restUrl,jdbcType=OTHER},
+            </if>
+            <if test="qmanagerName != null">
+                #{qmanagerName,jdbcType=OTHER},
+            </if>
+            <if test="channelName != null">
+                #{channelName,jdbcType=OTHER},
+            </if>
+            <if test="lastLoginTime != null">
+                #{lastLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastLogoutTime != null">
+                #{lastLogoutTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sessionSeqid != null">
+                #{sessionSeqid,jdbcType=DECIMAL},
+            </if>
+            <if test="onlinePay != null">
+                #{onlinePay,jdbcType=DECIMAL},
+            </if>
+            <if test="loginPassword != null">
+                #{loginPassword,jdbcType=OTHER},
+            </if>
+            <if test="onlinePayStartTime != null">
+                #{onlinePayStartTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="testPassedTime != null">
+                #{testPassedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="useSimpleQueueing != null">
+                #{useSimpleQueueing,jdbcType=DECIMAL},
+            </if>
+            <if test="useStandardQueueing != null">
+                #{useStandardQueueing,jdbcType=DECIMAL},
+            </if>
+            <if test="unifiedDeptReg != null">
+                #{unifiedDeptReg,jdbcType=DECIMAL},
+            </if>
+            <if test="unifiedDoctorReg != null">
+                #{unifiedDoctorReg,jdbcType=DECIMAL},
+            </if>
+            <if test="deptRegUrl != null">
+                #{deptRegUrl,jdbcType=OTHER},
+            </if>
+            <if test="doctorRegUrl != null">
+                #{doctorRegUrl,jdbcType=OTHER},
+            </if>
+            <if test="hospitalRegUrl != null">
+                #{hospitalRegUrl,jdbcType=OTHER},
+            </if>
+            <if test="transServerUrl != null">
+                #{transServerUrl,jdbcType=OTHER},
+            </if>
+            <if test="paidPriortoRegisitration != null">
+                #{paidPriortoRegisitration,jdbcType=DECIMAL},
+            </if>
+            <if test="leadingDays != null">
+                #{leadingDays,jdbcType=DECIMAL},
+            </if>
+            <if test="leadingMinutes != null">
+                #{leadingMinutes,jdbcType=DECIMAL},
+            </if>
+            <if test="reservationSourceUrl != null">
+                #{reservationSourceUrl,jdbcType=OTHER},
+            </if>
+            <if test="websiteHomeUrl != null">
+                #{websiteHomeUrl,jdbcType=OTHER},
+            </if>
+            <if test="privateSmsGateway != null">
+                #{privateSmsGateway,jdbcType=DECIMAL},
+            </if>
+            <if test="checkClinicalNo != null">
+                #{checkClinicalNo,jdbcType=DECIMAL},
+            </if>
+            <if test="reservationRedirectUrl != null">
+                #{reservationRedirectUrl,jdbcType=OTHER},
+            </if>
+            <if test="payNum != null">
+                #{payNum,jdbcType=DECIMAL},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=OTHER},
+            </if>
+            <if test="checkCode != null">
+                #{checkCode,jdbcType=OTHER},
+            </if>
+            <if test="wsUrl2 != null">
+                #{wsUrl2,jdbcType=OTHER},
+            </if>
+            <if test="wsUrl3 != null">
+                #{wsUrl3,jdbcType=OTHER},
+            </if>
+            <if test="wsUrl4 != null">
+                #{wsUrl4,jdbcType=OTHER},
+            </if>
+            <if test="wsUrl5 != null">
+                #{wsUrl5,jdbcType=OTHER},
+            </if>
+            <if test="socialSecurityCode != null">
+                #{socialSecurityCode,jdbcType=OTHER},
+            </if>
+            <if test="palmTerminalCode != null">
+                #{palmTerminalCode,jdbcType=OTHER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="cn.bxd.sip.bxd.model.entity.ConnectParm">
+        update T_RHIP_CONNECT_PARM
+        <set>
+            <if test="connectType != null">
+                CONNECT_TYPE = #{connectType,jdbcType=DECIMAL},
+            </if>
+            <if test="severName != null">
+                SEVER_NAME = #{severName,jdbcType=OTHER},
+            </if>
+            <if test="wsUrl != null">
+                WS_URL = #{wsUrl,jdbcType=OTHER},
+            </if>
+            <if test="queueName != null">
+                QUEUE_NAME = #{queueName,jdbcType=OTHER},
+            </if>
+            <if test="restUrl != null">
+                REST_URL = #{restUrl,jdbcType=OTHER},
+            </if>
+            <if test="qmanagerName != null">
+                QMANAGER_NAME = #{qmanagerName,jdbcType=OTHER},
+            </if>
+            <if test="channelName != null">
+                CHANNEL_NAME = #{channelName,jdbcType=OTHER},
+            </if>
+            <if test="lastLoginTime != null">
+                LAST_LOGIN_TIME = #{lastLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastLogoutTime != null">
+                LAST_LOGOUT_TIME = #{lastLogoutTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sessionSeqid != null">
+                SESSION_SEQID = #{sessionSeqid,jdbcType=DECIMAL},
+            </if>
+            <if test="onlinePay != null">
+                ONLINE_PAY = #{onlinePay,jdbcType=DECIMAL},
+            </if>
+            <if test="loginPassword != null">
+                LOGIN_PASSWORD = #{loginPassword,jdbcType=OTHER},
+            </if>
+            <if test="onlinePayStartTime != null">
+                ONLINE_PAY_START_TIME = #{onlinePayStartTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="testPassedTime != null">
+                TEST_PASSED_TIME = #{testPassedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="useSimpleQueueing != null">
+                USE_SIMPLE_QUEUEING = #{useSimpleQueueing,jdbcType=DECIMAL},
+            </if>
+            <if test="useStandardQueueing != null">
+                USE_STANDARD_QUEUEING = #{useStandardQueueing,jdbcType=DECIMAL},
+            </if>
+            <if test="unifiedDeptReg != null">
+                UNIFIED_DEPT_REG = #{unifiedDeptReg,jdbcType=DECIMAL},
+            </if>
+            <if test="unifiedDoctorReg != null">
+                UNIFIED_DOCTOR_REG = #{unifiedDoctorReg,jdbcType=DECIMAL},
+            </if>
+            <if test="deptRegUrl != null">
+                DEPT_REG_URL = #{deptRegUrl,jdbcType=OTHER},
+            </if>
+            <if test="doctorRegUrl != null">
+                DOCTOR_REG_URL = #{doctorRegUrl,jdbcType=OTHER},
+            </if>
+            <if test="hospitalRegUrl != null">
+                HOSPITAL_REG_URL = #{hospitalRegUrl,jdbcType=OTHER},
+            </if>
+            <if test="transServerUrl != null">
+                TRANS_SERVER_URL = #{transServerUrl,jdbcType=OTHER},
+            </if>
+            <if test="paidPriortoRegisitration != null">
+                PAID_PRIORTO_REGISITRATION = #{paidPriortoRegisitration,jdbcType=DECIMAL},
+            </if>
+            <if test="leadingDays != null">
+                LEADING_DAYS = #{leadingDays,jdbcType=DECIMAL},
+            </if>
+            <if test="leadingMinutes != null">
+                LEADING_MINUTES = #{leadingMinutes,jdbcType=DECIMAL},
+            </if>
+            <if test="reservationSourceUrl != null">
+                RESERVATION_SOURCE_URL = #{reservationSourceUrl,jdbcType=OTHER},
+            </if>
+            <if test="websiteHomeUrl != null">
+                WEBSITE_HOME_URL = #{websiteHomeUrl,jdbcType=OTHER},
+            </if>
+            <if test="privateSmsGateway != null">
+                PRIVATE_SMS_GATEWAY = #{privateSmsGateway,jdbcType=DECIMAL},
+            </if>
+            <if test="checkClinicalNo != null">
+                CHECK_CLINICAL_NO = #{checkClinicalNo,jdbcType=DECIMAL},
+            </if>
+            <if test="reservationRedirectUrl != null">
+                RESERVATION_REDIRECT_URL = #{reservationRedirectUrl,jdbcType=OTHER},
+            </if>
+            <if test="payNum != null">
+                PAY_NUM = #{payNum,jdbcType=DECIMAL},
+            </if>
+            <if test="userName != null">
+                USER_NAME = #{userName,jdbcType=OTHER},
+            </if>
+            <if test="checkCode != null">
+                CHECK_CODE = #{checkCode,jdbcType=OTHER},
+            </if>
+            <if test="wsUrl2 != null">
+                WS_URL2 = #{wsUrl2,jdbcType=OTHER},
+            </if>
+            <if test="wsUrl3 != null">
+                WS_URL3 = #{wsUrl3,jdbcType=OTHER},
+            </if>
+            <if test="wsUrl4 != null">
+                WS_URL4 = #{wsUrl4,jdbcType=OTHER},
+            </if>
+            <if test="wsUrl5 != null">
+                WS_URL5 = #{wsUrl5,jdbcType=OTHER},
+            </if>
+            <if test="socialSecurityCode != null">
+                SOCIAL_SECURITY_CODE = #{socialSecurityCode,jdbcType=OTHER},
+            </if>
+            <if test="palmTerminalCode != null">
+                PALM_TERMINAL_CODE = #{palmTerminalCode,jdbcType=OTHER},
+            </if>
+        </set>
+        where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+    </update>
+    <update id="updateByPrimaryKey"
+            parameterType="cn.bxd.sip.bxd.model.entity.ConnectParm">
+    update T_RHIP_CONNECT_PARM
+    set CONNECT_TYPE = #{connectType,jdbcType=DECIMAL},
+      SEVER_NAME = #{severName,jdbcType=OTHER},
+      WS_URL = #{wsUrl,jdbcType=OTHER},
+      QUEUE_NAME = #{queueName,jdbcType=OTHER},
+      REST_URL = #{restUrl,jdbcType=OTHER},
+      QMANAGER_NAME = #{qmanagerName,jdbcType=OTHER},
+      CHANNEL_NAME = #{channelName,jdbcType=OTHER},
+      LAST_LOGIN_TIME = #{lastLoginTime,jdbcType=TIMESTAMP},
+      LAST_LOGOUT_TIME = #{lastLogoutTime,jdbcType=TIMESTAMP},
+      SESSION_SEQID = #{sessionSeqid,jdbcType=DECIMAL},
+      ONLINE_PAY = #{onlinePay,jdbcType=DECIMAL},
+      LOGIN_PASSWORD = #{loginPassword,jdbcType=OTHER},
+      ONLINE_PAY_START_TIME = #{onlinePayStartTime,jdbcType=TIMESTAMP},
+      TEST_PASSED_TIME = #{testPassedTime,jdbcType=TIMESTAMP},
+      USE_SIMPLE_QUEUEING = #{useSimpleQueueing,jdbcType=DECIMAL},
+      USE_STANDARD_QUEUEING = #{useStandardQueueing,jdbcType=DECIMAL},
+      UNIFIED_DEPT_REG = #{unifiedDeptReg,jdbcType=DECIMAL},
+      UNIFIED_DOCTOR_REG = #{unifiedDoctorReg,jdbcType=DECIMAL},
+      DEPT_REG_URL = #{deptRegUrl,jdbcType=OTHER},
+      DOCTOR_REG_URL = #{doctorRegUrl,jdbcType=OTHER},
+      HOSPITAL_REG_URL = #{hospitalRegUrl,jdbcType=OTHER},
+      TRANS_SERVER_URL = #{transServerUrl,jdbcType=OTHER},
+      PAID_PRIORTO_REGISITRATION = #{paidPriortoRegisitration,jdbcType=DECIMAL},
+      LEADING_DAYS = #{leadingDays,jdbcType=DECIMAL},
+      LEADING_MINUTES = #{leadingMinutes,jdbcType=DECIMAL},
+      RESERVATION_SOURCE_URL = #{reservationSourceUrl,jdbcType=OTHER},
+      WEBSITE_HOME_URL = #{websiteHomeUrl,jdbcType=OTHER},
+      PRIVATE_SMS_GATEWAY = #{privateSmsGateway,jdbcType=DECIMAL},
+      CHECK_CLINICAL_NO = #{checkClinicalNo,jdbcType=DECIMAL},
+      RESERVATION_REDIRECT_URL = #{reservationRedirectUrl,jdbcType=OTHER},
+      PAY_NUM = #{payNum,jdbcType=DECIMAL},
+      USER_NAME = #{userName,jdbcType=OTHER},
+      CHECK_CODE = #{checkCode,jdbcType=OTHER},
+      WS_URL2 = #{wsUrl2,jdbcType=OTHER},
+      WS_URL3 = #{wsUrl3,jdbcType=OTHER},
+      WS_URL4 = #{wsUrl4,jdbcType=OTHER},
+      WS_URL5 = #{wsUrl5,jdbcType=OTHER},
+      SOCIAL_SECURITY_CODE = #{socialSecurityCode,jdbcType=OTHER},
+      PALM_TERMINAL_CODE = #{palmTerminalCode,jdbcType=OTHER}
+    where HOSPITAL_ID = #{hospitalId,jdbcType=DECIMAL}
+  </update>
+</mapper>

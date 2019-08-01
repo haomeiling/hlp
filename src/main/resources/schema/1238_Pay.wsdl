@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="queryToPayRecipeInfoList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="medicareType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="medicareMess" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryToPayRecipeInfoListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryToPayRecipeInfoListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryPaymentRecordList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="patientNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryPaymentRecordListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryPaymentRecordListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRecipeStatusStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hiFeeNos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRecipeStatusStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateRecipeStatusStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doPay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hiFeeNos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payRecord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payMoney" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="medicareMoney" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="socialsecurityNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="overRecord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="overMoney" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="medicareReturn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankReturn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="terminalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="medicareType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="doPayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="doPayResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryPayStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hiFeeNos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payRecord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payMoney" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="medicareMoney" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="socialsecurityNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="overRecord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="overMoney" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryPayStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryPayStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryInvoiceReportList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryInvoiceReportListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryInvoiceReportListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryInvoiceDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryInvoiceDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryInvoiceDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInvoiceStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="synUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="synKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInvoiceStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateInvoiceStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="queryToPayRecipeInfoListSoapIn">
+    <wsdl:part name="parameters" element="tns:queryToPayRecipeInfoList" />
+  </wsdl:message>
+  <wsdl:message name="queryToPayRecipeInfoListSoapOut">
+    <wsdl:part name="parameters" element="tns:queryToPayRecipeInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryPaymentRecordListSoapIn">
+    <wsdl:part name="parameters" element="tns:queryPaymentRecordList" />
+  </wsdl:message>
+  <wsdl:message name="queryPaymentRecordListSoapOut">
+    <wsdl:part name="parameters" element="tns:queryPaymentRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRecipeStatusStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:updateRecipeStatusStatus" />
+  </wsdl:message>
+  <wsdl:message name="updateRecipeStatusStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:updateRecipeStatusStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="doPaySoapIn">
+    <wsdl:part name="parameters" element="tns:doPay" />
+  </wsdl:message>
+  <wsdl:message name="doPaySoapOut">
+    <wsdl:part name="parameters" element="tns:doPayResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryPayStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:queryPayStatus" />
+  </wsdl:message>
+  <wsdl:message name="queryPayStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:queryPayStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryInvoiceReportListSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryInvoiceReportList" />
+  </wsdl:message>
+  <wsdl:message name="QueryInvoiceReportListSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryInvoiceReportListResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryInvoiceDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="QueryInvoiceDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInvoiceStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateInvoiceStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInvoiceStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateInvoiceStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PaySoap">
+    <wsdl:operation name="queryToPayRecipeInfoList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">待交费列表</wsdl:documentation>
+      <wsdl:input message="tns:queryToPayRecipeInfoListSoapIn" />
+      <wsdl:output message="tns:queryToPayRecipeInfoListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryPaymentRecordList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">已交费列表</wsdl:documentation>
+      <wsdl:input message="tns:queryPaymentRecordListSoapIn" />
+      <wsdl:output message="tns:queryPaymentRecordListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRecipeStatusStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新打票状态</wsdl:documentation>
+      <wsdl:input message="tns:updateRecipeStatusStatusSoapIn" />
+      <wsdl:output message="tns:updateRecipeStatusStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="doPay">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">支付</wsdl:documentation>
+      <wsdl:input message="tns:doPaySoapIn" />
+      <wsdl:output message="tns:doPaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="queryPayStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询支付状态</wsdl:documentation>
+      <wsdl:input message="tns:queryPayStatusSoapIn" />
+      <wsdl:output message="tns:queryPayStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceReportList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询患者未打印的发票列表</wsdl:documentation>
+      <wsdl:input message="tns:QueryInvoiceReportListSoapIn" />
+      <wsdl:output message="tns:QueryInvoiceReportListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">QueryInvoiceDetail</wsdl:documentation>
+      <wsdl:input message="tns:QueryInvoiceDetailSoapIn" />
+      <wsdl:output message="tns:QueryInvoiceDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoiceStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">票据打印</wsdl:documentation>
+      <wsdl:input message="tns:UpdateInvoiceStatusSoapIn" />
+      <wsdl:output message="tns:UpdateInvoiceStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaySoap" type="tns:PaySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryToPayRecipeInfoList">
+      <soap:operation soapAction="http://tempuri.org/queryToPayRecipeInfoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryPaymentRecordList">
+      <soap:operation soapAction="http://tempuri.org/queryPaymentRecordList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRecipeStatusStatus">
+      <soap:operation soapAction="http://tempuri.org/updateRecipeStatusStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doPay">
+      <soap:operation soapAction="http://tempuri.org/doPay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryPayStatus">
+      <soap:operation soapAction="http://tempuri.org/queryPayStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceReportList">
+      <soap:operation soapAction="http://tempuri.org/QueryInvoiceReportList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceDetail">
+      <soap:operation soapAction="http://tempuri.org/QueryInvoiceDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoiceStatus">
+      <soap:operation soapAction="http://tempuri.org/UpdateInvoiceStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PaySoap12" type="tns:PaySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryToPayRecipeInfoList">
+      <soap12:operation soapAction="http://tempuri.org/queryToPayRecipeInfoList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryPaymentRecordList">
+      <soap12:operation soapAction="http://tempuri.org/queryPaymentRecordList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRecipeStatusStatus">
+      <soap12:operation soapAction="http://tempuri.org/updateRecipeStatusStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doPay">
+      <soap12:operation soapAction="http://tempuri.org/doPay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryPayStatus">
+      <soap12:operation soapAction="http://tempuri.org/queryPayStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceReportList">
+      <soap12:operation soapAction="http://tempuri.org/QueryInvoiceReportList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryInvoiceDetail">
+      <soap12:operation soapAction="http://tempuri.org/QueryInvoiceDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoiceStatus">
+      <soap12:operation soapAction="http://tempuri.org/UpdateInvoiceStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Pay">
+    <wsdl:port name="PaySoap" binding="tns:PaySoap">
+      <soap:address location="http://bxd.nnfybjy.gxhealth.xin/Pay.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PaySoap12" binding="tns:PaySoap12">
+      <soap12:address location="http://bxd.nnfybjy.gxhealth.xin/Pay.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

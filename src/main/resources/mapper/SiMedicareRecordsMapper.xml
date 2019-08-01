@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bxd.sip.bxd.dao.SiMedicareRecordsMapper">
+    <resultMap id="BaseResultMap" type="cn.bxd.sip.bxd.model.entity.SiMedicareRecords">
+        <id column="recordId" property="recordid" jdbcType="INTEGER"/>
+        <result column="hospital_id" property="hospitalId" jdbcType="INTEGER"/>
+        <result column="feeIds" property="feeids" jdbcType="VARCHAR"/>
+        <result column="cardinfo" property="cardinfo" jdbcType="VARCHAR"/>
+        <result column="license" property="license" jdbcType="VARCHAR"/>
+        <result column="createTime" property="createtime" jdbcType="DATE"/>
+        <result column="poState" property="postate" jdbcType="TINYINT"/>
+        <result column="totalMoney" property="totalmoney" jdbcType="VARCHAR"/>
+        <result column="overMoney" property="overmoney" jdbcType="VARCHAR"/>
+        <result column="payMoney" property="paymoney" jdbcType="VARCHAR"/>
+        <result column="cashMoney" property="cashmoney" jdbcType="VARCHAR"/>
+        <result column="patientNo" property="patientno" jdbcType="VARCHAR"/>
+        <result column="socialsecurityNO" property="socialsecurityno" jdbcType="VARCHAR"/>
+        <result column="businessCode" property="businesscode" jdbcType="VARCHAR"/>
+        <result column="operatorCode" property="operatorcode" jdbcType="VARCHAR"/>
+        <result column="hospitalInfo" property="hospitalinfo" jdbcType="VARCHAR"/>
+        <result column="returnInfo" property="returninfo" jdbcType="VARCHAR"/>
+        <result column="poPayType" property="popaytype" jdbcType="VARCHAR"/>
+        <result column="isOverall" property="isoverall" jdbcType="VARCHAR"/>
+        <result column="poNo" property="pono" jdbcType="VARCHAR"/>
+        <result column="orderType" property="ordertype" jdbcType="INTEGER"/>
+        <result column="medicaretype" property="medicaretype" jdbcType="TINYINT"/>
+        <result column="siFeeIds" property="siFeeIds" jdbcType="VARCHAR"/>
+        <result column="siPoNo" property="siPoNo" jdbcType="VARCHAR"/>
+        <result column="medicareInfo" property="medicareInfo" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="ResultMapWithBLOBs" type="cn.bxd.sip.bxd.model.entity.SiMedicareRecordsWithBLOBs" extends="BaseResultMap">
+        <result column="inputStr" property="inputstr" jdbcType="LONGVARCHAR"/>
+        <result column="medicareInfo" property="medicareinfo" jdbcType="LONGVARCHAR"/>
+        <result column="refundParam" property="refundparam" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+
+    <resultMap id="ResultMap" type="cn.bxd.sip.bxd.model.dto.PayInfo">
+        <id column="recordId" property="recordId" jdbcType="DECIMAL"/>
+        <result column="hospital_id" property="hospitalId" jdbcType="VARCHAR"/>
+        <result column="feeIds" property="feeIds" jdbcType="VARCHAR"/>
+        <result column="cardinfo" property="cardInfo" jdbcType="VARCHAR"/>
+        <result column="inputStr" property="inputStr" jdbcType="VARCHAR"/>
+        <result column="poState" property="poState" jdbcType="VARCHAR"/>
+        <result column="totalMoney" property="totalMoney" jdbcType="VARCHAR"/>
+        <result column="overMoney" property="overMoney" jdbcType="VARCHAR"/>
+        <result column="payMoney" property="payMoney" jdbcType="VARCHAR"/>
+        <result column="cashMoney" property="cashMoney" jdbcType="VARCHAR"/>
+        <result column="patientNo" property="userNo" jdbcType="VARCHAR"/>
+        <result column="socialsecurityNO" property="socialNo" jdbcType="VARCHAR"/>
+        <result column="businessCode" property="businessCode" jdbcType="VARCHAR"/>
+        <result column="operatorCode" property="operatorCode" jdbcType="VARCHAR"/>
+        <result column="medicareInfo" property="medicareInfo" jdbcType="VARCHAR"/>
+        <result column="hospitalInfo" property="hospitalInfo" jdbcType="VARCHAR"/>
+        <result column="isOverall" property="isOverall" jdbcType="VARCHAR"/>
+        <result column="medicaretype" property="medicareType" jdbcType="VARCHAR"/>
+        <result column="poNo" property="poNo" jdbcType="VARCHAR"/>
+        <result column="siFeeIds" property="siFeeIds" jdbcType="VARCHAR"/>
+        <result column="siPoNo" property="siPoNo" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    recordId, hospital_id, feeIds, cardinfo, license, createTime, poState, totalMoney, 
+    overMoney, payMoney, cashMoney, patientNo, socialsecurityNO, businessCode, operatorCode, 
+    hospitalInfo, returnInfo, poPayType, isOverall, poNo, orderType, medicaretype,siFeeIds,siPoNo
+  </sql>
+
+    <sql id="Blob_Column_List">
+    inputStr, medicareInfo, refundParam
+  </sql>
+
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from t_si_medicare_records
+        where recordId = #{recordid,jdbcType=INTEGER}
+    </select>
+
+
+    <select id="selectMedicareRecords" resultMap="BaseResultMap" parameterType="cn.bxd.sip.bxd.model.dto.PayInfo">
+        SELECT
+        recordId,
+        hospital_id,
+        feeIds,
+        cardinfo,
+        inputStr,
+        poState,
+        totalMoney,
+        overMoney,
+        payMoney,
+        cashMoney,
+        patientNo,
+        socialsecurityNO,
+        businessCode,
+        operatorCode,
+        medicareInfo,
+        hospitalInfo,
+        isOverall,
+        medicaretype,
+        poNo,
+        siFeeIds,
+        siPoNo
+        FROM
+        t_si_medicare_records
+        WHERE hospital_id = #{hospitalId,jdbcType=VARCHAR}
+        AND feeIds = #{feeIds,jdbcType=VARCHAR}
+        AND poNo = #{poNo,jdbcType=VARCHAR}
+        <if test="siFeeIds != null">
+            and siFeeIds = #{siFeeIds,jdbcType=VARCHAR}
+        </if>
+        AND rownum=1
+    </select>
+
+      <!-- 医保费用结算撤销 查询-->
+    <select id="selectMedicareRecordsCancelPayment" resultMap="ResultMap" parameterType="cn.bxd.sip.bxd.model.dto.PayInfo">
+        SELECT
+        recordId,
+        hospital_id,
+        feeIds,
+        cardinfo,
+        inputStr,
+        poState,
+        totalMoney,
+        overMoney,
+        payMoney,
+        cashMoney,
+        patientNo,
+        socialsecurityNO,
+        businessCode,
+        operatorCode,
+        medicareInfo,
+        hospitalInfo,
+        isOverall,
+        medicaretype,
+        poNo,
+        siFeeIds,
+        siPoNo
+        FROM
+        t_si_medicare_records
+        WHERE hospital_id = #{hospitalId,jdbcType=VARCHAR}
+        AND feeIds = #{feeIds,jdbcType=VARCHAR}
+        AND poNo = #{poNo,jdbcType=VARCHAR}
+        AND poState = 1
+        <if test="siFeeIds != null">
+            and siFeeIds = #{siFeeIds,jdbcType=VARCHAR}
+        </if>
+        AND rownum=1
+    </select>
+
+    <select id="selectSiPoNo" parameterType="cn.bxd.sip.bxd.model.dto.PayInfo" resultType="java.lang.String">
+	    SELECT siPoNo FROM t_si_medicare_records
+		WHERE hospital_id = #{hospitalId,jdbcType=VARCHAR}
+		  AND siFeeIds = #{siFeeIds,jdbcType=VARCHAR}
+		  AND siPoNo = #{siPoNo,jdbcType=VARCHAR}  
+		  AND rownum=1
+    </select>
+
+    <insert id="saveMedicareRecords" parameterType="cn.bxd.sip.bxd.model.dto.PayInfo">
+		INSERT INTO t_si_medicare_records (
+		      recordId,
+			  hospital_id,
+			  cardinfo,
+			  feeIds,
+			  inputStr,
+			  createTime,
+			  poState,
+			  totalMoney,
+			  overMoney,
+			  payMoney,
+			  cashMoney,
+			  patientNo,
+			  socialsecurityNO,
+			  medicareInfo,
+			  hospitalInfo,
+			  isOverall,
+			  medicaretype,
+			  businessCode,
+			  siFeeIds,
+			  siPoNo,
+			  poNo
+			)
+			VALUES
+			  (
+			    #{recordId,jdbcType=DECIMAL},
+				#{hospitalId,jdbcType=VARCHAR},
+				#{cardInfo,jdbcType=VARCHAR},
+				#{feeIds,jdbcType=VARCHAR},
+				#{inputStr,jdbcType=VARCHAR},
+				sysdate,
+				#{poState,jdbcType=VARCHAR},
+				#{totalMoney,jdbcType=VARCHAR},
+				#{overMoney,jdbcType=VARCHAR},
+				#{payMoney,jdbcType=VARCHAR},
+				#{cashMoney,jdbcType=VARCHAR},
+				#{userNo,jdbcType=VARCHAR},
+				#{socialNo,jdbcType=VARCHAR},
+				#{medicareInfo,jdbcType=VARCHAR},
+				#{hospitalInfo,jdbcType=VARCHAR},
+				#{isOverall,jdbcType=VARCHAR},
+				#{medicareType,jdbcType=VARCHAR},
+				#{businessCode,jdbcType=VARCHAR},
+				#{siFeeIds,jdbcType=VARCHAR},
+				#{siPoNo,jdbcType=VARCHAR},
+				#{poNo,jdbcType=VARCHAR}
+			)
+	</insert>
+
+    <update id="updateMedicareRecords" parameterType="cn.bxd.sip.bxd.model.dto.PayInfo">
+		update t_si_medicare_records 
+		      set poState = #{poState,jdbcType=VARCHAR}
+		   WHERE 1=1 
+		        and recordId = #{recordId,jdbcType=VARCHAR}
+		        and hospital_id = #{hospitalId,jdbcType=VARCHAR}
+		  		AND feeIds = #{feeIds,jdbcType=VARCHAR}
+	</update>
+
+</mapper>
